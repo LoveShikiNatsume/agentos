@@ -1,0 +1,243 @@
+{
+  "accepted": true,
+  "cases": {
+    "auto:cfs_competition": {
+      "attempted": 20,
+      "case": "cfs_competition",
+      "detection_max_ms": 1553.438059,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1411.189461,
+      "task_loss": 0
+    },
+    "auto:heartbeat_timeout": {
+      "attempted": 20,
+      "case": "heartbeat_timeout",
+      "detection_max_ms": 2741.179903,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1080.690632,
+      "task_loss": 0
+    },
+    "auto:loader_sigkill": {
+      "attempted": 20,
+      "case": "loader_sigkill",
+      "detection_max_ms": 1556.40137,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1379.791686,
+      "task_loss": 0
+    },
+    "auto:loader_sigterm": {
+      "attempted": 20,
+      "case": "loader_sigterm",
+      "detection_max_ms": 1557.873619,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1606.459636,
+      "task_loss": 0
+    },
+    "auto:policy_map_freeze": {
+      "attempted": 20,
+      "case": "policy_map_freeze",
+      "detection_max_ms": 1624.646826,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1477.985317,
+      "task_loss": 0
+    },
+    "auto:policy_map_unpin": {
+      "attempted": 20,
+      "case": "policy_map_unpin",
+      "detection_max_ms": 694.769948,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1308.393443,
+      "task_loss": 0
+    },
+    "auto:rt_coexistence": {
+      "attempted": 20,
+      "case": "rt_coexistence",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:runtime_cancel": {
+      "attempted": 20,
+      "case": "runtime_cancel",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:schema_mismatch": {
+      "attempted": 20,
+      "case": "schema_mismatch",
+      "detection_max_ms": 528.94416,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1091.644741,
+      "task_loss": 0
+    },
+    "auto:single_cpu_cpuset": {
+      "attempted": 20,
+      "case": "single_cpu_cpuset",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:sysrq_unload": {
+      "attempted": 20,
+      "case": "sysrq_unload",
+      "detection_max_ms": 1544.769427,
+      "fallback_events": 20,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 20,
+      "recovery_max_ms": 1368.001597,
+      "task_loss": 0
+    },
+    "auto:worker_failure": {
+      "attempted": 20,
+      "case": "worker_failure",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:worker_fork": {
+      "attempted": 20,
+      "case": "worker_fork",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:worker_sigkill": {
+      "attempted": 20,
+      "case": "worker_sigkill",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "auto:worker_timeout": {
+      "attempted": 20,
+      "case": "worker_timeout",
+      "detection_max_ms": 0.0,
+      "fallback_events": 0,
+      "mode": "auto",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "strict:heartbeat_timeout": {
+      "attempted": 20,
+      "case": "heartbeat_timeout",
+      "detection_max_ms": 2756.076772,
+      "fallback_events": 20,
+      "mode": "strict",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "strict:loader_sigkill": {
+      "attempted": 20,
+      "case": "loader_sigkill",
+      "detection_max_ms": 529.115248,
+      "fallback_events": 20,
+      "mode": "strict",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "strict:policy_map_freeze": {
+      "attempted": 20,
+      "case": "policy_map_freeze",
+      "detection_max_ms": 541.160386,
+      "fallback_events": 20,
+      "mode": "strict",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    },
+    "strict:schema_mismatch": {
+      "attempted": 20,
+      "case": "schema_mismatch",
+      "detection_max_ms": 541.274413,
+      "fallback_events": 20,
+      "mode": "strict",
+      "passed": 20,
+      "recovered_events": 0,
+      "recovery_max_ms": 0.0,
+      "task_loss": 0
+    }
+  },
+  "failure_reason": null,
+  "final_sched_ext_state": "disabled",
+  "iterations": 20,
+  "kernel_log_errors": [],
+  "outcomes": {
+    "cancelled": 20,
+    "completed": 60,
+    "expected_worker_failure": 60,
+    "recovered": 160,
+    "strict_failed": 80
+  },
+  "passed": 380,
+  "policy_leaks": 0,
+  "residual_bpf_links": [],
+  "residual_cgroups": [],
+  "residual_pinned_maps": [],
+  "residual_processes": [],
+  "schema_version": 1,
+  "soak": {
+    "completed": true,
+    "duration_seconds": 3603.301116698014,
+    "failure_reason": null,
+    "requested_duration_seconds": 3600,
+    "task_loss": 0,
+    "waves": 1886
+  },
+  "systemd_failed_units": 0,
+  "task_state_leaks": 0,
+  "trials": 380
+}

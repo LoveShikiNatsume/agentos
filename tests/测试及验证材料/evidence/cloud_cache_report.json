@@ -1,0 +1,21 @@
+{
+  "model": "deepseek-v4-flash",
+  "base_url": "https://ruoli.dev/v1",
+  "timestamp": "2026-06-06T14:31:38",
+  "baseline": {
+    "label": "baseline",
+    "total_prompt": 800,
+    "total_hit": 768,
+    "total_miss": 32,
+    "avg_latency": 3.252,
+    "cache_hit_ratio": 0.96
+  },
+  "runtime": {
+    "label": "runtime",
+    "total_prompt": 800,
+    "total_hit": 768,
+    "total_miss": 32,
+    "avg_latency": 3.229,
+    "cache_hit_ratio": 0.96
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "available": false,
+  "bpffs_mounted": false,
+  "bpftool_version": null,
+  "cleanup_failed": 0,
+  "dumps": 0,
+  "failure_reason": null,
+  "lookups": 0,
+  "map_created": false,
+  "pin_path": null,
+  "readback_verified": false,
+  "schema_verified": false,
+  "schema_version": 1,
+  "skip_reason": "bpftool not found in PATH",
+  "updates": 0
+}

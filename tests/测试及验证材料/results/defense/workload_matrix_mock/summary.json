@@ -1,0 +1,684 @@
+{
+  "metadata": {
+    "timestamp": "2026-06-24T13:37:12.375726+00:00",
+    "backend": "cache-sim",
+    "backend_requested": "mock",
+    "workloads": [
+      "ai_inference",
+      "compile",
+      "compression",
+      "network"
+    ],
+    "total_duration_secs": 1.0289242879953235
+  },
+  "backend_probe": {
+    "backend": "mock",
+    "available": true,
+    "base_url": "",
+    "model": "",
+    "models_endpoint": false,
+    "metrics_endpoint": false,
+    "prefix_cache_metrics": false,
+    "prefill_decode_metrics": false,
+    "health_latency_ms": 0.0,
+    "fallback_reason": "",
+    "detail": {}
+  },
+  "workloads": {
+    "ai_inference": {
+      "baseline": {
+        "workload_type": "ai_inference",
+        "mode": "baseline",
+        "total_latency_secs": 0.0770378711167723,
+        "makespan_secs": 0.0770378711167723,
+        "llm_calls": 3,
+        "prompt_tokens": 382,
+        "completion_tokens": 30,
+        "cache_hit_tokens": 224,
+        "cache_miss_tokens": 158,
+        "cache_hit_ratio": 0.5863874345549738,
+        "tasks_completed": 3,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": false,
+        "context_refs_restored": 0,
+        "tokens_saved_recovery": 0,
+        "event_count": 66,
+        "throughput_tasks_per_sec": 38.941886068641054,
+        "avg_latency_per_task_secs": 0.02567929037225743,
+        "interaction_overhead": {
+          "runtime_events": 66,
+          "event_latency_ms_avg": 1.1596173951120088,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 0,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 127.33333333333333,
+          "total_tokens_per_completed_task": 137.33333333333334,
+          "latency_per_completed_task_secs": 0.02567929037225743,
+          "cache_hit_ratio_improvement": 0.0,
+          "tasks_completed_delta": 0,
+          "fault_recovery_rate": 0.0
+        }
+      },
+      "runtime": {
+        "workload_type": "ai_inference",
+        "mode": "runtime",
+        "total_latency_secs": 0.179510029964149,
+        "makespan_secs": 0.179510029964149,
+        "llm_calls": 7,
+        "prompt_tokens": 858,
+        "completion_tokens": 70,
+        "cache_hit_tokens": 654,
+        "cache_miss_tokens": 204,
+        "cache_hit_ratio": 0.7622377622377622,
+        "tasks_completed": 7,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": true,
+        "context_refs_restored": 2,
+        "tokens_saved_recovery": 108,
+        "event_count": 127,
+        "throughput_tasks_per_sec": 38.995035549813075,
+        "avg_latency_per_task_secs": 0.025644289994878427,
+        "interaction_overhead": {
+          "runtime_events": 127,
+          "event_latency_ms_avg": 1.4112427478700174,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 2604,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 122.57142857142857,
+          "total_tokens_per_completed_task": 132.57142857142858,
+          "latency_per_completed_task_secs": 0.025644289994878427,
+          "cache_hit_ratio_improvement": 0.1758503276827884,
+          "tasks_completed_delta": 4,
+          "fault_recovery_rate": 1.0
+        }
+      },
+      "comparison": {
+        "latency_delta_pct": 1.3301530450140773,
+        "cache_hit_ratio_improvement": 0.1758503276827884,
+        "tasks_completed_delta": 4,
+        "token_savings": -476,
+        "fault_recovery": true,
+        "event_count_delta": 61
+      }
+    },
+    "compile": {
+      "baseline": {
+        "workload_type": "compile",
+        "mode": "baseline",
+        "total_latency_secs": 0.09974341513589025,
+        "makespan_secs": 0.09974341513589025,
+        "llm_calls": 4,
+        "prompt_tokens": 489,
+        "completion_tokens": 40,
+        "cache_hit_tokens": 325,
+        "cache_miss_tokens": 164,
+        "cache_hit_ratio": 0.6646216768916156,
+        "tasks_completed": 4,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": false,
+        "context_refs_restored": 0,
+        "tokens_saved_recovery": 0,
+        "event_count": 78,
+        "throughput_tasks_per_sec": 40.10289796625078,
+        "avg_latency_per_task_secs": 0.02493585378397256,
+        "interaction_overhead": {
+          "runtime_events": 78,
+          "event_latency_ms_avg": 1.2758970260620117,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 0,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 122.25,
+          "total_tokens_per_completed_task": 132.25,
+          "latency_per_completed_task_secs": 0.02493585378397256,
+          "cache_hit_ratio_improvement": 0.0,
+          "tasks_completed_delta": 0,
+          "fault_recovery_rate": 0.0
+        }
+      },
+      "runtime": {
+        "workload_type": "compile",
+        "mode": "runtime",
+        "total_latency_secs": 0.15028189402073622,
+        "makespan_secs": 0.15028189402073622,
+        "llm_calls": 7,
+        "prompt_tokens": 815,
+        "completion_tokens": 70,
+        "cache_hit_tokens": 630,
+        "cache_miss_tokens": 185,
+        "cache_hit_ratio": 0.7730061349693251,
+        "tasks_completed": 7,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": true,
+        "context_refs_restored": 2,
+        "tokens_saved_recovery": 105,
+        "event_count": 123,
+        "throughput_tasks_per_sec": 46.57913081022338,
+        "avg_latency_per_task_secs": 0.021468842002962316,
+        "interaction_overhead": {
+          "runtime_events": 123,
+          "event_latency_ms_avg": 1.219755265770889,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 2580,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 116.42857142857143,
+          "total_tokens_per_completed_task": 126.42857142857143,
+          "latency_per_completed_task_secs": 0.021468842002962316,
+          "cache_hit_ratio_improvement": 0.10838445807770958,
+          "tasks_completed_delta": 3,
+          "fault_recovery_rate": 1.0
+        }
+      },
+      "comparison": {
+        "latency_delta_pct": 0.5066848655221243,
+        "cache_hit_ratio_improvement": 0.10838445807770958,
+        "tasks_completed_delta": 3,
+        "token_savings": -326,
+        "fault_recovery": true,
+        "event_count_delta": 45
+      }
+    },
+    "compression": {
+      "baseline": {
+        "workload_type": "compression",
+        "mode": "baseline",
+        "total_latency_secs": 0.09597141807898879,
+        "makespan_secs": 0.09597141807898879,
+        "llm_calls": 4,
+        "prompt_tokens": 1187,
+        "completion_tokens": 40,
+        "cache_hit_tokens": 850,
+        "cache_miss_tokens": 337,
+        "cache_hit_ratio": 0.7160909856781803,
+        "tasks_completed": 4,
+        "tasks_total": 8,
+        "fault_injected": true,
+        "fault_recovered": false,
+        "context_refs_restored": 0,
+        "tokens_saved_recovery": 0,
+        "event_count": 83,
+        "throughput_tasks_per_sec": 41.67907570885136,
+        "avg_latency_per_task_secs": 0.023992854519747198,
+        "interaction_overhead": {
+          "runtime_events": 83,
+          "event_latency_ms_avg": 1.1540148631635918,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 0,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 296.75,
+          "total_tokens_per_completed_task": 306.75,
+          "latency_per_completed_task_secs": 0.023992854519747198,
+          "cache_hit_ratio_improvement": 0.0,
+          "tasks_completed_delta": 0,
+          "fault_recovery_rate": 0.0
+        }
+      },
+      "runtime": {
+        "workload_type": "compression",
+        "mode": "runtime",
+        "total_latency_secs": 0.16819830192252994,
+        "makespan_secs": 0.16819830192252994,
+        "llm_calls": 7,
+        "prompt_tokens": 2039,
+        "completion_tokens": 70,
+        "cache_hit_tokens": 1680,
+        "cache_miss_tokens": 359,
+        "cache_hit_ratio": 0.8239333006375674,
+        "tasks_completed": 7,
+        "tasks_total": 8,
+        "fault_injected": true,
+        "fault_recovered": true,
+        "context_refs_restored": 3,
+        "tokens_saved_recovery": 278,
+        "event_count": 127,
+        "throughput_tasks_per_sec": 41.61754262670329,
+        "avg_latency_per_task_secs": 0.024028328846075704,
+        "interaction_overhead": {
+          "runtime_events": 127,
+          "event_latency_ms_avg": 1.3221417825053057,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 6768,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 291.2857142857143,
+          "total_tokens_per_completed_task": 301.2857142857143,
+          "latency_per_completed_task_secs": 0.024028328846075704,
+          "cache_hit_ratio_improvement": 0.10784231495938712,
+          "tasks_completed_delta": 3,
+          "fault_recovery_rate": 1.0
+        }
+      },
+      "comparison": {
+        "latency_delta_pct": 0.7525874399823411,
+        "cache_hit_ratio_improvement": 0.10784231495938712,
+        "tasks_completed_delta": 3,
+        "token_savings": -852,
+        "fault_recovery": true,
+        "event_count_delta": 44
+      }
+    },
+    "network": {
+      "baseline": {
+        "workload_type": "network",
+        "mode": "baseline",
+        "total_latency_secs": 0.07581037888303399,
+        "makespan_secs": 0.07581037888303399,
+        "llm_calls": 3,
+        "prompt_tokens": 415,
+        "completion_tokens": 30,
+        "cache_hit_tokens": 248,
+        "cache_miss_tokens": 167,
+        "cache_hit_ratio": 0.5975903614457831,
+        "tasks_completed": 3,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": false,
+        "context_refs_restored": 0,
+        "tokens_saved_recovery": 0,
+        "event_count": 69,
+        "throughput_tasks_per_sec": 39.57241797496656,
+        "avg_latency_per_task_secs": 0.025270126294344664,
+        "interaction_overhead": {
+          "runtime_events": 69,
+          "event_latency_ms_avg": 1.095699227374533,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 0,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 138.33333333333334,
+          "total_tokens_per_completed_task": 148.33333333333334,
+          "latency_per_completed_task_secs": 0.025270126294344664,
+          "cache_hit_ratio_improvement": 0.0,
+          "tasks_completed_delta": 0,
+          "fault_recovery_rate": 0.0
+        }
+      },
+      "runtime": {
+        "workload_type": "network",
+        "mode": "runtime",
+        "total_latency_secs": 0.1740056781563908,
+        "makespan_secs": 0.1740056781563908,
+        "llm_calls": 7,
+        "prompt_tokens": 930,
+        "completion_tokens": 70,
+        "cache_hit_tokens": 726,
+        "cache_miss_tokens": 204,
+        "cache_hit_ratio": 0.7806451612903226,
+        "tasks_completed": 7,
+        "tasks_total": 7,
+        "fault_injected": true,
+        "fault_recovered": true,
+        "context_refs_restored": 2,
+        "tokens_saved_recovery": 120,
+        "event_count": 130,
+        "throughput_tasks_per_sec": 40.228572275145076,
+        "avg_latency_per_task_secs": 0.02485795402234154,
+        "interaction_overhead": {
+          "runtime_events": 130,
+          "event_latency_ms_avg": 1.3364241673396184,
+          "message_count": 0,
+          "payload_bytes": 0,
+          "context_ref_count": 0,
+          "contextref_bytes_saved": 2952,
+          "worker_startup_ms_avg": 0.0,
+          "subprocess_roundtrip_ms_avg": 0.0,
+          "stdin_payload_bytes": 0,
+          "stdout_payload_bytes": 0,
+          "total_llm_wait_secs": 0.0,
+          "total_tool_wait_secs": 0.0
+        },
+        "normalized": {
+          "prompt_tokens_per_completed_task": 132.85714285714286,
+          "total_tokens_per_completed_task": 142.85714285714286,
+          "latency_per_completed_task_secs": 0.02485795402234154,
+          "cache_hit_ratio_improvement": 0.18305479984453943,
+          "tasks_completed_delta": 4,
+          "fault_recovery_rate": 1.0
+        }
+      },
+      "comparison": {
+        "latency_delta_pct": 1.295275142007402,
+        "cache_hit_ratio_improvement": 0.18305479984453943,
+        "tasks_completed_delta": 4,
+        "token_savings": -515,
+        "fault_recovery": true,
+        "event_count_delta": 61
+      }
+    }
+  },
+  "aggregate": {
+    "total_prompt_tokens_baseline": 2473,
+    "total_prompt_tokens_runtime": 4642,
+    "prompt_tokens_per_task_baseline": 176.64285714285714,
+    "prompt_tokens_per_task_runtime": 165.78571428571428,
+    "avg_cache_hit_ratio_baseline": 0.6659927213910231,
+    "avg_cache_hit_ratio_runtime": 0.7949159844894442,
+    "cache_hit_ratio_improvement": 0.12892326309842117,
+    "total_tasks_completed_baseline": 14,
+    "total_tasks_completed_runtime": 28,
+    "total_tasks": 29,
+    "fault_recovery_rate": 1.0,
+    "faults_recovered": 4,
+    "faults_total": 4,
+    "interaction_overhead": {
+      "total_runtime_events": 507,
+      "total_message_count": 0,
+      "total_payload_bytes": 0,
+      "total_contextref_bytes_saved": 14904
+    }
+  },
+  "interaction_probe": {
+    "message_count": 70,
+    "context_ref_count": 35,
+    "payload_bytes": 47922,
+    "inline_payload_bytes": 46196,
+    "ref_payload_bytes": 1726,
+    "bytes_saved": 44470,
+    "payload_reduction_ratio": 0.9626374577885531,
+    "contextref_bytes_saved_total": 14904,
+    "workload_count": 4
+  },
+  "kernel_probe": {
+    "sched_ext": "unavailable",
+    "bpf_map": "mock",
+    "reason": "missing /sys/kernel/sched_ext; bpftool not found in PATH; missing CAP_BPF or unsupported kernel"
+  },
+  "kernel_probe_detail": {
+    "kernel_version": "6.1.0-35-amd64",
+    "kernel_release": "#1 SMP PREEMPT_DYNAMIC Debian 6.1.137-1 (2025-05-07)",
+    "is_openeuler": false,
+    "openeuler_version": "",
+    "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https:/",
+    "sched_ext_available": false,
+    "sched_ext_path": "",
+    "sched_ext_reason": "missing /sys/kernel/sched_ext",
+    "bpf_available": true,
+    "bpf_reason": "",
+    "bpftool_available": false,
+    "bpftool_path": "",
+    "bpftool_version": "",
+    "cap_bpf": false,
+    "cap_bpf_reason": "missing CAP_BPF or unsupported kernel",
+    "bpf_map_mode": "mock",
+    "cgroup_v2_mounted": true,
+    "cgroup_v2_path": "/sys/fs/cgroup",
+    "cgroup_v2_controllers": [
+      "cpuset",
+      "cpu",
+      "io",
+      "memory",
+      "hugetlb",
+      "pids",
+      "rdma",
+      "misc"
+    ],
+    "fallback_reasons": [
+      "missing /sys/kernel/sched_ext",
+      "bpftool not found in PATH",
+      "missing CAP_BPF or unsupported kernel"
+    ]
+  },
+  "scheduler_evidence": {
+    "ai_inference": {
+      "workload_class": "ai_inference",
+      "policies_seen": [
+        "latency_first",
+        "risk_aware"
+      ],
+      "policy_switches": 1,
+      "fairness_score": 1.0,
+      "starvation_warnings": 0,
+      "kernel_integration": "mock",
+      "bpf_map_mode": "mock",
+      "fallback_reason": "forced mock mode"
+    },
+    "compile": {
+      "workload_class": "compile",
+      "policies_seen": [
+        "latency_first",
+        "throughput_first"
+      ],
+      "policy_switches": 2,
+      "fairness_score": 1.0,
+      "starvation_warnings": 0,
+      "kernel_integration": "mock",
+      "bpf_map_mode": "mock",
+      "fallback_reason": "forced mock mode"
+    },
+    "compression": {
+      "workload_class": "compression",
+      "policies_seen": [
+        "latency_first"
+      ],
+      "policy_switches": 0,
+      "fairness_score": 1.0,
+      "starvation_warnings": 0,
+      "kernel_integration": "mock",
+      "bpf_map_mode": "mock",
+      "fallback_reason": "forced mock mode"
+    },
+    "network": {
+      "workload_class": "network",
+      "policies_seen": [
+        "latency_first",
+        "risk_aware"
+      ],
+      "policy_switches": 1,
+      "fairness_score": 1.0,
+      "starvation_warnings": 0,
+      "kernel_integration": "mock",
+      "bpf_map_mode": "mock",
+      "fallback_reason": "forced mock mode"
+    }
+  },
+  "runtime_health_evidence": {
+    "ai_inference": {
+      "avg_health_score": 0.8853333333333334,
+      "min_health_score": 0.8286,
+      "worst_pressure_level": "warning",
+      "max_queue_pressure": 0.0,
+      "max_resource_pressure": 0.0,
+      "max_fairness_pressure": 0.0,
+      "max_dependency_pressure": 0.8571,
+      "health_warnings": [
+        "dependency pressure is high",
+        "dependency pressure is moderate"
+      ]
+    },
+    "compile": {
+      "avg_health_score": 0.8990600000000001,
+      "min_health_score": 0.8286,
+      "worst_pressure_level": "warning",
+      "max_queue_pressure": 0.0,
+      "max_resource_pressure": 0.0,
+      "max_fairness_pressure": 0.0,
+      "max_dependency_pressure": 0.8571,
+      "health_warnings": [
+        "dependency pressure is high",
+        "dependency pressure is moderate"
+      ]
+    },
+    "compression": {
+      "avg_health_score": 0.8811666666666667,
+      "min_health_score": 0.825,
+      "worst_pressure_level": "warning",
+      "max_queue_pressure": 0.0,
+      "max_resource_pressure": 0.0,
+      "max_fairness_pressure": 0.0,
+      "max_dependency_pressure": 0.875,
+      "health_warnings": [
+        "dependency pressure is high",
+        "dependency pressure is moderate"
+      ]
+    },
+    "network": {
+      "avg_health_score": 0.8853333333333334,
+      "min_health_score": 0.8286,
+      "worst_pressure_level": "warning",
+      "max_queue_pressure": 0.0,
+      "max_resource_pressure": 0.0,
+      "max_fairness_pressure": 0.0,
+      "max_dependency_pressure": 0.8571,
+      "health_warnings": [
+        "dependency pressure is high",
+        "dependency pressure is moderate"
+      ]
+    }
+  },
+  "sla_risk_evidence": {
+    "ai_inference": {
+      "critical_count": 0,
+      "interactive_count": 4,
+      "batch_count": 3,
+      "best_effort_count": 0,
+      "deadline_task_count": 4,
+      "max_urgency_score": 0.9,
+      "max_task_risk_score": 0.29,
+      "risk_aware_count": 4,
+      "risk_warnings": []
+    },
+    "compile": {
+      "critical_count": 0,
+      "interactive_count": 0,
+      "batch_count": 7,
+      "best_effort_count": 0,
+      "deadline_task_count": 0,
+      "max_urgency_score": 0.4,
+      "max_task_risk_score": 0.13,
+      "risk_aware_count": 0,
+      "risk_warnings": []
+    },
+    "compression": {
+      "critical_count": 0,
+      "interactive_count": 0,
+      "batch_count": 3,
+      "best_effort_count": 5,
+      "deadline_task_count": 0,
+      "max_urgency_score": 0.4,
+      "max_task_risk_score": 0.13,
+      "risk_aware_count": 0,
+      "risk_warnings": []
+    },
+    "network": {
+      "critical_count": 4,
+      "interactive_count": 2,
+      "batch_count": 1,
+      "best_effort_count": 0,
+      "deadline_task_count": 6,
+      "max_urgency_score": 1.0,
+      "max_task_risk_score": 0.37,
+      "risk_aware_count": 5,
+      "risk_warnings": [
+        "critical task present"
+      ]
+    }
+  },
+  "backpressure_safety_evidence": {
+    "ai_inference": {
+      "max_backpressure_signal": "soft",
+      "backpressure_event_count": 6,
+      "allow_count": 7,
+      "defer_count": 0,
+      "degrade_count": 0,
+      "reject_count": 0,
+      "safety_violation_count": 0,
+      "safety_violations": []
+    },
+    "compile": {
+      "max_backpressure_signal": "soft",
+      "backpressure_event_count": 5,
+      "allow_count": 7,
+      "defer_count": 0,
+      "degrade_count": 0,
+      "reject_count": 0,
+      "safety_violation_count": 0,
+      "safety_violations": []
+    },
+    "compression": {
+      "max_backpressure_signal": "soft",
+      "backpressure_event_count": 6,
+      "allow_count": 7,
+      "defer_count": 0,
+      "degrade_count": 0,
+      "reject_count": 1,
+      "safety_violation_count": 1,
+      "safety_violations": [
+        "memory limit exceeded"
+      ]
+    },
+    "network": {
+      "max_backpressure_signal": "soft",
+      "backpressure_event_count": 6,
+      "allow_count": 7,
+      "defer_count": 0,
+      "degrade_count": 0,
+      "reject_count": 0,
+      "safety_violation_count": 0,
+      "safety_violations": []
+    }
+  }
+}

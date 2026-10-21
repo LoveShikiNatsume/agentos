@@ -1,0 +1,107 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1040,
+      "destination": "runs/member_a_preflight.json",
+      "name": "preflight",
+      "source": "runs/member_a_preflight.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 76884,
+      "destination": "runs/member_a_feedback_loop_demo/summary.json",
+      "name": "feedback_summary",
+      "source": "runs/member_a_feedback_loop_demo/summary.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 53192,
+      "destination": "runs/member_a_feedback_loop_demo/events.jsonl",
+      "name": "feedback_events",
+      "source": "runs/member_a_feedback_loop_demo/events.jsonl",
+      "status": "copied"
+    },
+    {
+      "bytes": 5177,
+      "destination": "runs/member_a_ablation/summary.json",
+      "name": "ablation_summary",
+      "source": "runs/member_a_ablation/summary.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 592,
+      "destination": "runs/member_a_ablation/report.md",
+      "name": "ablation_report",
+      "source": "runs/member_a_ablation/report.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 11255,
+      "destination": "runs/member_a_timeline.json",
+      "name": "timeline_json",
+      "source": "runs/member_a_timeline.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 6408,
+      "destination": "docs/generated/member_a_timeline.md",
+      "name": "timeline_markdown",
+      "source": "docs/generated/member_a_timeline.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 609,
+      "destination": "runs/member_a_real_cgroup_v2.json",
+      "name": "real_cgroup_v2",
+      "source": "runs/member_a_real_cgroup_v2.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 344,
+      "destination": "runs/member_a_real_bpf_map.json",
+      "name": "real_bpf_map",
+      "source": "runs/member_a_real_bpf_map.json",
+      "status": "copied"
+    },
+    {
+      "bytes": 4797,
+      "destination": "docs/成员A-技术边界与答辩口径.md",
+      "name": "boundary_doc",
+      "source": "docs/成员A-技术边界与答辩口径.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 4821,
+      "destination": "docs/成员A-P1.5收束报告.md",
+      "name": "p15_report",
+      "source": "docs/成员A-P1.5收束报告.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 5065,
+      "destination": "docs/成员A-真实内核通路验收报告.md",
+      "name": "kernel_report",
+      "source": "docs/成员A-真实内核通路验收报告.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 3445,
+      "destination": "docs/成员A-feedback-loop-demo.md",
+      "name": "feedback_doc",
+      "source": "docs/成员A-feedback-loop-demo.md",
+      "status": "copied"
+    },
+    {
+      "bytes": 3395,
+      "destination": "docs/成员A-P1实验与压力控制说明.md",
+      "name": "p1_doc",
+      "source": "docs/成员A-P1实验与压力控制说明.md",
+      "status": "copied"
+    }
+  ],
+  "copied_count": 14,
+  "generated_at": "2026-07-03T13:21:18.746075+00:00",
+  "missing_count": 0,
+  "output_dir": "runs/member_a_defense_bundle",
+  "project_root": "/home/leaves/OS2026/AgentOS-Runtime"
+}

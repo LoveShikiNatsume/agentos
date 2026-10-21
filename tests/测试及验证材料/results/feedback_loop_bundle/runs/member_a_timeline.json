@@ -1,0 +1,377 @@
+{
+  "event_count": 81,
+  "evidence": {
+    "cgroup_created": 2,
+    "cgroup_feedback_applied": 1,
+    "cgroup_pid_added": 2,
+    "cgroup_quota_applied": 2,
+    "cgroup_removed": 2,
+    "cleanup_failed": 0,
+    "kernel_decision_published": 2,
+    "pressure_sampled": 17,
+    "scheduler_decision_with_cgroup_feedback": 1,
+    "usage_sampled": 15,
+    "worker_started": 2
+  },
+  "source": "runs/member_a_feedback_loop_demo/events.jsonl",
+  "timeline": [
+    {
+      "agent_id": null,
+      "label": "resource.pressure_sampled",
+      "offset_ms": 0.0,
+      "summary": "scope=system phase=None source=system level=normal",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "scheduler.bpf_map_updated",
+      "offset_ms": 0.225,
+      "summary": "mode=mock task_count=1",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "kernel.decision_published",
+      "offset_ms": 0.226,
+      "summary": "bpf_mode=mock records=1 fallback=False",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "scheduler.decision",
+      "offset_ms": 0.236,
+      "summary": "policy=latency_first pressure=system backpressure=none",
+      "task_id": null
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "worker.started",
+      "offset_ms": 0.828,
+      "summary": "pid=4 worker=sleep",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.cgroup_created",
+      "offset_ms": 1.232,
+      "summary": "path=runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.cgroup_pid_added",
+      "offset_ms": 1.233,
+      "summary": "pid=4 verified=False",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.cgroup_quota_applied",
+      "offset_ms": 1.233,
+      "summary": "mode=cgroup_v2 pid_attached=True",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 1.325,
+      "summary": "phase=initial cpu_usec=20000 mem_peak_mb=97.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 1.333,
+      "summary": "scope=agent_cgroup phase=initial source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 11.834,
+      "summary": "phase=running cpu_usec=40000 mem_peak_mb=98.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 11.846,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 22.413,
+      "summary": "phase=running cpu_usec=60000 mem_peak_mb=99.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 22.432,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 32.76,
+      "summary": "phase=running cpu_usec=80000 mem_peak_mb=100.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 32.774,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 43.12,
+      "summary": "phase=running cpu_usec=100000 mem_peak_mb=101.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 43.138,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 53.503,
+      "summary": "phase=running cpu_usec=120000 mem_peak_mb=102.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 53.519,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 63.86,
+      "summary": "phase=running cpu_usec=140000 mem_peak_mb=103.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 63.875,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 74.171,
+      "summary": "phase=running cpu_usec=160000 mem_peak_mb=104.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 74.183,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 84.687,
+      "summary": "phase=running cpu_usec=180000 mem_peak_mb=105.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 84.702,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.usage_sampled",
+      "offset_ms": 92.637,
+      "summary": "phase=final cpu_usec=200000 mem_peak_mb=106.0",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 92.651,
+      "summary": "scope=agent_cgroup phase=final source=cgroup level=critical",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "resource.cgroup_removed",
+      "offset_ms": 93.117,
+      "summary": "path=runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "label": "worker.finished",
+      "offset_ms": 93.123,
+      "summary": "pid=4 duration=0.09202811191789806s",
+      "task_id": "pressure"
+    },
+    {
+      "agent_id": null,
+      "label": "resource.cgroup_feedback_applied",
+      "offset_ms": 93.419,
+      "summary": "source=system+cgroup level=critical",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "resource.pressure_sampled",
+      "offset_ms": 93.422,
+      "summary": "scope=system phase=None source=system level=normal",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "scheduler.bpf_map_updated",
+      "offset_ms": 93.913,
+      "summary": "mode=mock task_count=2",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "kernel.decision_published",
+      "offset_ms": 93.915,
+      "summary": "bpf_mode=mock records=2 fallback=False",
+      "task_id": null
+    },
+    {
+      "agent_id": null,
+      "label": "scheduler.decision",
+      "offset_ms": 93.941,
+      "summary": "policy=risk_aware pressure=system+cgroup backpressure=hard",
+      "task_id": null
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "worker.started",
+      "offset_ms": 94.707,
+      "summary": "pid=6 worker=echo",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.cgroup_created",
+      "offset_ms": 95.114,
+      "summary": "path=runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.cgroup_pid_added",
+      "offset_ms": 95.115,
+      "summary": "pid=6 verified=False",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.cgroup_quota_applied",
+      "offset_ms": 95.115,
+      "summary": "mode=cgroup_v2 pid_attached=True",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.usage_sampled",
+      "offset_ms": 95.191,
+      "summary": "phase=initial cpu_usec=220000 mem_peak_mb=107.0",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 95.199,
+      "summary": "scope=agent_cgroup phase=initial source=cgroup level=critical",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.usage_sampled",
+      "offset_ms": 105.743,
+      "summary": "phase=running cpu_usec=240000 mem_peak_mb=108.0",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 105.759,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.usage_sampled",
+      "offset_ms": 116.11,
+      "summary": "phase=running cpu_usec=260000 mem_peak_mb=109.0",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 116.129,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.usage_sampled",
+      "offset_ms": 126.445,
+      "summary": "phase=running cpu_usec=280000 mem_peak_mb=110.0",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 126.458,
+      "summary": "scope=agent_cgroup phase=running source=cgroup level=critical",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.usage_sampled",
+      "offset_ms": 136.375,
+      "summary": "phase=final cpu_usec=300000 mem_peak_mb=111.0",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.pressure_sampled",
+      "offset_ms": 136.392,
+      "summary": "scope=agent_cgroup phase=final source=cgroup level=critical",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "resource.cgroup_removed",
+      "offset_ms": 136.921,
+      "summary": "path=runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+      "task_id": "followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "label": "worker.finished",
+      "offset_ms": 136.929,
+      "summary": "pid=6 duration=0.041909956955350935s",
+      "task_id": "followup"
+    }
+  ],
+  "timeline_count": 51
+}

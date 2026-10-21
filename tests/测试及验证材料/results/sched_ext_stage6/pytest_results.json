@@ -1,0 +1,14 @@
+{
+  "debian": {
+    "exit_code": 0,
+    "log": "debian-pytest.log",
+    "passed": true,
+    "sha256": "a12eaaa5231ef1bea86599c5ed94efc6f73e93b180f6f6fa580863941b3397d1"
+  },
+  "openeuler": {
+    "exit_code": 0,
+    "log": "openeuler-pytest.log",
+    "passed": true,
+    "sha256": "3edf45b49328749081a504fae2199b091fc5fde031a88a6cca9f101f91501e00"
+  }
+}

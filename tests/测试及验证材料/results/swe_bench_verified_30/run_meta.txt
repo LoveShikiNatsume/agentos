@@ -1,0 +1,9 @@
+run_id=20260709_swe_bench_verified_deepseek_30
+task=10 (SWE-bench Verified 重跑, 主实验升级 Lite->Verified)
+backend=deepseek (real API)
+frameworks=langgraph,autogen,openai_agents,crewai
+dataset=princeton-nlp/SWE-bench_Verified (500) + SWE-bench_oracle text field
+n_tasks=30 (proportional stratified across 9 repos, token window [3000,12000])
+runner=honest_bench.py (unmodified) via resumable_run.py (checkpoint+retry wrapper)
+env=.venv rebuilt python3.11 + langgraph/autogen/openai-agents/crewai
+note=first attempt died at task 13 (transient kill on shared host); resumable rerun completed 30/30

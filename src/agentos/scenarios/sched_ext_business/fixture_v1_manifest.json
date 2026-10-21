@@ -1,0 +1,54 @@
+{
+  "aggregate_sha256": "eec60867339dc4a78963f81247692d4c0dcc0a24ff700f84df27d99472097765",
+  "files": [
+    {
+      "kind": "markdown",
+      "path": "README.md",
+      "sha256": "450b5f867e9057d4f0540600993ce97b481ee15f40c3283725c1398112ada5f3",
+      "size": 4066
+    },
+    {
+      "kind": "python",
+      "path": "agentos/isolation/sched_ext_adapter.py",
+      "sha256": "53e2c2899d0514864c8bf62971061e3b499e1372906e44975351b8f7b2dd2fa7",
+      "size": 21777
+    },
+    {
+      "kind": "python",
+      "path": "agentos/runtime/engine.py",
+      "sha256": "a5707ae1646f7f5e0981f7af0666fe404d0b5ae5669c34b7e05c5d1879d728a3",
+      "size": 84237
+    },
+    {
+      "kind": "python",
+      "path": "agentos/scenarios/software_eng/pipeline.py",
+      "sha256": "b079975e2aa1417b4ae161ed24af59388dc63b8faab9cd6865c418ec9b705874",
+      "size": 13250
+    },
+    {
+      "kind": "python",
+      "path": "agentos/scheduler/dag.py",
+      "sha256": "111548a78382278441f6c68449895dda5f1274ecaa8aa50ab1ed7607749a9c35",
+      "size": 45086
+    },
+    {
+      "kind": "python",
+      "path": "agentos/worker/entrypoint.py",
+      "sha256": "ac781964cc079f821da450981439e1fb34d095a053264f200f586487f6ea3512",
+      "size": 4610
+    },
+    {
+      "kind": "python",
+      "path": "tests/test_runtime_worker.py",
+      "sha256": "407e08e53d2aa69f208eaf98003688084c0b1bdbc7693160e616fa12fee056fe",
+      "size": 26005
+    },
+    {
+      "kind": "python",
+      "path": "tests/test_sched_ext_adapter.py",
+      "sha256": "b00f2a8bbb0ed61afc4c42770bcaac63a87126eb43e8976c4f6d6a2093c8d2ed",
+      "size": 13895
+    }
+  ],
+  "schema": "sched_ext_business_fixture.v1"
+}

@@ -1,0 +1,46 @@
+{
+  "cpu_topology": {
+    "controller": 0,
+    "pressure": 3,
+    "workers": [
+      1,
+      2
+    ]
+  },
+  "git": {
+    "branch": "main",
+    "commit": "66910d96ebdf5a47117baeede2097210d16d4198",
+    "dirty": false
+  },
+  "kernel_release": "6.12.95-agentos-scx",
+  "native_artifacts": {
+    "scheduler": {
+      "path": "/home/leaf/OS2026/AgentOS-Runtime-stage6-afffeb6c7f6d/native/sched_ext/build/bin/agentos_scx",
+      "sha256": "71b34014318f11383001d7cd30b77d742c324fc5e3ca00149c7fc52e289aba11"
+    },
+    "simple": {
+      "path": "/home/leaf/OS2026/AgentOS-Runtime-stage6-afffeb6c7f6d/native/sched_ext/build/bin/scx_simple_partial",
+      "sha256": "f139f2c252d6c2645d215721baf2c1d7f7487c0478b443bd020e0b9c227aa0f6"
+    },
+    "worker": {
+      "path": "/home/leaf/OS2026/AgentOS-Runtime-stage6-afffeb6c7f6d/native/sched_ext/build/bin/agentos_scx_bench_worker",
+      "sha256": "992403d5ad9868b6cfdb8b1d716168ce47474a32dda2e1e6b3ea12b62c279774"
+    }
+  },
+  "pytest": {
+    "debian": {
+      "exit_code": 0,
+      "log": "debian-pytest.log",
+      "passed": true,
+      "sha256": "a12eaaa5231ef1bea86599c5ed94efc6f73e93b180f6f6fa580863941b3397d1"
+    },
+    "openeuler": {
+      "exit_code": 0,
+      "log": "openeuler-pytest.log",
+      "passed": true,
+      "sha256": "3edf45b49328749081a504fae2199b091fc5fde031a88a6cca9f101f91501e00"
+    }
+  },
+  "regression_accepted": true,
+  "schema": "sched_ext_release.v1"
+}

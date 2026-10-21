@@ -1,0 +1,41 @@
+FROM openkylin/openkylin:latest
+
+# openKylin 2.0 SP2 (nile) is Debian/Ubuntu 系（apt/dpkg），基础镜像不含 Python。
+# 官方源 http://archive.build.openkylin.top/openkylin 直接可用，无需切换镜像。
+# bpftool 在 openKylin 源中随 linux-tools-common 分发（没有独立 bpftool 包，
+# 与 openEuler 版不同），容器内核版本与镜像内 linux-tools-<ver> 不一定匹配，
+# 因此这里只装 linux-tools-common 争取「尽量做」，bpftool 缺失时由
+# agentos/isolation/bpftool.py 的既有降级逻辑处理（不为此改测试或包代码）。
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip \
+        python3-venv \
+        linux-tools-common \
+        util-linux \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Print Python version for verification
+RUN python3 --version
+
+WORKDIR /app
+
+# Copy dependency spec first (layer caching)
+COPY src/pyproject.toml ./src/
+
+# openKylin 的 python3-pip (24.0+dfsg) 默认启用 PEP 668 externally-managed-environment，
+# 容器内一次性环境用 --break-system-packages 明确放行（不影响宿主机，仅容器内生效）。
+RUN mkdir -p src/agentos && touch src/agentos/__init__.py \
+    && pip3 install --no-cache-dir --break-system-packages -e "./src[dev,app,langgraph]"
+
+# Copy full project
+COPY src/ ./src/
+COPY tests/ ./tests/
+COPY docs/ ./docs/
+COPY demo/ ./demo/
+COPY README.md .
+
+# Re-install in editable mode with all source present
+RUN pip3 install --no-cache-dir --break-system-packages -e "./src[dev,app,langgraph]"
+
+# Default: run the test suite
+CMD ["python3", "-m", "pytest", "-c", "src/pyproject.toml", "tests", "-q"]

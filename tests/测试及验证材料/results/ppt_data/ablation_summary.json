@@ -1,0 +1,38 @@
+{
+  "bare": {
+    "n_runs": 2,
+    "elapsed_secs": 2.1967494349810295,
+    "prompt_tokens": 1595,
+    "cache_hit_ratio": 0.0,
+    "recovery_count": 0,
+    "max_parallel_tasks": 1,
+    "success_rate": 1.0
+  },
+  "dag_only": {
+    "n_runs": 2,
+    "elapsed_secs": 1.7318246735085268,
+    "prompt_tokens": 1584,
+    "cache_hit_ratio": 0.0,
+    "recovery_count": 0,
+    "max_parallel_tasks": 5,
+    "success_rate": 1.0
+  },
+  "dag_context": {
+    "n_runs": 2,
+    "elapsed_secs": 1.7304611509898677,
+    "prompt_tokens": 4330,
+    "cache_hit_ratio": 0.0,
+    "recovery_count": 0,
+    "max_parallel_tasks": 5,
+    "success_rate": 1.0
+  },
+  "full": {
+    "n_runs": 2,
+    "elapsed_secs": 1.7325235049938783,
+    "prompt_tokens": 4330,
+    "cache_hit_ratio": 0.0,
+    "recovery_count": 1,
+    "max_parallel_tasks": 5,
+    "success_rate": 1.0
+  }
+}

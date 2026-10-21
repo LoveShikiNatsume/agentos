@@ -1,0 +1,1432 @@
+{
+  "schema_version": 1,
+  "protocol_version": "semantic-recovery-v1",
+  "split": "formal",
+  "manifest_sha256": "bfac6412cf1b7e5bcf55d2dab7e9a4974d5dff38e562f6c463b2082c8cf5ab95",
+  "prompt_sha256": "16cb9e5a700193c3ae8d0f3d1c0455e6effd91ba432b8257cd38fce52879be36",
+  "config": {
+    "base_url": "http://127.0.0.1:18095",
+    "model": "qwen3.5-9b",
+    "backend": "openai",
+    "seed": 20261019,
+    "max_tokens": 4096,
+    "enable_thinking": false,
+    "temperature": 0,
+    "api_key_env": "OPENAI_API_KEY",
+    "timeout": 180,
+    "retries": 0,
+    "concurrency": 4
+  },
+  "token_measurement": "provider_usage",
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20261019,
+    "unit": "question_id",
+    "confidence": 0.95,
+    "method": "paired percentile; snapshot minus dirty"
+  },
+  "protocol": {
+    "population": "all scheduled questions including failed and truncated (ITT)",
+    "missing_usage": "no zero imputation; token pairs require both usages and report coverage",
+    "completion": "Runtime task completed after the exact-answer validator accepted it",
+    "no_retry": "descriptive no-recovery baseline, not part of the single-factor paired comparison",
+    "stub": "pipeline checks only; fake AST backend and char/4 estimates are not model-quality evidence"
+  },
+  "arms": {
+    "dirty": {
+      "questions": 100,
+      "accuracy": 0.89,
+      "completion_rate": 0.89,
+      "attempts_distribution": {
+        "2": 100
+      },
+      "semantic_injections_scheduled": 50,
+      "semantic_injections_reached": 50,
+      "semantic_failures_detected": 50,
+      "semantic_detection_rate_scheduled": 1.0,
+      "semantic_detection_rate_reached": 1.0,
+      "truncated_calls": 0,
+      "truncated_questions": 0,
+      "injections_reached": 100,
+      "total_model_calls": 573,
+      "mean_model_calls": 5.73,
+      "known_total_model_calls": 573,
+      "missing_model_calls_questions": 0,
+      "mean_prompt_tokens": 9732.25,
+      "total_prompt_tokens": 973225,
+      "known_total_prompt_tokens": 973225,
+      "missing_prompt_tokens_questions": 0,
+      "mean_completion_tokens": 233.59,
+      "total_completion_tokens": 23359,
+      "known_total_completion_tokens": 23359,
+      "missing_completion_tokens_questions": 0,
+      "mean_cached_tokens": 0,
+      "total_cached_tokens": 0,
+      "known_total_cached_tokens": 0,
+      "missing_cached_tokens_questions": 0,
+      "mean_attempts": 2,
+      "total_attempts": 200,
+      "known_total_attempts": 200,
+      "missing_attempts_questions": 0,
+      "strata": {
+        "execution": {
+          "questions": 50,
+          "accuracy": 0.88,
+          "completion_rate": 0.88,
+          "attempts_distribution": {
+            "2": 50
+          },
+          "semantic_injections_scheduled": 0,
+          "semantic_injections_reached": 0,
+          "semantic_failures_detected": 0,
+          "semantic_detection_rate_scheduled": null,
+          "semantic_detection_rate_reached": null,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 256,
+          "mean_model_calls": 5.12,
+          "known_total_model_calls": 256,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 9045.08,
+          "total_prompt_tokens": 452254,
+          "known_total_prompt_tokens": 452254,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 198.74,
+          "total_completion_tokens": 9937,
+          "known_total_completion_tokens": 9937,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 0,
+          "total_cached_tokens": 0,
+          "known_total_cached_tokens": 0,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 2,
+          "total_attempts": 100,
+          "known_total_attempts": 100,
+          "missing_attempts_questions": 0
+        },
+        "semantic": {
+          "questions": 50,
+          "accuracy": 0.9,
+          "completion_rate": 0.9,
+          "attempts_distribution": {
+            "2": 50
+          },
+          "semantic_injections_scheduled": 50,
+          "semantic_injections_reached": 50,
+          "semantic_failures_detected": 50,
+          "semantic_detection_rate_scheduled": 1.0,
+          "semantic_detection_rate_reached": 1.0,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 317,
+          "mean_model_calls": 6.34,
+          "known_total_model_calls": 317,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 10419.42,
+          "total_prompt_tokens": 520971,
+          "known_total_prompt_tokens": 520971,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 268.44,
+          "total_completion_tokens": 13422,
+          "known_total_completion_tokens": 13422,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 0,
+          "total_cached_tokens": 0,
+          "known_total_cached_tokens": 0,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 2,
+          "total_attempts": 100,
+          "known_total_attempts": 100,
+          "missing_attempts_questions": 0
+        }
+      },
+      "failures": [
+        {
+          "question_id": "q038",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q044",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q046",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q049",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q056",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q065",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q071",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q074",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q076",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q094",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q113",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        }
+      ]
+    },
+    "no_retry": {
+      "questions": 100,
+      "accuracy": 0.0,
+      "completion_rate": 0.0,
+      "attempts_distribution": {
+        "1": 100
+      },
+      "semantic_injections_scheduled": 50,
+      "semantic_injections_reached": 50,
+      "semantic_failures_detected": 50,
+      "semantic_detection_rate_scheduled": 1.0,
+      "semantic_detection_rate_reached": 1.0,
+      "truncated_calls": 0,
+      "truncated_questions": 0,
+      "injections_reached": 100,
+      "total_model_calls": 223,
+      "mean_model_calls": 2.23,
+      "known_total_model_calls": 223,
+      "missing_model_calls_questions": 0,
+      "mean_prompt_tokens": 3678.01,
+      "total_prompt_tokens": 367801,
+      "known_total_prompt_tokens": 367801,
+      "missing_prompt_tokens_questions": 0,
+      "mean_completion_tokens": 99.55,
+      "total_completion_tokens": 9955,
+      "known_total_completion_tokens": 9955,
+      "missing_completion_tokens_questions": 0,
+      "mean_cached_tokens": 0,
+      "total_cached_tokens": 0,
+      "known_total_cached_tokens": 0,
+      "missing_cached_tokens_questions": 0,
+      "mean_attempts": 1,
+      "total_attempts": 100,
+      "known_total_attempts": 100,
+      "missing_attempts_questions": 0,
+      "strata": {
+        "execution": {
+          "questions": 50,
+          "accuracy": 0.0,
+          "completion_rate": 0.0,
+          "attempts_distribution": {
+            "1": 50
+          },
+          "semantic_injections_scheduled": 0,
+          "semantic_injections_reached": 0,
+          "semantic_failures_detected": 0,
+          "semantic_detection_rate_scheduled": null,
+          "semantic_detection_rate_reached": null,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 84,
+          "mean_model_calls": 1.68,
+          "known_total_model_calls": 84,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 3307.8,
+          "total_prompt_tokens": 165390,
+          "known_total_prompt_tokens": 165390,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 82.56,
+          "total_completion_tokens": 4128,
+          "known_total_completion_tokens": 4128,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 0,
+          "total_cached_tokens": 0,
+          "known_total_cached_tokens": 0,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 1,
+          "total_attempts": 50,
+          "known_total_attempts": 50,
+          "missing_attempts_questions": 0
+        },
+        "semantic": {
+          "questions": 50,
+          "accuracy": 0.0,
+          "completion_rate": 0.0,
+          "attempts_distribution": {
+            "1": 50
+          },
+          "semantic_injections_scheduled": 50,
+          "semantic_injections_reached": 50,
+          "semantic_failures_detected": 50,
+          "semantic_detection_rate_scheduled": 1.0,
+          "semantic_detection_rate_reached": 1.0,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 139,
+          "mean_model_calls": 2.78,
+          "known_total_model_calls": 139,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 4048.22,
+          "total_prompt_tokens": 202411,
+          "known_total_prompt_tokens": 202411,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 116.54,
+          "total_completion_tokens": 5827,
+          "known_total_completion_tokens": 5827,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 0,
+          "total_cached_tokens": 0,
+          "known_total_cached_tokens": 0,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 1,
+          "total_attempts": 50,
+          "known_total_attempts": 50,
+          "missing_attempts_questions": 0
+        }
+      },
+      "failures": [
+        {
+          "question_id": "q021",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q022",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q023",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q024",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q025",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q026",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q027",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q028",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q029",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q030",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q031",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q032",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q033",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q034",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q035",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q036",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q037",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q038",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q039",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q040",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q041",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q042",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q043",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q044",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q045",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q046",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q047",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q048",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q049",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q050",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q051",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q052",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q053",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q054",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q055",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q056",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q057",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q058",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q059",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q060",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q061",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q062",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q063",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q064",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q065",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q066",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q067",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q068",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q069",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q070",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q071",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q072",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q073",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q074",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q075",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q076",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q077",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q078",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q079",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q080",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q081",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q082",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q083",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q084",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q085",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q086",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q087",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q088",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q089",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q090",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q091",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q092",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q093",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q094",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q095",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q096",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q097",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q098",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q099",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q100",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q101",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q102",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q103",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q104",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q105",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q106",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q107",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q108",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q109",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q110",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q111",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q112",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q113",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q114",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q115",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q116",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q117",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q118",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q119",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q120",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        }
+      ]
+    },
+    "snapshot": {
+      "questions": 100,
+      "accuracy": 0.87,
+      "completion_rate": 0.87,
+      "attempts_distribution": {
+        "2": 100
+      },
+      "semantic_injections_scheduled": 50,
+      "semantic_injections_reached": 50,
+      "semantic_failures_detected": 50,
+      "semantic_detection_rate_scheduled": 1.0,
+      "semantic_detection_rate_reached": 1.0,
+      "truncated_calls": 0,
+      "truncated_questions": 0,
+      "injections_reached": 100,
+      "total_model_calls": 573,
+      "mean_model_calls": 5.73,
+      "known_total_model_calls": 573,
+      "missing_model_calls_questions": 0,
+      "mean_prompt_tokens": 9316.47,
+      "total_prompt_tokens": 931647,
+      "known_total_prompt_tokens": 931647,
+      "missing_prompt_tokens_questions": 0,
+      "mean_completion_tokens": 249.92,
+      "total_completion_tokens": 24992,
+      "known_total_completion_tokens": 24992,
+      "missing_completion_tokens_questions": 0,
+      "mean_cached_tokens": 2397.12,
+      "total_cached_tokens": 239712,
+      "known_total_cached_tokens": 239712,
+      "missing_cached_tokens_questions": 0,
+      "mean_attempts": 2,
+      "total_attempts": 200,
+      "known_total_attempts": 200,
+      "missing_attempts_questions": 0,
+      "strata": {
+        "execution": {
+          "questions": 50,
+          "accuracy": 0.92,
+          "completion_rate": 0.92,
+          "attempts_distribution": {
+            "2": 50
+          },
+          "semantic_injections_scheduled": 0,
+          "semantic_injections_reached": 0,
+          "semantic_failures_detected": 0,
+          "semantic_detection_rate_scheduled": null,
+          "semantic_detection_rate_reached": null,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 256,
+          "mean_model_calls": 5.12,
+          "known_total_model_calls": 256,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 8776.22,
+          "total_prompt_tokens": 438811,
+          "known_total_prompt_tokens": 438811,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 228.16,
+          "total_completion_tokens": 11408,
+          "known_total_completion_tokens": 11408,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 2185.92,
+          "total_cached_tokens": 109296,
+          "known_total_cached_tokens": 109296,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 2,
+          "total_attempts": 100,
+          "known_total_attempts": 100,
+          "missing_attempts_questions": 0
+        },
+        "semantic": {
+          "questions": 50,
+          "accuracy": 0.82,
+          "completion_rate": 0.82,
+          "attempts_distribution": {
+            "2": 50
+          },
+          "semantic_injections_scheduled": 50,
+          "semantic_injections_reached": 50,
+          "semantic_failures_detected": 50,
+          "semantic_detection_rate_scheduled": 1.0,
+          "semantic_detection_rate_reached": 1.0,
+          "truncated_calls": 0,
+          "truncated_questions": 0,
+          "injections_reached": 50,
+          "total_model_calls": 317,
+          "mean_model_calls": 6.34,
+          "known_total_model_calls": 317,
+          "missing_model_calls_questions": 0,
+          "mean_prompt_tokens": 9856.72,
+          "total_prompt_tokens": 492836,
+          "known_total_prompt_tokens": 492836,
+          "missing_prompt_tokens_questions": 0,
+          "mean_completion_tokens": 271.68,
+          "total_completion_tokens": 13584,
+          "known_total_completion_tokens": 13584,
+          "missing_completion_tokens_questions": 0,
+          "mean_cached_tokens": 2608.32,
+          "total_cached_tokens": 130416,
+          "known_total_cached_tokens": 130416,
+          "missing_cached_tokens_questions": 0,
+          "mean_attempts": 2,
+          "total_attempts": 100,
+          "known_total_attempts": 100,
+          "missing_attempts_questions": 0
+        }
+      },
+      "failures": [
+        {
+          "question_id": "q025",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q028",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q038",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q049",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q052",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q055",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q060",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q071",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q075",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q076",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q084",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q094",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        },
+        {
+          "question_id": "q113",
+          "error": "WorkflowExecutionError: workflow failed in 1 task(s): solve; 0 completed, 0 skipped",
+          "task_status": "failed"
+        }
+      ]
+    }
+  },
+  "paired_snapshot_minus_dirty": {
+    "all": {
+      "questions": 100,
+      "question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q067",
+        "q068",
+        "q069",
+        "q070",
+        "q071",
+        "q072",
+        "q073",
+        "q074",
+        "q075",
+        "q076",
+        "q077",
+        "q078",
+        "q079",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "metrics": {
+        "correct": {
+          "questions": 100,
+          "snapshot_mean": 0.87,
+          "dirty_mean": 0.89,
+          "difference": -0.02,
+          "ci95": [
+            -0.09,
+            0.05
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completed": {
+          "questions": 100,
+          "snapshot_mean": 0.87,
+          "dirty_mean": 0.89,
+          "difference": -0.02,
+          "ci95": [
+            -0.09,
+            0.05
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "model_calls": {
+          "questions": 100,
+          "snapshot_mean": 5.73,
+          "dirty_mean": 5.73,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "prompt_tokens": {
+          "questions": 100,
+          "snapshot_mean": 9316.47,
+          "dirty_mean": 9732.25,
+          "difference": -415.78,
+          "ci95": [
+            -479.94175,
+            -355.51
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completion_tokens": {
+          "questions": 100,
+          "snapshot_mean": 249.92,
+          "dirty_mean": 233.59,
+          "difference": 16.33,
+          "ci95": [
+            4.949750000000001,
+            27.61074999999999
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "attempts": {
+          "questions": 100,
+          "snapshot_mean": 2.0,
+          "dirty_mean": 2.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        }
+      }
+    },
+    "execution": {
+      "questions": 50,
+      "question_ids": [
+        "q022",
+        "q024",
+        "q027",
+        "q029",
+        "q031",
+        "q032",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q049",
+        "q051",
+        "q053",
+        "q056",
+        "q058",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q068",
+        "q071",
+        "q077",
+        "q078",
+        "q079",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q085",
+        "q086",
+        "q093",
+        "q095",
+        "q097",
+        "q098",
+        "q100",
+        "q105",
+        "q109",
+        "q112",
+        "q114",
+        "q115",
+        "q117"
+      ],
+      "metrics": {
+        "correct": {
+          "questions": 50,
+          "snapshot_mean": 0.92,
+          "dirty_mean": 0.88,
+          "difference": 0.04,
+          "ci95": [
+            -0.04,
+            0.12
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completed": {
+          "questions": 50,
+          "snapshot_mean": 0.92,
+          "dirty_mean": 0.88,
+          "difference": 0.04,
+          "ci95": [
+            -0.04,
+            0.12
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "model_calls": {
+          "questions": 50,
+          "snapshot_mean": 5.12,
+          "dirty_mean": 5.12,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "prompt_tokens": {
+          "questions": 50,
+          "snapshot_mean": 8776.22,
+          "dirty_mean": 9045.08,
+          "difference": -268.86,
+          "ci95": [
+            -334.161,
+            -210.97850000000003
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completion_tokens": {
+          "questions": 50,
+          "snapshot_mean": 228.16,
+          "dirty_mean": 198.74,
+          "difference": 29.42,
+          "ci95": [
+            16.0,
+            44.3405
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "attempts": {
+          "questions": 50,
+          "snapshot_mean": 2.0,
+          "dirty_mean": 2.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        }
+      }
+    },
+    "semantic": {
+      "questions": 50,
+      "question_ids": [
+        "q021",
+        "q023",
+        "q025",
+        "q026",
+        "q028",
+        "q030",
+        "q033",
+        "q034",
+        "q042",
+        "q048",
+        "q050",
+        "q052",
+        "q054",
+        "q055",
+        "q057",
+        "q059",
+        "q065",
+        "q066",
+        "q067",
+        "q069",
+        "q070",
+        "q072",
+        "q073",
+        "q074",
+        "q075",
+        "q076",
+        "q084",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q094",
+        "q096",
+        "q099",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q106",
+        "q107",
+        "q108",
+        "q110",
+        "q111",
+        "q113",
+        "q116",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "metrics": {
+        "correct": {
+          "questions": 50,
+          "snapshot_mean": 0.82,
+          "dirty_mean": 0.9,
+          "difference": -0.08,
+          "ci95": [
+            -0.2,
+            0.02
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completed": {
+          "questions": 50,
+          "snapshot_mean": 0.82,
+          "dirty_mean": 0.9,
+          "difference": -0.08,
+          "ci95": [
+            -0.2,
+            0.02
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "model_calls": {
+          "questions": 50,
+          "snapshot_mean": 6.34,
+          "dirty_mean": 6.34,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "prompt_tokens": {
+          "questions": 50,
+          "snapshot_mean": 9856.72,
+          "dirty_mean": 10419.42,
+          "difference": -562.7,
+          "ci95": [
+            -657.1235,
+            -472.619
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "completion_tokens": {
+          "questions": 50,
+          "snapshot_mean": 271.68,
+          "dirty_mean": 268.44,
+          "difference": 3.24,
+          "ci95": [
+            -13.381,
+            20.62
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        },
+        "attempts": {
+          "questions": 50,
+          "snapshot_mean": 2.0,
+          "dirty_mean": 2.0,
+          "difference": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "coverage": 1.0,
+          "excluded_question_ids": []
+        }
+      }
+    }
+  }
+}

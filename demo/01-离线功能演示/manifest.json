@@ -1,0 +1,39 @@
+{
+  "schema": "agentos.demo_delivery.v1",
+  "name": "AgentOS Runtime 离线功能验证包",
+  "entrypoint": "run_offline_validation.sh",
+  "archived_result": "结果/",
+  "backend": "mock",
+  "input_kind": "synthetic_fixed_materials",
+  "verifies": [
+    "multi_agent_task_execution",
+    "context_selection_and_request_recording",
+    "fault_isolation_and_context_retry",
+    "event_log_and_offline_dashboard"
+  ],
+  "source_locations": [
+    "src/agentos/scenarios/finals.py",
+    "src/agentos/core/task.py",
+    "src/agentos/runtime/engine.py",
+    "src/agentos/context/",
+    "src/agentos/fault/",
+    "src/agentos/events/",
+    "src/agentos/dashboard/"
+  ],
+  "verification_tests": [
+    "tests/test_finals_demo.py",
+    "tests/test_finals_runtime.py",
+    "tests/test_recovery.py",
+    "tests/test_event_log.py",
+    "tests/test_dashboard.py"
+  ],
+  "does_not_claim": [
+    "real_provider_model_quality",
+    "performance_benchmark",
+    "official_swebench_pass_rate",
+    "real_kernel_scheduler_takeover"
+  ],
+  "related_archived_materials": [
+    "tests/测试及验证材料/results/"
+  ]
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>AgentOS Runtime · 工作台</title>
+  <link rel="stylesheet" href="/workbench.css">
+  <script src="/workbench.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="AgentOS Runtime 工作台">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg></span>
+        <strong>AgentOS Runtime</strong><span class="brand-divider"></span><span class="brand-subtitle">运行工作台</span>
+      </a>
+      <div class="topbar-right"><span id="connection" class="connection"><i></i>连接中</span><span class="local-tag">本地工作空间</span></div>
+    </header>
+    <nav class="view-nav" aria-label="视图">
+      <button class="nav-button active" data-view="workbench" aria-pressed="true"><span data-icon="workbench"></span>工作台</button>
+      <button class="nav-button" data-view="monitor" aria-pressed="false"><span data-icon="activity"></span>运行监控</button>
+      <span class="nav-spacer"></span>
+      <a href="/monitor/" target="_blank" rel="noopener" class="legacy-link">完整 Dashboard <span data-icon="external"></span></a>
+    </nav>
+    <div class="workspace-layout">
+      <aside class="sidebar">
+        <button id="new-task" class="new-task"><span data-icon="plus"></span>新任务<span class="key-hint">↗</span></button>
+        <div class="section-label">本次运行的 Agent <span id="agent-count">0</span></div>
+        <div id="agent-list" class="agent-list" aria-label="Agent 列表"></div>
+        <div class="sidebar-history"><div class="section-label">最近任务 <button id="refresh-jobs" class="icon-button" aria-label="刷新任务" title="刷新任务"><span data-icon="refresh"></span></button></div><div id="job-list" class="job-list"></div></div>
+        <div class="sidebar-foot"><span class="runtime-indicator"></span><span>由 AgentOS Runtime 执行</span></div>
+      </aside>
+      <main id="workbench-view" class="workbench-view">
+        <section class="dag-section" aria-label="任务依赖图">
+          <div class="panel-heading"><h2><span data-icon="branch"></span>任务依赖</h2><span id="dag-summary" class="muted">提交任务后生成</span></div>
+          <div id="dag" class="dag"><div class="dag-empty"><span data-icon="branch"></span><span>真实任务的依赖与执行状态，将显示在这里</span></div></div>
+        </section>
+        <section class="execution-panel">
+          <div class="execution-heading"><div><h1 id="feed-title">开始一次协作</h1><p id="feed-subtitle">提交任务，查看 Agent 的实际执行过程与产物。</p></div><span id="run-state" class="state-badge">等待任务</span></div>
+          <div class="detail-tabs" role="tablist" aria-label="运行内容">
+            <button data-tab="process" class="detail-tab active" role="tab" aria-selected="true">运行过程</button>
+            <button data-tab="details" class="detail-tab" role="tab" aria-selected="false">执行详情</button>
+            <button data-tab="artifacts" class="detail-tab" role="tab" aria-selected="false">任务产物 <span id="artifact-count" class="tab-count" hidden>0</span></button>
+            <span class="nav-spacer"></span><button id="follow-feed" class="follow-feed" title="滚动到最新记录">跟随最新 <span data-icon="down"></span></button>
+          </div>
+          <div id="process-panel" class="tab-panel feed" role="tabpanel">
+            <div class="welcome"><div class="welcome-icon"><span data-icon="spark"></span></div><h2>把任务交给 Agent</h2><p>连接你的项目，观察任务规划、工具操作和结果交接。<br>完成后直接查看本次产生的文件。</p><div class="suggestions"><button data-prompt="梳理这个项目的结构和启动方式，生成一份 QUICKSTART.md 使用说明。"><span data-icon="file"></span>梳理项目，生成说明</button><button data-prompt="请定位并修复以下问题，添加针对性的测试，并说明实际验证结果：\n"><span data-icon="code"></span>修复问题，验证结果</button></div></div>
+          </div>
+          <div id="details-panel" class="tab-panel details-panel" role="tabpanel" hidden></div>
+          <div id="artifacts-panel" class="tab-panel artifacts-panel" role="tabpanel" hidden></div>
+        </section>
+        <form id="task-form" class="composer">
+          <div class="compose-box">
+            <label class="compose-label" for="task-input">任务</label>
+            <textarea id="task-input" name="task" rows="2" placeholder="描述你想完成的任务…" required aria-label="任务描述"></textarea>
+            <div class="workspace-field"><span data-icon="folder"></span><label for="cwd-input">工作目录</label><input id="cwd-input" name="cwd" type="text" spellcheck="false" placeholder="/path/to/your/project" required></div>
+            <div class="compose-toolbar">
+              <div class="compose-options"><label class="select-wrap"><span data-icon="layers"></span><select id="harness-input" aria-label="Agent 框架"><option value="langgraph">LangGraph</option></select></label><label class="model-wrap"><span data-icon="cpu"></span><input id="model-input" aria-label="模型" value="deepseek-flash" spellcheck="false"></label><span class="thinking-chip">思考 <strong>high</strong></span><button id="settings-button" class="icon-button" type="button" title="模型服务设置" aria-label="模型服务设置"><span data-icon="settings"></span></button></div>
+              <div class="compose-actions"><button id="cancel-task" class="button secondary" type="button" hidden><span data-icon="stop"></span>停止</button><button id="submit-task" class="button primary" type="submit"><span>运行任务</span><span data-icon="arrow"></span></button></div>
+            </div>
+          </div>
+          <div class="compose-foot"><span id="execution-note">配置作用于新任务 · Ctrl / ⌘ + Enter 运行</span><span id="credential-note"></span></div>
+        </form>
+      </main>
+      <main id="monitor-view" class="monitor-view" hidden>
+        <div class="monitor-heading"><div><p class="eyebrow">RUNTIME OBSERVABILITY</p><h1>运行监控</h1><p id="monitor-subtitle" class="muted">选择一次真实运行，查看执行状态与用量。</p></div><button id="back-to-dag" class="button secondary"><span data-icon="branch"></span>查看 DAG</button></div>
+        <div id="monitor-content"></div>
+      </main>
+    </div>
+    <footer class="statusbar"><span id="status-text"><i class="status-dot"></i>准备就绪</span><div><span id="elapsed">—</span><span class="status-divider"></span><span id="usage-footer">等待模型用量</span></div></footer>
+  </div>
+  <dialog id="settings-dialog" aria-labelledby="settings-title"><form id="settings-form" method="dialog"><div class="dialog-heading"><h2 id="settings-title">模型服务</h2><button class="icon-button" type="button" id="close-settings" aria-label="关闭"><span data-icon="close"></span></button></div><p class="muted">前端与 CLI 使用同一执行入口。以下配置作用于新任务。</p><label class="form-field">API 地址<input id="base-url-input" type="url" value="https://api.deepseek.com" spellcheck="false" required></label><div class="settings-summary"><span>思考强度</span><strong>high</strong><span>上下文与输出容量</span><strong>模型默认</strong><span>模型凭据</span><strong id="settings-credential">检查中</strong></div><p class="settings-note">模型密钥由本地服务读取，不会显示在页面中。</p><div class="dialog-actions"><button class="button primary" type="submit">保存设置</button></div></form></dialog>
+  <dialog id="file-dialog" class="file-dialog" aria-labelledby="file-title"><div class="file-dialog-heading"><div><span class="eyebrow">本次运行产物</span><h2 id="file-title"></h2></div><button id="close-file" class="icon-button" aria-label="关闭文件"><span data-icon="close"></span></button></div><div id="file-meta" class="file-meta"></div><pre id="file-content" class="file-content"></pre></dialog>
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>

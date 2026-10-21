@@ -1,0 +1,1365 @@
+{
+  "schema_version": 1,
+  "split": "formal",
+  "manifest_sha256": "2b2c04222aa8875ecde007089d2311987244051c19af2969e571c58631d06d85",
+  "plans_sha256": "ea027c70cd5a7a1c06bbb3700a35f9408c6f1b5ce97a7fea80d39a3f627892c6",
+  "config": {
+    "model": "qwen3.5-9b",
+    "seed": 20261019,
+    "repeats": 1,
+    "temperature": 0,
+    "max_tokens": 4096,
+    "max_completion_tokens": null,
+    "backend": "openai",
+    "base_url": "http://127.0.0.1:18095",
+    "prompt_version": null,
+    "concurrency": 4
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20260920,
+    "unit": "question_id",
+    "confidence": 0.95,
+    "method": "paired percentile"
+  },
+  "protocol": {
+    "replicates": "average within question before any group mean or bootstrap",
+    "valid": "all replicates valid and no truncated request for that question",
+    "itt": "all non-truncated questions; invalid runs count as incorrect",
+    "paired": "questions valid in both arms; token pairs additionally require known usage",
+    "cost": "main comparison excludes shared planner; including_planning adds shared planning once per arm",
+    "missing_usage": "never imputed as zero; known totals and missing-run counts retained"
+  },
+  "arms": {
+    "all": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.66,
+      "valid_questions": 99,
+      "valid_accuracy": 0.6666666666666666,
+      "mean_prompt_tokens_valid": 46210.656565656565,
+      "prompt_tokens_valid_questions": 99,
+      "mean_model_calls_valid": 3.505050505050505,
+      "mean_prompt_tokens_all_questions": 45748.55,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 3.47,
+      "runs": 100,
+      "execution": {
+        "model_calls": 347,
+        "prompt_tokens": 4574855,
+        "known_prompt_tokens": 4574855,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 12382,
+        "known_completion_tokens": 12382,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 3075600,
+        "known_cached_tokens": 3075600,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 101,
+        "truncated_calls": 0,
+        "prompt_tokens": 157838,
+        "completion_tokens": 19869,
+        "cached_tokens": 1584
+      },
+      "including_planning": {
+        "model_calls": 448,
+        "prompt_tokens": 4732693,
+        "completion_tokens": 32251,
+        "cached_tokens": 3077184
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 99,
+      "recall_measured_questions": 99,
+      "strata": {
+        "complete": {
+          "questions": 99,
+          "itt_questions": 99,
+          "itt_accuracy": 0.6666666666666666,
+          "valid_questions": 99,
+          "valid_accuracy": 0.6666666666666666,
+          "mean_prompt_tokens_valid": 46210.656565656565,
+          "prompt_tokens_valid_questions": 99,
+          "mean_model_calls_valid": 3.505050505050505,
+          "mean_prompt_tokens_all_questions": 46210.656565656565,
+          "prompt_tokens_all_known_questions": 99,
+          "mean_model_calls_all_questions": 3.505050505050505
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 1,
+          "itt_questions": 1,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 1,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q049",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        },
+        {
+          "question_id": "q052",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q057",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q064",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "parameter must be a Python identifier"
+            }
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q106",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        }
+      ]
+    },
+    "declared": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.72,
+      "valid_questions": 99,
+      "valid_accuracy": 0.7272727272727273,
+      "mean_prompt_tokens_valid": 5518.080808080808,
+      "prompt_tokens_valid_questions": 99,
+      "mean_model_calls_valid": 3.505050505050505,
+      "mean_prompt_tokens_all_questions": 5462.9,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 3.47,
+      "runs": 100,
+      "execution": {
+        "model_calls": 347,
+        "prompt_tokens": 546290,
+        "known_prompt_tokens": 546290,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 9940,
+        "known_completion_tokens": 9940,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 10560,
+        "known_cached_tokens": 10560,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 101,
+        "truncated_calls": 0,
+        "prompt_tokens": 157838,
+        "completion_tokens": 19869,
+        "cached_tokens": 1584
+      },
+      "including_planning": {
+        "model_calls": 448,
+        "prompt_tokens": 704128,
+        "completion_tokens": 29809,
+        "cached_tokens": 12144
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 99,
+      "recall_measured_questions": 99,
+      "strata": {
+        "complete": {
+          "questions": 99,
+          "itt_questions": 99,
+          "itt_accuracy": 0.7272727272727273,
+          "valid_questions": 99,
+          "valid_accuracy": 0.7272727272727273,
+          "mean_prompt_tokens_valid": 5518.080808080808,
+          "prompt_tokens_valid_questions": 99,
+          "mean_model_calls_valid": 3.505050505050505,
+          "mean_prompt_tokens_all_questions": 5518.080808080808,
+          "prompt_tokens_all_known_questions": 99,
+          "mean_model_calls_all_questions": 3.505050505050505
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 1,
+          "itt_questions": 1,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 1,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q049",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        },
+        {
+          "question_id": "q052",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q064",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q115",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        }
+      ]
+    },
+    "bm25": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.48,
+      "valid_questions": 99,
+      "valid_accuracy": 0.48484848484848486,
+      "mean_prompt_tokens_valid": 5532.707070707071,
+      "prompt_tokens_valid_questions": 99,
+      "mean_model_calls_valid": 3.505050505050505,
+      "mean_prompt_tokens_all_questions": 5477.38,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 3.47,
+      "runs": 100,
+      "execution": {
+        "model_calls": 347,
+        "prompt_tokens": 547738,
+        "known_prompt_tokens": 547738,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 9821,
+        "known_completion_tokens": 9821,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 50688,
+        "known_cached_tokens": 50688,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 101,
+        "truncated_calls": 0,
+        "prompt_tokens": 157838,
+        "completion_tokens": 19869,
+        "cached_tokens": 1584
+      },
+      "including_planning": {
+        "model_calls": 448,
+        "prompt_tokens": 705576,
+        "completion_tokens": 29690,
+        "cached_tokens": 52272
+      },
+      "mean_required_recall": 0.6262626262626263,
+      "complete_required_questions": 28,
+      "recall_measured_questions": 99,
+      "strata": {
+        "complete": {
+          "questions": 28,
+          "itt_questions": 28,
+          "itt_accuracy": 0.75,
+          "valid_questions": 28,
+          "valid_accuracy": 0.75,
+          "mean_prompt_tokens_valid": 5327.714285714285,
+          "prompt_tokens_valid_questions": 28,
+          "mean_model_calls_valid": 3.392857142857143,
+          "mean_prompt_tokens_all_questions": 5327.714285714285,
+          "prompt_tokens_all_known_questions": 28,
+          "mean_model_calls_all_questions": 3.392857142857143
+        },
+        "incomplete": {
+          "questions": 71,
+          "itt_questions": 71,
+          "itt_accuracy": 0.38028169014084506,
+          "valid_questions": 71,
+          "valid_accuracy": 0.38028169014084506,
+          "mean_prompt_tokens_valid": 5613.549295774648,
+          "prompt_tokens_valid_questions": 71,
+          "mean_model_calls_valid": 3.5492957746478875,
+          "mean_prompt_tokens_all_questions": 5613.549295774648,
+          "prompt_tokens_all_known_questions": 71,
+          "mean_model_calls_all_questions": 3.5492957746478875
+        },
+        "unknown": {
+          "questions": 1,
+          "itt_questions": 1,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 1,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q027",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q031",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q035",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q044",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q049",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        },
+        {
+          "question_id": "q052",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q074",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q081",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q091",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q093",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "parameter must be a Python identifier"
+            }
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q115",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        }
+      ]
+    },
+    "oracle": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.65,
+      "valid_questions": 99,
+      "valid_accuracy": 0.6565656565656566,
+      "mean_prompt_tokens_valid": 16808.10101010101,
+      "prompt_tokens_valid_questions": 99,
+      "mean_model_calls_valid": 3.505050505050505,
+      "mean_prompt_tokens_all_questions": 16640.02,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 3.47,
+      "runs": 100,
+      "execution": {
+        "model_calls": 347,
+        "prompt_tokens": 1664002,
+        "known_prompt_tokens": 1664002,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 11069,
+        "known_completion_tokens": 11069,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 1038576,
+        "known_cached_tokens": 1038576,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 101,
+        "truncated_calls": 0,
+        "prompt_tokens": 157838,
+        "completion_tokens": 19869,
+        "cached_tokens": 1584
+      },
+      "including_planning": {
+        "model_calls": 448,
+        "prompt_tokens": 1821840,
+        "completion_tokens": 30938,
+        "cached_tokens": 1040160
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 99,
+      "recall_measured_questions": 99,
+      "strata": {
+        "complete": {
+          "questions": 99,
+          "itt_questions": 99,
+          "itt_accuracy": 0.6565656565656566,
+          "valid_questions": 99,
+          "valid_accuracy": 0.6565656565656566,
+          "mean_prompt_tokens_valid": 16808.10101010101,
+          "prompt_tokens_valid_questions": 99,
+          "mean_model_calls_valid": 3.505050505050505,
+          "mean_prompt_tokens_all_questions": 16808.10101010101,
+          "prompt_tokens_all_known_questions": 99,
+          "mean_model_calls_all_questions": 3.505050505050505
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 1,
+          "itt_questions": 1,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 1,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q034",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q049",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        },
+        {
+          "question_id": "q052",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q060",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q064",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "parameter must be a Python identifier"
+            }
+          ]
+        },
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q106",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "default must be a Python expression"
+            }
+          ]
+        },
+        {
+          "question_id": "q115",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "answer must be one JSON object"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "comparisons": {
+    "declared": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 99,
+      "paired_valid_coverage": 0.99,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q067",
+        "q068",
+        "q069",
+        "q070",
+        "q071",
+        "q072",
+        "q073",
+        "q074",
+        "q075",
+        "q076",
+        "q077",
+        "q078",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q079"
+      ],
+      "prompt_usage_coverage": 0.99,
+      "accuracy": {
+        "questions": 99,
+        "arm_mean": 0.7272727272727273,
+        "all_mean": 0.6666666666666666,
+        "difference": 0.06060606060606066,
+        "ci95": [
+          -0.030303030303030276,
+          0.1515151515151515
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 99,
+        "arm_mean": 5518.080808080808,
+        "all_mean": 46210.656565656565,
+        "difference": -40692.57575757576,
+        "ci95": [
+          -42236.069191919196,
+          -39131.9898989899
+        ],
+        "relative_change": -0.8805885651020633,
+        "relative_ci95": [
+          -0.883655146639842,
+          -0.8775482154819313
+        ]
+      }
+    },
+    "bm25": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 99,
+      "paired_valid_coverage": 0.99,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q067",
+        "q068",
+        "q069",
+        "q070",
+        "q071",
+        "q072",
+        "q073",
+        "q074",
+        "q075",
+        "q076",
+        "q077",
+        "q078",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q079"
+      ],
+      "prompt_usage_coverage": 0.99,
+      "accuracy": {
+        "questions": 99,
+        "arm_mean": 0.48484848484848486,
+        "all_mean": 0.6666666666666666,
+        "difference": -0.18181818181818177,
+        "ci95": [
+          -0.3030303030303031,
+          -0.05050505050505061
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 99,
+        "arm_mean": 5532.707070707071,
+        "all_mean": 46210.656565656565,
+        "difference": -40677.9494949495,
+        "ci95": [
+          -42239.97297979798,
+          -39105.34217171717
+        ],
+        "relative_change": -0.8802720523382708,
+        "relative_ci95": [
+          -0.8841251327964037,
+          -0.8763223927278444
+        ]
+      }
+    },
+    "oracle": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 99,
+      "paired_valid_coverage": 0.99,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q026",
+        "q027",
+        "q028",
+        "q029",
+        "q030",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q067",
+        "q068",
+        "q069",
+        "q070",
+        "q071",
+        "q072",
+        "q073",
+        "q074",
+        "q075",
+        "q076",
+        "q077",
+        "q078",
+        "q080",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q096",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q110",
+        "q111",
+        "q112",
+        "q113",
+        "q114",
+        "q115",
+        "q116",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q079"
+      ],
+      "prompt_usage_coverage": 0.99,
+      "accuracy": {
+        "questions": 99,
+        "arm_mean": 0.6565656565656566,
+        "all_mean": 0.6666666666666666,
+        "difference": -0.010101010101010055,
+        "ci95": [
+          -0.09090909090909094,
+          0.07070707070707072
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 99,
+        "arm_mean": 16808.10101010101,
+        "all_mean": 46210.656565656565,
+        "difference": -29402.555555555555,
+        "ci95": [
+          -30403.619696969698,
+          -28413.081313131315
+        ],
+        "relative_change": -0.6362721878616917,
+        "relative_ci95": [
+          -0.6519313603297718,
+          -0.6208701471872343
+        ]
+      }
+    }
+  }
+}

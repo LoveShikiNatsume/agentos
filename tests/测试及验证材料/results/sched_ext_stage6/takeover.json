@@ -1,0 +1,92 @@
+{
+  "stage2": {
+    "accepted": true,
+    "affinity_violations": 0,
+    "controls": {
+      "cfs_worker_ext_enabled": 0,
+      "loader_ext_enabled": 0,
+      "unmanaged_ext_enabled": 0,
+      "verifier_ext_enabled": 0
+    },
+    "direct_probe_attempts": 4,
+    "direct_probe_completed": 4,
+    "direct_probe_observed": true,
+    "direct_probe_stats": {
+      "direct_local": 4,
+      "dispatch": 296,
+      "enqueue": 1,
+      "running": 11,
+      "select_cpu": 4,
+      "stopping": 11,
+      "unknown_policy": 1
+    },
+    "duplicate_loader_exit_code": 1,
+    "failure_reason": null,
+    "final_sched_ext_state": "disabled",
+    "kernel_log_errors": [],
+    "kernel_release": "6.12.95-agentos-scx",
+    "loader_exit_code": 0,
+    "nonroot_guard_verified": true,
+    "nonroot_loader_exit_code": 1,
+    "partial_mode": true,
+    "preflight_accepted": true,
+    "scheduler_name": "agentos_scx",
+    "schema_version": 1,
+    "sigint_loader_exit_code": 0,
+    "stats_after": {
+      "direct_local": 0,
+      "dispatch": 630,
+      "enqueue": 294,
+      "running": 859,
+      "select_cpu": 80,
+      "stopping": 859,
+      "unknown_policy": 294
+    },
+    "stats_before": {
+      "direct_local": 0,
+      "dispatch": 9,
+      "enqueue": 0,
+      "running": 0,
+      "select_cpu": 0,
+      "stopping": 0,
+      "unknown_policy": 0
+    },
+    "stats_delta": {
+      "direct_local": 0,
+      "dispatch": 621,
+      "enqueue": 294,
+      "running": 859,
+      "select_cpu": 80,
+      "stopping": 859,
+      "unknown_policy": 294
+    },
+    "systemd_failed_units": 0,
+    "workers": {
+      "attempted": 100,
+      "completed": 100,
+      "ext_enabled": 100,
+      "failed": 0,
+      "valid_checksums": 100
+    }
+  },
+  "stage3": {
+    "accepted": true,
+    "failure_reason": null,
+    "final_sched_ext_state": "disabled",
+    "kernel_log_errors": [],
+    "kernel_release": "6.12.95-agentos-scx",
+    "loader_exit_code": 0,
+    "partial_mode": true,
+    "policy_hit": 7,
+    "policy_map_entries_after_runtime": 0,
+    "policy_readbacks_verified": 10,
+    "preflight_accepted": true,
+    "scheduler_name": "agentos_scx",
+    "schema_version": 1,
+    "workers": {
+      "attempted": 10,
+      "complete_associations": 10,
+      "completed": 10
+    }
+  }
+}

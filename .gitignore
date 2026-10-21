@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+.venv/
+.venv-*/
+
+# 开发工具工作区
+.worktrees/
+.serena/
+
+# 环境变量与密钥
+.env
+.env.*
+*.key
+
+# 日志
+*.log
+
+# 操作系统产物
+.DS_Store
+Thumbs.db
+
+# Unified agentctl records and isolated execution workspaces
+.agentos/
+
+# Local verification and demonstration outputs
+/tests/results/
+# Curated result artifacts under the final submission tree are tracked.
+# New local runs should be written below this ignored directory.
+/tests/测试及验证材料/results/generated/
+/demo/output/

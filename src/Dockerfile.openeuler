@@ -1,0 +1,39 @@
+FROM openeuler/openeuler:24.03-lts
+
+# Base image already has Python 3.11. Install pip and bpftool from OS repo only
+# (other repos have intermittent SSL issues from container environments).
+# Pre-built wheels are available for all dependencies, so gcc/devel not needed.
+RUN dnf install -y --allowerasing \
+        --disablerepo='*' --enablerepo=OS \
+        --setopt='OS.baseurl=https://repo.huaweicloud.com/openeuler/openEuler-24.03-LTS/OS/$basearch/' \
+        --setopt='OS.gpgkey=https://repo.huaweicloud.com/openeuler/openEuler-24.03-LTS/OS/$basearch/RPM-GPG-KEY-openEuler' \
+        --setopt='OS.metalink=' \
+        bpftool \
+        python3-pip \
+        util-linux \
+    && dnf clean all
+
+# Print Python version for verification
+RUN python3 --version
+
+WORKDIR /app
+
+# Copy dependency spec first (layer caching)
+COPY src/pyproject.toml ./src/
+
+# Install a minimal stub so pip can resolve the [dev] extra.
+RUN mkdir -p src/agentos && touch src/agentos/__init__.py \
+    && pip3 install --no-cache-dir -e "./src[dev,app,langgraph]"
+
+# Copy full project
+COPY src/ ./src/
+COPY tests/ ./tests/
+COPY docs/ ./docs/
+COPY demo/ ./demo/
+COPY README.md .
+
+# Re-install in editable mode with all source present
+RUN pip3 install --no-cache-dir -e "./src[dev,app,langgraph]"
+
+# Default: run the test suite
+CMD ["python3", "-m", "pytest", "-c", "src/pyproject.toml", "tests", "-q"]

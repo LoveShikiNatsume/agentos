@@ -1,0 +1,57 @@
+{
+  "accepted": true,
+  "bpf": {
+    "available": true,
+    "bpffs_mounted": true,
+    "bpftool_version": "bpftool v7.2.0",
+    "cleanup_failed": 0,
+    "dumps": 1,
+    "failure_reason": null,
+    "lookups": 1,
+    "map_created": true,
+    "pin_path": "/sys/fs/bpf/agentos/tasks_verify_1",
+    "readback_verified": true,
+    "schema_verified": true,
+    "schema_version": 1,
+    "skip_reason": null,
+    "updates": 1
+  },
+  "bpf_passed": true,
+  "cgroup": {
+    "available": true,
+    "cgroup_local_pressure_samples": 3,
+    "child_inheritance_verified": true,
+    "cleanup_failed": 0,
+    "delegation_mode": "container",
+    "failure_reason": null,
+    "final_pressure_samples": 1,
+    "final_usage_samples": 1,
+    "initial_pressure_samples": 1,
+    "initial_usage_samples": 1,
+    "pid_attached": 1,
+    "pid_membership_verified": true,
+    "pressure_reasons": {},
+    "pressure_sources": {
+      "final": "cgroup",
+      "initial": "cgroup",
+      "running": "cgroup"
+    },
+    "quota_applied": 4,
+    "running_pressure_samples": 1,
+    "running_usage_samples": 1,
+    "skip_reason": null,
+    "usage_samples": 3
+  },
+  "cgroup_passed": true,
+  "claims": {
+    "bpf_program_attached": false,
+    "cgroup_local_psi": true,
+    "kernel_scheduling_takeover": false,
+    "real_cgroup_v2": true,
+    "real_pinned_bpf_map": true,
+    "sched_ext_active": false
+  },
+  "failure_reasons": [],
+  "schema_version": 1,
+  "skip_reasons": []
+}

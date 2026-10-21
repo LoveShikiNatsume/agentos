@@ -1,0 +1,114 @@
+{
+  "bare": [
+    {
+      "elapsed_secs": 2.2067534999805503,
+      "prompt_tokens": 1595,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 1595,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 1,
+      "context_compressed": 0,
+      "success": true
+    },
+    {
+      "elapsed_secs": 2.1867453699815087,
+      "prompt_tokens": 1595,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 1595,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 1,
+      "context_compressed": 0,
+      "success": true
+    }
+  ],
+  "dag_only": [
+    {
+      "elapsed_secs": 1.7358073740033433,
+      "prompt_tokens": 1584,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 1584,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 5,
+      "context_compressed": 0,
+      "success": true
+    },
+    {
+      "elapsed_secs": 1.7278419730137102,
+      "prompt_tokens": 1584,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 1584,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 5,
+      "context_compressed": 0,
+      "success": true
+    }
+  ],
+  "dag_context": [
+    {
+      "elapsed_secs": 1.7330407139961608,
+      "prompt_tokens": 4330,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 4330,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 5,
+      "context_compressed": 20,
+      "success": true
+    },
+    {
+      "elapsed_secs": 1.7278815879835747,
+      "prompt_tokens": 4330,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 4330,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 0,
+      "fault_count": 0,
+      "max_parallel_tasks": 5,
+      "context_compressed": 20,
+      "success": true
+    }
+  ],
+  "full": [
+    {
+      "elapsed_secs": 1.745321360998787,
+      "prompt_tokens": 4330,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 4330,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 1,
+      "fault_count": 1,
+      "max_parallel_tasks": 5,
+      "context_compressed": 20,
+      "success": true
+    },
+    {
+      "elapsed_secs": 1.7197256489889696,
+      "prompt_tokens": 4330,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 4330,
+      "cache_hit_ratio": 0.0,
+      "llm_calls": 20,
+      "recovery_count": 1,
+      "fault_count": 1,
+      "max_parallel_tasks": 5,
+      "context_compressed": 20,
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "run_count": 1,
+  "modes": {
+    "baseline": {
+      "total_latency_secs": {
+        "mean": 0.10109935700893402,
+        "min": 0.10109935700893402,
+        "max": 0.10109935700893402
+      },
+      "total_prompt_tokens": {
+        "mean": 490,
+        "min": 490,
+        "max": 490
+      },
+      "total_completion_tokens": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "cache_hit_ratio": {
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "fault_count": {
+        "mean": 1,
+        "min": 0,
+        "max": 1
+      },
+      "event_count": {
+        "mean": 49,
+        "min": 49,
+        "max": 49
+      }
+    },
+    "runtime": {
+      "total_latency_secs": {
+        "mean": 0.13923771190457046,
+        "min": 0.13923771190457046,
+        "max": 0.13923771190457046
+      },
+      "total_prompt_tokens": {
+        "mean": 1606,
+        "min": 1606,
+        "max": 1606
+      },
+      "total_completion_tokens": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "cache_hit_ratio": {
+        "mean": 0.7783312577833126,
+        "min": 0.7783312577833126,
+        "max": 0.7783312577833126
+      },
+      "fault_count": {
+        "mean": 0,
+        "min": 0,
+        "max": 0
+      },
+      "event_count": {
+        "mean": 109,
+        "min": 109,
+        "max": 109
+      }
+    }
+  },
+  "comparison": {
+    "latency_delta_pct": 0.37723637443377805,
+    "cache_hit_ratio_delta": 0.7783312577833126,
+    "tasks_completed_delta": 4,
+    "event_count_delta": 60
+  }
+}

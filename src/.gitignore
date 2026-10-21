@@ -1,0 +1,30 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+.venv-*/
+.worktrees/
+.serena/
+
+# Runtime data (large, generated)
+runs/
+*.jsonl
+
+# Environment / secrets
+.env
+.env.*
+*.key
+
+# Logs
+*.log
+/tmp/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Unified agentctl records and isolated execution workspaces
+.agentos/

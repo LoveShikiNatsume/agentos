@@ -1,0 +1,11 @@
+{
+  "inline_message_type": "inline",
+  "ref_message_type": "context_ref",
+  "inline_message_count": 6,
+  "ref_message_count": 6,
+  "inline_payload_bytes": 12072,
+  "ref_payload_bytes": 198,
+  "bytes_saved": 11874,
+  "payload_reduction_ratio": 0.9835984095427436,
+  "context_ref_count": 0
+}

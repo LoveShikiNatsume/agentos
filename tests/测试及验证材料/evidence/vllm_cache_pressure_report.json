@@ -1,0 +1,75 @@
+{
+  "experiment": "vllm_prefix_cache_pressure",
+  "description": "Local vLLM prefix cache eviction & affinity scheduling experiment",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 (24564 MiB)",
+    "driver": "535.261.03",
+    "cuda": "12.2",
+    "vllm_version": "0.19.0",
+    "model": "Qwen2.5-7B-Instruct",
+    "model_path": "/home/typemoon/models/Qwen2.5-7B-Instruct",
+    "served_model_name": "qwen2.5-7b-instruct",
+    "vllm_flags": "--enable-prefix-caching --gpu-memory-utilization 0.90 --port 8000",
+    "base_url": "http://localhost:8000"
+  },
+  "config": {
+    "N_pressure": 16,
+    "N_control": 8,
+    "n_paras_per_prefix": 76,
+    "est_tokens_per_prefix": 8073,
+    "chars_per_token": 4.95,
+    "GPU_KV_capacity_tokens": 108912,
+    "pressure_total_tokens": 129167,
+    "control_total_tokens": 64584,
+    "note": "Pressure group exceeds KV capacity to trigger eviction; control group fits entirely"
+  },
+  "results": {
+    "pressure_round1": {
+      "description": "16 distinct prefixes, cold start — filling cache until eviction",
+      "n_calls": 16,
+      "avg_prompt_tokens": 8079.9,
+      "avg_cache_hit_ratio": 0.0033,
+      "avg_latency_s": 1.046
+    },
+    "pressure_round2": {
+      "description": "16 prefixes replayed — earlier prefixes evicted, all miss",
+      "n_calls": 16,
+      "avg_prompt_tokens": 8079.9,
+      "avg_cache_hit_ratio": 0.0,
+      "avg_latency_s": 1.056
+    },
+    "control_round1": {
+      "description": "8 distinct prefixes (fit in cache), cold start",
+      "n_calls": 8,
+      "avg_prompt_tokens": 8445.5,
+      "avg_cache_hit_ratio": 0.0,
+      "avg_latency_s": 1.081
+    },
+    "control_round2": {
+      "description": "8 prefixes replayed — all still cached, near-100% hit",
+      "n_calls": 8,
+      "avg_prompt_tokens": 8445.2,
+      "avg_cache_hit_ratio": 0.9984,
+      "avg_latency_s": 0.281
+    },
+    "affinity_2nd_call": {
+      "description": "16 pressure prefixes, each sent twice consecutively (affinity scheduling) — 2nd call",
+      "n_calls": 16,
+      "avg_prompt_tokens": 8079.9,
+      "avg_cache_hit_ratio": 0.9972,
+      "avg_latency_s": 0.289
+    }
+  },
+  "key_findings": {
+    "cache_hit_speedup": "3.8x latency reduction when prefix is cached (1.08s → 0.28s)",
+    "eviction_confirmed": "16×8k tokens exceeds 108k KV capacity — round 2 replay gets 0% hit",
+    "affinity_effective": "Even under cache pressure, consecutive same-prefix scheduling achieves 99.7% hit rate",
+    "latency_cached_vs_uncached": {
+      "uncached_avg_s": 1.056,
+      "cached_avg_s": 0.281,
+      "affinity_avg_s": 0.289
+    }
+  },
+  "raw_log": "runs/vllm_cache_pressure_raw.log",
+  "script": "scripts/probe_cache_pressure.py"
+}

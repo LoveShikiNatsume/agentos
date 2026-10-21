@@ -1,0 +1,24 @@
+# Non-secret example for the user's selected cloud model.
+# Export DEEPSEEK_API_KEY outside the task workspace before invoking agentctl.
+model = "deepseek-flash"
+base_url = "https://api.deepseek.com"
+api_key_env = "DEEPSEEK_API_KEY"
+harness = "langgraph"
+profile = "runtime"
+thinking = "enabled"
+reasoning_effort = "high"
+max_tokens = "provider_default"
+
+# Execution guards are distinct from the model's context/generation capacity.
+max_parallel = 2
+max_tasks = 6
+max_steps = 24
+timeout = 600.0
+run_timeout = 1800.0
+command_timeout = 60.0
+
+# Requires bubblewrap and permitted user namespaces. No host fallback.
+command_sandbox = "bubblewrap"
+command_network = false
+# Add an absolute path to the task's prepared dependency environment if needed.
+# command_read_only_paths = ["/absolute/task/environment"]

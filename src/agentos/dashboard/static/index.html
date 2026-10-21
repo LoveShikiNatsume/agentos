@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentOS Runtime · AI-Native OS</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/director.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <div class="brand">
+      <div class="logo-mark">A</div>
+      <div>
+        <h1 id="page-title">AgentOS Runtime · AI-Native OS</h1>
+        <h2 id="page-subtitle">AI 原生操作系统运行时观测台</h2>
+        <p id="page-kicker">Agent as Process · Context as Memory · KV Cache as Cache · Fault Isolation · Scenario Replay</p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="badge-row">
+        <span class="badge"><span class="line-icon trophy"></span>第三届中国研究生操作系统开源创新大赛</span>
+        <span class="badge"><span class="line-icon atom"></span>开放原子大赛操作系统专项赛</span>
+        <span class="badge primary">OS Competition</span>
+        <span class="badge logo-badge">openEuler</span>
+        <span class="badge logo-badge">OpenAtom</span>
+      </div>
+      <div class="status">
+        <span class="dot wait" id="conn-dot"></span><span id="conn-text">connecting…</span>
+        <span class="divider"></span><span id="mode-pill">Local LLM</span>
+        <span class="divider"></span><span>Cluster: os-comp-cluster-01</span>
+        <span class="divider"></span><span>2026-06-16&nbsp;&nbsp;22:06:54</span>
+        <span class="refresh" aria-label="refresh"></span>
+        <span class="event-chip">EVENTS <strong id="evt-count" class="num">0</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="page-tabs" aria-label="Dashboard pages">
+    <button type="button" id="tab-local" class="page-tab active" data-page="local">本地 LLM Runtime 观测</button>
+    <button type="button" id="tab-cloud" class="page-tab" data-page="cloud">云端多 Agent 框架对比</button>
+  </nav>
+
+  <main>
+    <section id="page-local" class="dashboard-page active" aria-label="本地 LLM Runtime 观测">
+      <section class="local-evidence-cockpit compact-density" aria-label="Local Runtime Evidence Cockpit">
+        <header class="local-evidence-head">
+          <div>
+            <span class="eyebrow">Local Runtime Evidence Cockpit</span>
+            <h3>本地 LLM + 用户态 Runtime + Pressure Suite</h3>
+            <p>第一页只展示本地 Runtime 证据：Baseline/Runtime 对比、workload-aware 调度闭环、四类压力测试和 kernel probe fallback。</p>
+          </div>
+          <div class="local-source-pill" id="local-source-pill">loading real data…</div>
+        </header>
+
+        <div id="kpi-row" class="local-result-kpis" aria-label="Baseline vs Runtime 结果指标">
+          <article class="result-kpi blue"><span class="result-icon token"></span><div><b>Token Saved</b><strong id="kpi-token-saved">-</strong><small>prompt tokens + cache hits</small></div></article>
+          <article class="result-kpi teal"><span class="result-icon clock"></span><div><b>Makespan</b><strong id="kpi-makespan">-</strong><small>latest complete run</small></div></article>
+          <article class="result-kpi green"><span class="result-icon target"></span><div><b>Cache Hit</b><strong id="kpi-cache-hit">-</strong><small>hit / (hit+miss)</small></div></article>
+          <article class="result-kpi orange"><span class="result-icon doc"></span><div><b>Prefill Saved</b><strong id="kpi-prefill">-</strong><small>context.compressed tokens_saved</small></div></article>
+          <article class="result-kpi red"><span class="result-icon shield"></span><div><b>Fault Recovery</b><strong id="kpi-recovery">-</strong><small id="kpi-recovery-small">recovered faults</small></div></article>
+          <article class="result-kpi purple"><span class="result-icon events"></span><div><b>EventLog</b><strong id="kpi-eventlog">0</strong><small>SSE events</small></div></article>
+          <article class="result-kpi blue"><span class="result-icon switch"></span><div><b>Policy Switches</b><strong id="kpi-policy-switches">0</strong><small>policy events</small></div></article>
+          <article class="result-kpi green"><span class="result-icon fair"></span><div><b>Fairness Score</b><strong id="kpi-fairness">-</strong><small id="kpi-fairness-small">starvation risk -</small></div></article>
+        </div>
+
+        <section class="runtime-foundation refined-flow" aria-label="用户态 AgentOS Runtime 原型">
+          <div class="foundation-title">
+            <strong>用户态 AgentOS Runtime 原型</strong>
+            <span>Baseline: 独立 Agent 各自拼 prompt / Runtime: 统一调度 + 统一上下文 + 统一事件流</span>
+          </div>
+          <div class="foundation-chain">
+            <div><i class="mini-icon agent"></i><b>Agent 一等实体</b><small>lifecycle / worker / cgroup</small><span class="foundation-arrow"></span></div>
+            <div><i class="mini-icon dag"></i><b>DAG 调度</b><small>依赖 / 动态任务 / checkpoint</small><span class="foundation-arrow"></span></div>
+            <div><i class="mini-icon ctx"></i><b>ContextRef 管理</b><small>共享 / 私有 / 压缩 / 隔离</small><span class="foundation-arrow"></span></div>
+            <div><i class="mini-icon cache"></i><b>KV/Prefix Cache 亲和</b><small>prefix hit / prefill saved</small><span class="foundation-arrow"></span></div>
+            <div><i class="mini-icon recover"></i><b>故障恢复</b><small>timeout / access denied / 局部恢复</small><span class="foundation-arrow"></span></div>
+            <div><i class="mini-icon observe"></i><b>EventLog / Dashboard</b><small>SSE 事件流 / 证据链</small></div>
+          </div>
+        </section>
+
+        <section class="workload-loop refined-flow" aria-label="V2.0 Workload-aware 调度闭环">
+          <div class="loop-main">
+            <div class="section-title"><strong>V2.0 Workload-aware 调度闭环</strong><span>Task metadata + ResourceUsage + LLM/cache/context stats → 决策 → 回写</span></div>
+            <div class="loop-pipeline">
+              <div class="stage" style="--stage-c:#2563eb"><em>01</em><b>Inputs</b><span class="stage-chips"><span>Task metadata</span><span>ResourceUsage</span><span>LLM token/cache</span><span>ContextRef stats</span></span></div>
+              <i></i><div class="stage" style="--stage-c:#0f9fb8"><em>02</em><b>WorkloadFeature</b><span class="stage-chips"><span>CPU / Mem / IO</span><span>Tokens · Cache 命中</span><span>并发度 · 等待时间</span></span></div>
+              <i></i><div class="stage" style="--stage-c:#14b8a6"><em>03</em><b>WorkloadClass</b><span class="stage-chips"><span>ai_inference</span><span>compile_stress</span><span>compress_stress</span><span>net_stress</span></span></div>
+              <i></i><div class="stage" style="--stage-c:#7c4dff"><em>04</em><b>PolicySelector</b><span class="stage-chips"><span>latency_first</span><span>throughput_first</span><span>cache_affinity</span><span>fairness_balanced</span></span></div>
+              <i></i><div class="stage stage-decision" style="--stage-c:#0d2b4f"><em>05</em><b>scheduler.decision</b><span class="stage-chips"><span>selected</span><span>blocked</span><span>deferred</span><span>reason</span></span></div>
+              <i></i><div class="stage" style="--stage-c:#0f9f69"><em>06</em><b>Fairness / Starvation</b><span class="stage-chips"><span>fairness_score</span><span>starvation_risk</span><span>回写调度权重</span></span></div>
+            </div>
+            <div class="loop-return loop-feedback">
+              <span class="loop-return-label">feedback loop · fairness / starvation 结果回写调度权重，持续观测与自适应调优</span>
+            </div>
+          </div>
+          <aside class="decision-card">
+            <strong>调度决策证据<i class="live-dot"></i></strong>
+            <dl>
+              <dt>event</dt><dd id="sched-event">-</dd>
+              <dt>workload_class</dt><dd id="sched-workload-class">-</dd>
+              <dt>policy</dt><dd id="sched-policy">-</dd>
+              <dt>reason</dt><dd id="sched-reason">-</dd>
+              <dt>fairness_score</dt><dd id="sched-fairness">-</dd>
+              <dt>starvation_risk</dt><dd id="sched-starvation-risk">-</dd>
+            </dl>
+            <div class="policy-chipset"><span data-policy="latency_first" style="--chip-c:#2563eb">latency_first</span><span data-policy="throughput_first" style="--chip-c:#f28c18">throughput_first</span><span data-policy="cache_affinity" style="--chip-c:#0f9fb8">cache_affinity</span><span data-policy="fairness_balanced" style="--chip-c:#0f9f69">fairness_balanced</span></div>
+          </aside>
+        </section>
+
+        <section class="local-validation" aria-label="本地实验验证体系">
+          <div class="section-title"><strong>本地实验验证体系</strong><span>同一事件流出证：真实场景 → 基线对比 → 压力矩阵</span></div>
+          <div class="validation-tracks">
+            <article style="--track-c:#2563eb">
+              <i class="track-icon llm"></i>
+              <div class="track-body">
+                <b>本地 LLM 场景<span class="track-tag">REAL DATA</span></b>
+                <span class="track-sub">DeepSeek deepseek-chat · 真实事件日志回放</span>
+                <span class="track-chips"><span>token saved</span><span>cache hit</span><span>prefill saved</span><span>ContextRef reuse</span></span>
+              </div>
+            </article>
+            <article style="--track-c:#0f9fb8">
+              <i class="track-icon ab"></i>
+              <div class="track-body">
+                <b>Runtime 基线对比<span class="track-tag">A · B 对照</span></b>
+                <span class="track-sub">同一 DAG · Baseline vs +Runtime 唯一变量</span>
+                <span class="track-chips"><span>makespan</span><span>avg latency</span><span>throughput</span><span>recovery</span></span>
+              </div>
+            </article>
+            <article style="--track-c:#f28c18">
+              <i class="track-icon gauge"></i>
+              <div class="track-body">
+                <b>Pressure Suite<span class="track-tag">4 类压测</span></b>
+                <span class="track-sub">AI 推理 / 编译 / 压缩 / 网络 · 全故障注入</span>
+                <span class="track-chips"><span>throughput</span><span>wait_ms</span><span>slowdown</span><span>fairness</span><span>recovery</span></span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="pressure-matrix" aria-label="Pressure Suite Matrix Preview">
+          <div class="section-title"><strong>Pressure Suite Matrix Preview</strong><span>四类压力测试使用真实 DeepSeek 数据，provenance 标注。</span></div>
+          <div class="pressure-grid" id="pressure-grid">
+            <article><b>AI 推理</b><em>ai_inference</em><p><span>makespan</span><small>loading…</small></p><small>real deepseek</small></article>
+            <article><b>编译压力</b><em>compile</em><p><span>throughput</span><small>loading…</small></p><small>real deepseek</small></article>
+            <article><b>压缩压力</b><em>compression</em><p><span>cache_hit</span><small>loading…</small></p><small>real deepseek</small></article>
+            <article><b>网络压测</b><em>network</em><p><span>tasks</span><small>loading…</small></p><small>real deepseek</small></article>
+            <article class="probe-card"><b>sched_ext / eBPF Probe</b><dl><dt>sched_ext</dt><dd id="probe-sched-ext">unavailable</dd><dt>bpf_map</dt><dd id="probe-bpf-map">mock</dd><dt>reason</dt><dd id="probe-reason">-</dd></dl><small id="probe-bpf-small"></small></article>
+          </div>
+        </section>
+      </section>
+
+      <div class="kpis legacy-kpis">
+        <article class="kpi accent-blue"><div class="kpi-icon">AG</div><div><span>Agent 数</span><strong id="h-proc">11</strong><small>↑ <b id="h-proc-cor">8</b> 协程 + <b id="h-proc-sub">3</b> 子进程</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 24 L14 21 L25 23 L35 17 L47 20 L58 14 L69 18 L80 13 L92 17 L104 12 L118 15"/></svg></article>
+        <article class="kpi accent-green"><div class="kpi-icon">LL</div><div><span>LLM Calls</span><strong>22.4K</strong><small>↑ 8.3% vs 1h ago</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 24 L13 23 L24 21 L35 16 L46 19 L57 13 L68 17 L80 11 L92 16 L105 10 L118 13"/></svg></article>
+        <article class="kpi accent-orange"><div class="kpi-icon">TK</div><div><span>Token Saved</span><strong id="h-mem">1.28M</strong><small>↑ 15.6% · <b id="h-mem-seg">7</b> 段复用 <b id="h-mem-hit">86</b> 次</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 22 L16 18 L28 23 L40 15 L52 21 L65 14 L78 17 L90 12 L104 19 L118 14"/></svg></article>
+        <article class="kpi accent-cyan"><div class="kpi-icon">KV</div><div><span>KV Cache Hit Ratio</span><strong id="h-cache">70.6%</strong><small>↑ 4.7pp · vs 裸跑省 <b id="h-cache-save">541</b> tok</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 21 L15 17 L28 18 L42 15 L56 19 L68 15 L82 17 L96 14 L118 12"/></svg></article>
+        <article class="kpi accent-red"><div class="kpi-icon">FT</div><div><span>Fault Events</span><strong>8</strong><small>↓ 11.1% vs 1h ago</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 25 L18 23 L27 13 L38 24 L50 19 L61 25 L73 16 L86 23 L99 15 L112 22"/></svg></article>
+        <article class="kpi accent-purple"><div class="kpi-icon">RT</div><div><span>Recovery Time</span><strong>0.10s</strong><small>↓ 23.5% vs 1h ago</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 23 L15 20 L29 22 L43 18 L58 20 L73 16 L88 19 L103 15 L118 17"/></svg></article>
+        <article class="kpi accent-blue"><div class="kpi-icon">DR</div><div><span>Dedup Ratio</span><strong id="m-dedup">40.0%</strong><small>↑ 3.2pp vs 1h ago</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 18 L13 20 L25 17 L36 22 L48 19 L60 23 L72 18 L84 20 L96 16 L118 19"/></svg></article>
+        <article class="kpi accent-cyan"><div class="kpi-icon">PD</div><div><span>Prompt Delta</span><strong>-38%</strong><small>↓ 2pp vs 1h ago</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 17 L14 20 L27 16 L40 19 L55 15 L68 18 L82 13 L96 17 L118 16"/></svg></article>
+      </div>
+
+      <div class="core-strip legacy-strip">
+        <div class="core-item" aria-label="1 进程 / Agent 调度"><b>1</b><strong>进程 / Agent 调度</strong><span>Agent 作为 OS 一等公民：生命周期、状态迁移、资源隔离</span><em>core</em></div>
+        <div class="core-item" aria-label="2 DAG 调度流"><b>2</b><strong>DAG 调度流</strong><span>任务依赖、动态任务、资源感知策略集中展示</span><em>core</em></div>
+        <div class="core-item" aria-label="3 上下文内存"><b>3</b><strong>上下文内存</strong><span>ContextRef、共享页、复用压缩与隔离策略</span><em>core</em></div>
+        <div class="core-item" aria-label="4 缓存亲和"><b>4</b><strong>缓存亲和</strong><span>KV Cache 命中、亲和调度、Baseline 性能对比</span><em>core</em></div>
+      </div>
+
+      <section class="v2-cockpit legacy-v2" aria-label="V2.0 Evidence Cockpit">
+        <header class="v2-head">
+          <div>
+            <span class="eyebrow">V2.0 Evidence Cockpit</span>
+            <h3>用户态 AgentOS Runtime 原型</h3>
+            <p>Agent 一等实体 + DAG 调度 + ContextRef 管理 + KV/Prefix Cache 亲和 + 故障恢复 + EventLog / Dashboard 可观测。</p>
+          </div>
+          <div class="claim-safe">
+            <b>保守边界</b>
+            <span>Python-first 用户态 Runtime；sched_ext / eBPF / BPF Map 目前作为 probe / fallback / mock adapter，不宣称接管内核调度。</span>
+          </div>
+        </header>
+
+        <div class="v2-grid">
+          <article class="v2-panel runtime-loop">
+            <div class="v2-panel-head"><span class="section-no">R</span><strong>Runtime 核心闭环</strong><em>closed loop</em></div>
+            <div class="loop-map">
+              <span><b>Agent 一等实体</b><small>生命周期 / worker / cgroup</small></span>
+              <span><b>DAG 调度</b><small>依赖 / 动态任务 / checkpoint</small></span>
+              <span><b>ContextRef 管理</b><small>共享 / 私有 / 压缩 / 隔离</small></span>
+              <span><b>KV/Prefix Cache 亲和</b><small>prefix hit / prefill saved</small></span>
+              <span><b>Fault Recovery</b><small>timeout / access denied / 局部恢复</small></span>
+              <span><b>EventLog / Dashboard</b><small>SSE 事件流 / 证据链</small></span>
+            </div>
+          </article>
+
+          <article class="v2-panel scheduler-brain">
+            <div class="v2-panel-head"><span class="section-no teal">P</span><strong>V2.0 调度智能层</strong><em>policy evidence</em></div>
+            <div class="policy-pipeline">
+              <span>WorkloadFeature 采样</span>
+              <b></b>
+              <span>Workload Classifier</span>
+              <b></b>
+              <span>Policy Selector</span>
+              <b></b>
+              <span>Fairness / Starvation</span>
+            </div>
+            <div class="decision-card">
+              <code>scheduler.policy_selected</code>
+              <strong id="v2-decision-summary">-</strong>
+              <p id="v2-decision-detail">等待真实调度事件…</p>
+            </div>
+            <div class="policy-metrics">
+              <div><span>workload class</span><b id="v2-workload-class">-</b></div>
+              <div><span>fairness score</span><b id="v2-fairness-score">-</b></div>
+              <div><span>starvation risk</span><b id="v2-starvation-risk">-</b></div>
+              <div><span>deferred</span><b id="v2-deferred">-</b></div>
+            </div>
+          </article>
+
+          <aside class="v2-panel evidence-rail-v2">
+            <div class="v2-panel-head"><span class="section-no cyan">E</span><strong>V2.0 Evidence Rail</strong><em>mock data</em></div>
+            <div class="evidence-micro"><b>本地 LLM</b><span>DeepSeek deepseek-chat 真实事件流，展示 token、prefill、KV hit 和恢复能力。</span><strong>real</strong></div>
+<div class="evidence-micro"><b>Runtime 基线</b><span>同一 DAG 跑 Baseline / Runtime，用本地 summary schema 对齐对比。</span><strong>mock</strong></div>
+            <div class="evidence-micro"><b>Kernel Probe</b><span>cgroup v2 已探测；sched_ext 不可用时 fallback 到 mock adapter。</span><strong>probe</strong></div>
+            <div class="evidence-micro"><b>答辩就绪</b><span>23 项材料检查通过，dashboard 先展示 mock 排布。</span><strong>23/23</strong></div>
+          </aside>
+        </div>
+
+        <div class="experiment-matrix">
+          <div class="matrix-title"><strong>实验验证矩阵</strong><span>用同一任务分别跑 Baseline / Runtime，数据源后续可从真实 workload matrix 替换 mock。</span></div>
+          <table>
+            <thead><tr><th>验证线</th><th>场景</th><th>核心指标</th><th>Runtime 展示点</th><th>当前状态</th></tr></thead>
+            <tbody>
+              <tr><td>本地 LLM</td><td>软件工程多 Agent DAG</td><td>token -38% / prefill saved 1.28M / KV hit +4.7pp</td><td>ContextRef、KV/Prefix Cache 亲和、故障恢复</td><td><span class="state-pill ok">mock ready</span></td></tr>
+              <tr><td>Runtime 基线对比</td><td>same DAG · baseline / runtime</td><td>makespan -31% / recovery 8/8 / EventLog 399</td><td>统一调度、统一上下文、统一事件流</td><td><span class="state-pill info">mock view</span></td></tr>
+              <tr><td>四类压力测试</td><td>AI 推理 / 内核编译 / 压缩 / 网络压测</td><td>吞吐、等待、slowdown、fairness score、恢复率</td><td>workload 分类 + 策略切换 + 饥饿检测</td><td><span class="state-pill idle">mock view</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="local-core-grid">
+        <section class="panel core-panel proc" id="zone-process">
+          <header class="panel-head"><div><span class="section-no">1</span><strong>进程 / Agent 调度</strong><small>Process Scheduling</small></div><span>Agent = Process · 资源感知 + 状态迁移</span><b class="baseline-tag">vs Baseline: makespan -31% · wait -42%</b></header>
+          <div class="mini-stats">
+            <div><span>协程池</span><b>24 / 32</b></div><div><span>子进程池</span><b>16 / 32</b></div><div><span>Workers</span><b>8</b></div><div><span>Cgroup Domain</span><b>3</b></div><div><span>Active WSS</span><b>1.92M</b></div>
+          </div>
+          <div class="tw"><table><thead><tr><th>AGENT</th><th>PID</th><th>WORKER</th><th>CGROUP</th><th>状态</th><th class="num">CALLS</th><th class="num">CPU%</th><th class="num">MEM%</th><th class="num">HIT</th></tr></thead><tbody id="cor-tbody"><tr><td>architect</td><td>151601</td><td>6/8</td><td>dev-gp</td><td><span class="state-pill ok">running</span></td><td class="num">3,162</td><td class="num">20%</td><td class="num">38%</td><td class="num">75.1%</td></tr></tbody></table></div>
+          <div class="hidden-mount"><span id="cor-cnt"></span><span id="sub-cnt"></span><table><tbody id="sub-tbody"></tbody></table></div>
+        </section>
+
+        <section id="zone-dag" class="panel core-panel dag-card">
+          <header class="panel-head"><div><span class="section-no teal">2</span><strong>DAG 调度流</strong><small>Scheduler Dependency Graph</small></div><span>依赖编排 + 动态任务 + checkpoint</span><b class="baseline-tag teal">vs Baseline: fault recovered 8/8 · baseline halted</b></header>
+          <div class="legend"><span class="ok-dot"></span>success <span class="run-dot"></span>running <span class="wait-dot"></span>waiting <span class="queue-dot"></span>queued</div>
+          <div class="dag-canvas" id="dag-view"><span class="dag-node completed">architect</span><span class="dag-line"></span><span class="dag-node completed">api_design</span><span class="dag-node completed">db_design</span><span class="dag-node running">backend</span><span class="dag-node waiting">test</span><span class="dag-node completed">security</span><span class="dag-node pending">integrate</span><span class="dag-node pending">deploy</span></div>
+          <div class="dag-metrics"><div><span>节点数</span><b>8</b></div><div><span>并行 Checkpoint</span><b>5</b></div><div><span>就绪节点</span><b>2</b></div><div><span>运行节点</span><b>4</b></div><div><span>关键路径</span><b>9</b></div></div>
+        </section>
+
+        <section class="panel core-panel mem" id="zone-memory">
+          <header class="panel-head"><div><span class="section-no purple">3</span><strong>上下文内存</strong><small>Context = Memory</small></div><span>复用 / 压缩 / 隔离策略</span><b class="baseline-tag purple">vs Baseline: prompt tokens -38% · duplicate context -52%</b></header>
+          <div class="mini-stats">
+            <div><span>总计段数</span><b id="m-seg">726</b></div><div><span>ContextRef</span><b>147</b></div><div><span>总 Tokens</span><b>3.21M</b></div><div><span>Pinned</span><b>12</b></div><div><span>Active WSS</span><b id="m-saved">1.92M</b></div>
+          </div>
+          <div class="memory-layout">
+            <div class="ref-map"><span>architect<br><b>98K</b></span><span>api_design<br><b>112K</b></span><span>db_design<br><b>126K</b></span><span>backend<br><b>320K</b></span><strong>spec_shared<br><b>210K</b></strong><span>test<br><b>96K</b></span><span>security<br><b>160K</b></span><span>integrate<br><b>120K</b></span></div>
+            <div class="tw"><table><thead><tr><th>SEGMENT</th><th class="num">TOKENS</th><th>R/W</th><th>PINNED</th><th class="num">REUSE HITS</th><th class="num">命中率</th></tr></thead><tbody id="ref-tbody"><tr><td>spec_shared</td><td class="num">411K</td><td>-</td><td>√</td><td class="num">328K</td><td class="num">62%</td></tr></tbody></table></div>
+            <span id="ref-cnt" class="hidden-mount"></span><span id="m-hits" class="hidden-mount"></span>
+          </div>
+        </section>
+
+        <section class="panel core-panel cache" id="zone-cache">
+          <header class="panel-head"><div><span class="section-no cyan">4</span><strong>缓存亲和</strong><small>KV Cache = Cache</small></div><span>hit ratio + heatmap + baseline</span><b class="baseline-tag cyan">vs Baseline: KV hit +4.7pp · prefill saved 1.28M</b></header>
+          <div class="cache-grid">
+            <div class="chart-box"><h4>KV 命中率趋势</h4><div class="curve" id="curve-wrap"><svg id="curve" viewBox="0 0 300 150" preserveAspectRatio="none"></svg></div></div>
+            <div class="chart-box"><h4>各 Agent 前缀缓存命中率（实时）</h4><div class="agent-hit-list" id="agent-hit-list"><div class="muted">awaiting llm calls…</div></div></div>
+          </div>
+          <div class="cache-summary"><div class="donut"></div><div><span>缓存类型</span><b>KV / Prefix / Chunk</b></div><div><span>Total Pages</span><b>38.2M</b></div><div><span>Used Pages</span><b>12.6M</b></div><div><span>Hit Ratio</span><b>2.41M</b></div><div><span>Prefill Saved</span><b>1.28M</b></div><div><span>Memory Saved</span><b>5.71GB</b></div></div>
+          <div class="hidden-mount"><table><tbody id="cache-tbody"></tbody></table><span id="cmp-base"></span><span id="cmp-rt"></span><span id="cmp-save"></span></div>
+        </section>
+      </div>
+
+      <div class="local-secondary-grid">
+        <section id="zone-fault" class="panel compact">
+          <header class="panel-head"><div><span class="section-no dark">F</span><strong>故障 / 恢复时间线</strong><small>Fault & Recovery</small></div><em>MTTR 0.10s</em></header>
+          <div class="tl table-like" id="fault-tl"><div><span>22:05:49</span><b>S</b><strong>snapshot_saved</strong><em>INFO</em></div><div><span>22:05:48</span><b>D</b><strong class="danger">access_denied</strong><em class="warn">WARN</em></div><div><span>22:05:47</span><b>R</b><strong>recovery_start</strong><em>INFO</em></div><div><span>22:05:49</span><b>S</b><strong>snapshot_saved</strong><em>INFO</em></div></div>
+        </section>
+        <section class="panel compact">
+          <header class="panel-head"><div><span class="section-no dark">M</span><strong>访问保护日志</strong></div><span>Memory Protection</span></header>
+          <div class="deny-box"><div class="deny-title"><strong>Authorization Block Event</strong><b>DENIED</b></div><dl><dt>requester</dt><dd>agent-backend (PID 151604)</dd><dt>target</dt><dd>private:backend-draft</dd><dt>mode</dt><dd>write</dd><dt>decision</dt><dd>DENIED</dd></dl></div>
+          <div class="hidden-mount"><table><tbody id="deny-tbody"></tbody></table><span id="deny-cnt"></span></div>
+        </section>
+        <aside class="right-rail lower">
+          <section class="panel compact">
+            <header class="panel-head"><div><span class="section-no dark">E</span><strong>复杂多 Agent 场景验证</strong><small>Replay</small></div><span>实验链路</span></header>
+            <ol class="scenario-list"><li><b>需求分析</b><span>解析 OS 赛题与任务边界</span><em>20s</em></li><li><b>DAG 调度</b><span>生成 architect / api / db / backend 并行链路</span><em>30s</em></li><li><b>上下文复用</b><span>共享 spec_shared / api_schema / db_schema</span><em>40s</em></li></ol>
+          </section>
+          <section class="panel compact">
+            <header class="panel-head"><div><span class="section-no dark">O</span><strong>国产开源 OS 支持</strong><small>openEuler Base</small></div><span>平台适配</span></header>
+            <table class="dense-table"><thead><tr><th>PLATFORM</th><th>KERNEL</th><th>RUNTIME HOOKS</th><th>STATUS</th></tr></thead><tbody><tr><td>openEuler 24.03</td><td>6.6 LTS</td><td>agent procfs / SSE</td><td><span class="state-pill ok">verified</span></td></tr><tr><td>openKylin 2.0</td><td>6.1 LTS</td><td>compat layer</td><td><span class="state-pill info">planned</span></td></tr><tr><td>OpenHarmony NEXT</td><td>liteos/posix</td><td>adapter</td><td><span class="state-pill idle">adapter</span></td></tr></tbody></table>
+          </section>
+          <section class="panel compact">
+            <header class="panel-head"><div><span class="section-no dark">S</span><strong>评分映射</strong><small>Rubric Evidence Map</small></div><span>答辩讲解辅助</span></header>
+            <table class="dense-table"><tbody><tr><td>系统设计与机制创新</td><td>30%</td><td><span class="state-pill info">概念抽象</span></td></tr><tr><td>功能完整性与实现深度</td><td>25%</td><td><span class="state-pill ok">模块闭环</span></td></tr><tr><td>性能优化效果</td><td>20%</td><td><span class="state-pill ok">指标对比</span></td></tr></tbody></table>
+          </section>
+        </aside>
+      </div>
+      <p class="footnote">Preview: left core zone for modules 1 / 2 / 3 / 4, right compact evidence rail</p>
+    </section>
+
+    <section id="page-cloud" class="dashboard-page" aria-label="云端多 Agent 框架对比">
+      <p class="page-screen-title">AgentOS Runtime · Cloud Agent Framework Benchmark</p>
+      <div class="cloud-kpis">
+        <article class="cloud-kpi blue"><span class="cloud-icon grid"></span><div><span>框架数</span><strong id="cloud-kpi-frameworks">4</strong></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 25 L15 24 L28 20 L41 22 L54 17 L67 21 L80 14 L93 19 L106 10 L118 15"/></svg></article>
+        <article class="cloud-kpi green"><span class="cloud-icon stack"></span><div><span>场景</span><strong id="cloud-kpi-scenarios">1</strong></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 24 L16 22 L29 18 L42 20 L55 15 L68 19 L81 11 L94 17 L107 9 L118 14"/></svg></article>
+        <article class="cloud-kpi purple"><span class="cloud-icon play"></span><div><span>总运行</span><strong id="cloud-kpi-runs">8</strong></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 23 L14 21 L26 15 L38 22 L51 17 L63 13 L76 19 L88 12 L101 18 L118 15"/></svg></article>
+        <article class="cloud-kpi cyan"><span class="cloud-icon clock"></span><div><span>延迟变化</span><strong id="cloud-kpi-latency">n/a</strong><small id="cloud-kpi-latency-sm">基于 4 个框架真实接入</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 22 L15 18 L30 20 L43 15 L58 17 L72 12 L87 18 L102 15 L118 19"/></svg></article>
+        <article class="cloud-kpi orange"><span class="cloud-icon doc"></span><div><span>Token 变化</span><strong id="cloud-kpi-tokens">n/a</strong><small id="cloud-kpi-tokens-sm">基于 4 个框架真实接入</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 17 L16 20 L29 16 L42 22 L55 15 L68 19 L82 14 L96 18 L118 16"/></svg></article>
+        <article class="cloud-kpi red"><span class="cloud-icon cost"></span><div><span>成本变化</span><strong id="cloud-kpi-cost">n/a</strong><small id="cloud-kpi-cost-sm">基于 4 个框架真实接入</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 21 L15 17 L28 22 L41 18 L54 23 L67 15 L80 20 L93 17 L106 21 L118 18"/></svg></article>
+        <article class="cloud-kpi green"><span class="cloud-icon shield"></span><div><span>故障恢复</span><strong id="cloud-kpi-recovery">n/a</strong><small>runtime recovered</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 23 L15 21 L28 20 L41 17 L54 18 L67 14 L80 16 L93 12 L106 17 L118 15"/></svg></article>
+        <article class="cloud-kpi purple"><span class="cloud-icon bars"></span><div><span>观测事件</span><strong id="cloud-kpi-events">n/a</strong><small>runtime events</small></div><svg class="spark" viewBox="0 0 120 30"><path d="M2 25 L14 23 L26 19 L38 22 L51 15 L63 20 L76 13 L88 17 L101 10 L118 14"/></svg></article>
+      </div>
+
+      <div class="cloud-grid">
+        <section class="panel cloud-matrix">
+          <header class="matrix-head"><div><h3>Framework Benchmark Matrix · 原生框架 vs 接入 AgentOS Runtime</h3><p id="cloud-provenance-summary">真实 DeepSeek deepseek-chat · 同一任务集 · 四个框架均保留原生编排</p></div></header>
+          <div class="framework-card-grid" id="cloud-framework-cards"></div>
+          <div class="matrix-wrap">
+            <table class="benchmark-table">
+              <thead><tr><th rowspan="2">Framework</th><th colspan="6">A. Native Framework 原生运行</th><th colspan="6">B. + AgentOS Runtime</th><th colspan="5">C. Runtime 对比原生框架</th></tr><tr><th>Avg Latency(s)</th><th>Prompt Tokens(K)</th><th>API Cost(USD)</th><th>Cached Tokens / Context Reuse(%)</th><th>Recovered Faults</th><th>Observable Events</th><th>Avg Latency(s)</th><th>Prompt Tokens(K)</th><th>API Cost(USD)</th><th>Cached Tokens / Context Reuse(%)</th><th>Recovered Faults</th><th>Observable Events</th><th>Latency</th><th>Tokens</th><th>Cost</th><th>Context Reuse</th><th>Events</th></tr></thead>
+              <tbody id="cloud-benchmark-tbody">
+                <tr><td colspan="18" class="muted">Loading real benchmark data…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="cloud-evidence-grid">
+          <article class="panel cloud-architecture-panel">
+            <header class="subhead">云端接入架构 · 保留框架编排，统一接入 Runtime</header>
+            <div class="arch-flow arch-flow-vertical">
+              <div class="arch-stage"><h4>框架适配层</h4><span>OpenAI Agents SDK</span><span>LangGraph</span><span>AutoGen</span><span>CrewAI</span><small>保留各框架原生编排</small></div>
+              <b class="arch-arrow"></b>
+              <div class="arch-stage runtime-box"><h4>AgentOS Runtime 层</h4><span>任务图 task graph</span><span>上下文引用 context refs</span><span>事件流 event stream</span><span>成本计量 cost meter</span><small>统一接管模型调用前的执行控制</small></div>
+              <b class="arch-arrow"></b>
+              <div class="arch-stage"><h4>云端模型后端</h4><span>ModelGateway</span><span>上下文存储</span><span>缓存服务</span><span>观测存储</span><small>统一调用 DeepSeek API</small></div>
+            </div>
+            <p class="arch-explain">框架仍负责编排；Runtime 统一管理模型调用、上下文复用、事件观测与成本计量。</p>
+            <div class="control-plane-strip">统一观测与控制平面</div>
+          </article>
+
+          <article class="panel real-evidence-panel">
+            <header class="subhead">真实接入证据</header>
+            <div class="evidence-list compact" id="evidence-list">
+              <div class="evidence-item"><span class="evidence-icon">编</span><div><strong>编排接入</strong><small id="evidence-scheduling-small">4/4 框架保留原生编排</small></div><b>4/4</b></div>
+              <div class="evidence-item"><span class="evidence-icon">接</span><div><strong>Runtime 接入</strong><small id="evidence-reuse-small">4/4 框架接入 ModelGateway</small></div><b>4/4</b></div>
+              <div class="evidence-item"><span class="evidence-icon">源</span><div><strong>Token 来源</strong><small id="evidence-cost-small">Token 与成本来自 usage</small></div><b>真实</b></div>
+              <div class="evidence-item"><span class="evidence-icon">复</span><div><strong>故障恢复</strong><small id="evidence-fault-small">Runtime 路径记录恢复事件</small></div><b>✓</b></div>
+              <div class="evidence-item"><span class="evidence-icon">观</span><div><strong>观测事件</strong><small id="evidence-provenance-small">事件流可追踪</small></div><b>✓</b></div>
+            </div>
+          </article>
+
+          <article class="panel insight-card latency-card" id="insight-latency">
+            <header class="subhead">1. 平均延迟变化</header>
+            <div class="insight-list" id="insight-latency-list"></div>
+            <p class="insight-footer">多数框架接入 Runtime 后延迟下降；原生已很快的框架可能表现为持平。</p>
+          </article>
+
+          <article class="panel insight-card prompt-card" id="insight-prompt">
+            <header class="subhead">2. Prompt 开销与上下文复用</header>
+            <div class="insight-legend">
+              <span class="legend-dot prompt"></span> Prompt Token 开销
+              <span class="legend-pill reuse">复用率</span> 上下文复用
+            </div>
+            <div class="insight-list" id="insight-prompt-list"></div>
+            <p class="insight-footer">不同框架会追加不同 system / agent / task 包装；Runtime 记录 Prompt 开销并复用上下文。</p>
+          </article>
+
+          <article class="panel insight-card cost-card" id="insight-cost">
+            <header class="subhead">3. API 成本变化</header>
+            <div class="insight-list" id="insight-cost-list"></div>
+          </article>
+
+          <article class="panel recovery-card" id="recovery-card">
+            <header class="subhead">4. 统一故障恢复验证</header>
+            <div class="recovery-matrix" id="recovery-matrix"></div>
+            <p class="insight-footer">四个框架使用同一标准故障注入脚本；本图验证恢复链路，不比较恢复速度。</p>
+          </article>
+        </section>
+      </div>
+      <footer class="conclusion"><span class="cloud-dot"></span><p id="cloud-footer-source">数据来源：AgentOS Runtime cloud benchmark　|　模型：DeepSeek deepseek-chat　|　场景：1 个　|　总运行：8 次　|　对比模式：Native vs +Runtime</p><strong>四个框架均保留原生编排，底层模型调用统一接入 AgentOS Runtime。输入、API Key 与任务保持一致；差异来自 Runtime 的上下文复用、故障恢复与观测事件。</strong></footer>
+    </section>
+  </main>
+</div>
+<script src="/director.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

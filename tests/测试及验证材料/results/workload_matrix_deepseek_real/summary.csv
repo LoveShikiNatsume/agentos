@@ -1,0 +1,5 @@
+workload,bl_latency,rt_latency,bl_cache_ratio,rt_cache_ratio,bl_tasks,rt_tasks,bl_fault,rt_fault,bl_tok_per_task,rt_tok_per_task,rt_events,rt_msg_count,rt_ctx_saved_bytes
+ai_inference,31.523s,116.931s,0.0%,0.0%,3/7,7/7,CRASHED,RECOVERED,111,105,100,0,2604
+compile,35.896s,44.053s,0.0%,0.0%,4/7,7/7,CRASHED,RECOVERED,112,106,99,0,2580
+compression,34.699s,104.536s,63.6%,86.6%,4/7,7/7,CRASHED,RECOVERED,302,296,100,0,6768
+network,20.728s,46.675s,0.0%,0.0%,3/7,7/7,CRASHED,RECOVERED,133,127,100,0,2952

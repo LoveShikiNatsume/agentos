@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentOS Runtime Dashboard</title>
+<style>
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f6f7f9;
+  color: #182026;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f7f9; }
+.shell { width: min(1480px, calc(100vw - 40px)); margin: 0 auto; padding: 24px 0 36px; }
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 560px);
+  gap: 24px;
+  align-items: end;
+  padding: 8px 0 18px;
+  border-bottom: 1px solid #d9dee5;
+}
+h1 { margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: 0; }
+h2 { margin: 0 0 12px; font-size: 18px; letter-spacing: 0; }
+.meta { margin: 8px 0 0; color: #596672; font-size: 13px; }
+.sources { display: grid; grid-template-columns: 64px 1fr; gap: 8px 12px; align-items: center; font-size: 13px; }
+.sources span { color: #596672; }
+code {
+  display: inline-block;
+  max-width: 100%;
+  padding: 3px 6px;
+  border: 1px solid #d9dee5;
+  background: #ffffff;
+  overflow-wrap: anywhere;
+}
+a { color: #1f6f78; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(112px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.kpi {
+  min-height: 78px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #d9dee5;
+  border-left-width: 4px;
+}
+.kpi span { display: block; color: #596672; font-size: 12px; margin-bottom: 10px; }
+.kpi strong { display: block; font-size: 22px; line-height: 1.1; overflow-wrap: anywhere; }
+.accent-a { border-left-color: #1f6f78; }
+.accent-b { border-left-color: #6f7d1f; }
+.accent-c { border-left-color: #9a4c1e; }
+.accent-d { border-left-color: #28784a; }
+.section { padding: 18px 0 4px; border-top: 1px solid #d9dee5; }
+.benchmark-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 12px;
+  color: #596672;
+  font-size: 13px;
+}
+.benchmark-strip strong { color: #182026; }
+.table-wrap { width: 100%; overflow-x: auto; background: #ffffff; border: 1px solid #d9dee5; }
+table { width: 100%; border-collapse: collapse; min-width: 860px; font-size: 13px; }
+th, td { padding: 9px 10px; border-bottom: 1px solid #e8ebef; text-align: left; vertical-align: top; }
+th { position: sticky; top: 0; background: #eef1f4; color: #34404b; font-weight: 650; }
+td { color: #25313b; overflow-wrap: anywhere; }
+tbody tr:hover { background: #f9fafb; }
+.empty { color: #7b8791; text-align: left; }
+@media (max-width: 1100px) {
+  .topbar { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(3, minmax(140px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .shell { width: min(100vw - 24px, 1480px); padding-top: 16px; }
+  .kpis { grid-template-columns: repeat(2, minmax(128px, 1fr)); }
+  h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="topbar"><div><h1>AgentOS Runtime Dashboard</h1><p class="meta">Generated 2026-06-24 21:37:12</p></div><div class="sources"><span>Logs</span><code>runs/defense/dashboard/_events/demo_events.jsonl</code><code>runs/defense/dashboard/_events/devops_events.jsonl</code><code>runs/defense/dashboard/_events/benchmark_events.jsonl</code><span>Report</span><span>-</span></div></header>
+<section class="kpis"><div class="kpi accent-a"><span>Agents</span><strong>11</strong></div><div class="kpi accent-b"><span>Events</span><strong>323</strong></div><div class="kpi accent-c"><span>Fault Events</span><strong>33</strong></div><div class="kpi accent-d"><span>Recoveries</span><strong>3</strong></div><div class="kpi accent-a"><span>Cgroups Created</span><strong>0</strong></div><div class="kpi accent-b"><span>PIDs Added</span><strong>0</strong></div><div class="kpi accent-d"><span>Cgroups Removed</span><strong>0</strong></div><div class="kpi accent-c"><span>Latency Delta</span><strong>37.72%</strong></div><div class="kpi accent-b"><span>Cache Delta</span><strong>77.83%</strong></div></section>
+<section class="section"><h2>Workload Matrix Evidence</h2><div class="benchmark-strip"><span>Backend <strong>cache-sim</strong></span><span>Duration <strong>1.029s</strong></span><span>Cache Improvement <strong>12.89%</strong></span><span>Fault Recovery <strong>4/4</strong></span><span>Tasks <strong>14 → 28</strong></span></div><h3>Real Backend Probe</h3><div class="benchmark-strip"><span>Backend <strong>mock</strong></span><span>Available <strong>Yes</strong></span></div><h3>Per-Workload Comparison</h3><div class="table-wrap"><table><thead><tr><th>Workload</th><th>BL Latency(s)</th><th>RT Latency(s)</th><th>BL Cache Hit</th><th>RT Cache Hit</th><th>BL Tasks</th><th>RT Tasks</th><th>Fault</th><th>Events</th></tr></thead><tbody><tr><td>ai_inference</td><td>0.077</td><td>0.180</td><td>58.64%</td><td>76.22%</td><td>3/7</td><td>7/7</td><td>RECOVERED</td><td>127</td></tr><tr><td>compile</td><td>0.100</td><td>0.150</td><td>66.46%</td><td>77.30%</td><td>4/7</td><td>7/7</td><td>RECOVERED</td><td>123</td></tr><tr><td>compression</td><td>0.096</td><td>0.168</td><td>71.61%</td><td>82.39%</td><td>4/8</td><td>7/8</td><td>RECOVERED</td><td>127</td></tr><tr><td>network</td><td>0.076</td><td>0.174</td><td>59.76%</td><td>78.06%</td><td>3/7</td><td>7/7</td><td>RECOVERED</td><td>130</td></tr></tbody></table></div><h3>Normalized Metrics (per completed task)</h3><div class="benchmark-strip"><span>Total RT Events <strong>507</strong></span><span>Total Messages <strong>0</strong></span><span>ContextRef Saved <strong>14904 B</strong></span><span>Tok/Task BL→RT <strong>177 → 166</strong></span></div><div class="table-wrap"><table><thead><tr><th>Workload</th><th>BL Tok/Task</th><th>RT Tok/Task</th><th>BL Lat/Task(s)</th><th>RT Lat/Task(s)</th><th>Cache Impr.</th><th>Recovery</th></tr></thead><tbody><tr><td>ai_inference</td><td>127</td><td>123</td><td>0.026</td><td>0.026</td><td>17.59%</td><td>Yes</td></tr><tr><td>compile</td><td>122</td><td>116</td><td>0.025</td><td>0.021</td><td>10.84%</td><td>Yes</td></tr><tr><td>compression</td><td>297</td><td>291</td><td>0.024</td><td>0.024</td><td>10.78%</td><td>Yes</td></tr><tr><td>network</td><td>138</td><td>133</td><td>0.025</td><td>0.025</td><td>18.31%</td><td>Yes</td></tr></tbody></table></div><h3>Interaction Overhead</h3><div class="table-wrap"><table><thead><tr><th>Workload</th><th>RT Events</th><th>Messages</th><th>Payload(B)</th><th>CtxRef Saved(B)</th><th>Evt Lat(ms)</th><th>Worker(ms)</th></tr></thead><tbody><tr><td>ai_inference</td><td>127</td><td>0</td><td>0</td><td>2604</td><td>1.4</td><td>0.0</td></tr><tr><td>compile</td><td>123</td><td>0</td><td>0</td><td>2580</td><td>1.2</td><td>0.0</td></tr><tr><td>compression</td><td>127</td><td>0</td><td>0</td><td>6768</td><td>1.3</td><td>0.0</td></tr><tr><td>network</td><td>130</td><td>0</td><td>0</td><td>2952</td><td>1.3</td><td>0.0</td></tr></tbody></table></div><h3>MessageBus / ContextRef Communication Evidence</h3><div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Message Count</td><td>70</td></tr><tr><td>Context Ref Count</td><td>35</td></tr><tr><td>Payload Bytes</td><td>47922</td></tr><tr><td>Inline Payload Bytes</td><td>46196</td></tr><tr><td>Ref Payload Bytes</td><td>1726</td></tr><tr><td>Bytes Saved</td><td>44470</td></tr><tr><td>Payload Reduction Ratio</td><td>96.26%</td></tr><tr><td>ContextRef Bytes Saved (total)</td><td>14904</td></tr><tr><td>Workload Count</td><td>4</td></tr></tbody></table></div><h3>sched_ext / eBPF Probe</h3><div class="benchmark-strip"><span>sched_ext <strong>unavailable</strong></span><span>BPF Map <strong>mock</strong></span><span>Fallback <strong>missing /sys/kernel/sched_ext; bpftool not found in PATH; missing CAP_BPF or uns</strong></span></div><div class="benchmark-strip"><span>cgroup v2 <strong>mounted</strong></span><span>Path <strong>/sys/fs/cgroup</strong></span><span>Controllers <strong>cpuset, cpu, io, memory, hugetlb</strong></span></div></section>
+<section class="section"><h2>vLLM Benchmark</h2><div class="benchmark-strip"><span>Runs <strong>1</strong></span><span>Latency Delta <strong>0.000s (37.72%)</strong></span><span>Prompt Savings <strong>0.0</strong></span></div><div class="table-wrap"><table><thead><tr><th>Mode</th><th>Latency Mean(s)</th><th>Prompt Tokens</th><th>Completion Tokens</th><th>Cache Hit Ratio</th><th>Faults</th><th>Events</th></tr></thead><tbody><tr><td>baseline</td><td>0.101</td><td>490.0</td><td>0.0</td><td>0.00%</td><td>1.0</td><td>49.0</td></tr><tr><td>runtime</td><td>0.139</td><td>1606.0</td><td>0.0</td><td>77.83%</td><td>0.0</td><td>109.0</td></tr></tbody></table></div></section>
+<section class="section"><h2>Agents</h2><div class="table-wrap"><table><thead><tr><th>Agent</th><th>Task</th><th>State</th><th>Role</th><th>PID</th><th>Worker</th><th>Exit</th><th>Mem Peak MB</th><th>PIDs</th><th>Cgroup</th></tr></thead><tbody><tr><td>agent-plan</td><td>plan</td><td>finished</td><td>planner</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-code</td><td>code</td><td>finished</td><td>coder</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-review</td><td>review</td><td>finished</td><td>reviewer</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-test</td><td>test</td><td>finished</td><td>tester</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-fix</td><td>fix</td><td>finished</td><td>fixer</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-deploy</td><td>deploy</td><td>finished</td><td>deployer</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-monitor</td><td>monitor</td><td>finished</td><td>monitor</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-diagnose</td><td>diagnose</td><td>finished</td><td>diagnoser</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-postmortem</td><td>postmortem</td><td>finished</td><td>postmortem</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-db_check</td><td>db_check</td><td>finished</td><td>db_inspector</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-verify</td><td>verify</td><td>finished</td><td>verifier</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div></section>
+<section class="section"><h2>Resource Isolation</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Agent</th><th>Task</th><th>PID</th><th>Mem Peak MB</th><th>PIDs</th><th>Path</th></tr></thead><tbody><tr><td colspan="8" class="empty">No rows.</td></tr></tbody></table></div></section>
+<section class="section"><h2>Fault And Recovery</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Agent</th><th>Task</th><th>Detail</th></tr></thead><tbody><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-plan</td><td>plan</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.injected</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.triggered</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_started</td><td>agent-code</td><td>code</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;error&quot;: &quot;injected kill fault for task code&quot;, &quot;reason&quot;: &quot;context_retry attempt 1/1&quot;}</td></tr><tr><td>21:37:12</td><td>fault.context_restored</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-review</td><td>review</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_completed</td><td>agent-code</td><td>code</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;recovery_time_secs&quot;: 0.010724243009462953}</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-test</td><td>test</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-fix</td><td>fix</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-deploy</td><td>deploy</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-monitor</td><td>monitor</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.injected</td><td>agent-diagnose</td><td>diagnose</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.triggered</td><td>agent-diagnose</td><td>diagnose</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-diagnose</td><td>diagnose</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_started</td><td>agent-diagnose</td><td>diagnose</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;error&quot;: &quot;injected kill fault for task diagnose&quot;, &quot;reason&quot;: &quot;context_retry attempt 1/1&quot;}</td></tr><tr><td>21:37:12</td><td>fault.context_restored</td><td>agent-diagnose</td><td>diagnose</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-postmortem</td><td>postmortem</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_completed</td><td>agent-diagnose</td><td>diagnose</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;recovery_time_secs&quot;: 0.01077665388584137}</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-fix</td><td>fix</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-db_check</td><td>db_check</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-verify</td><td>verify</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-plan</td><td>plan</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.injected</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.triggered</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_started</td><td>agent-code</td><td>code</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;error&quot;: &quot;injected kill fault for task code&quot;, &quot;reason&quot;: &quot;context_retry attempt 1/1&quot;}</td></tr><tr><td>21:37:12</td><td>fault.context_restored</td><td>agent-code</td><td>code</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-review</td><td>review</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.recovery_completed</td><td>agent-code</td><td>code</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;recovery_time_secs&quot;: 0.022960402071475983}</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-test</td><td>test</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-fix</td><td>fix</td><td>-</td></tr><tr><td>21:37:12</td><td>fault.context_snapshot_saved</td><td>agent-deploy</td><td>deploy</td><td>-</td></tr></tbody></table></div></section>
+</main>
+</body>
+</html>

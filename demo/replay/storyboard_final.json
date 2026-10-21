@@ -1,0 +1,314 @@
+{
+  "total_duration": 229,
+  "scenes": [
+    {
+      "scene": "intro",
+      "start": 0,
+      "duration": 6,
+      "page": "local",
+      "camera": null,
+      "caption": null,
+      "label": "",
+      "stinger": {
+        "title": "AgentOS Runtime",
+        "subtitle": "面向多 Agent 协作的操作系统级执行时",
+        "hold": 3.2,
+        "variant": "title"
+      },
+      "replay": {
+        "file": "act12_pipeline.jsonl",
+        "segments": [
+          {
+            "to_frac": 0.08,
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "camera": "#zone-process",
+      "caption": "ACB 将 Agent 映射为可调度、可观测的执行实体：状态、Worker 与资源归属同步流转。",
+      "beats": [
+        {
+          "trigger": {
+            "at": 16.0
+          },
+          "banner": "ACB 将 Agent 身份、执行状态与 Linux cgroup v2 资源域统一纳入控制平面，使每次调度决策可追溯至具体执行实体。",
+          "hold": 6.0,
+          "pulse": [
+            "#zone-process"
+          ]
+        }
+      ],
+      "scene": "act1_acb",
+      "start": 6,
+      "duration": 32,
+      "page": "local",
+      "label": "01 / 04 · Agent 即进程 · ACB",
+      "stinger": {
+        "title": "第一幕 · Agent 即进程（ACB）",
+        "subtitle": "统一生命周期、执行状态与资源归属"
+      },
+      "replay": {
+        "file": "act12_pipeline.jsonl",
+        "segments": [
+          {
+            "from_frac": 0.08,
+            "to_marker": "task.dynamic_submitted",
+            "weight": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "camera": "#zone-dag",
+      "caption": "TaskDAG 让无依赖节点并行执行，并支持任务在运行过程中动态加入依赖图。",
+      "beats": [
+        {
+          "trigger": {
+            "on_event": "task.dynamic_submitted"
+          },
+          "banner": "TaskDAG 在依赖图运行期间持续接纳新节点与边，调度器依据实时依赖状态重算可执行集合，而非依赖一次性预编译工作流。",
+          "hold": 6.5,
+          "pulse": [
+            "#zone-dag"
+          ]
+        }
+      ],
+      "slow_motion": {
+        "on_event": "task.dynamic_submitted",
+        "speed": 0.35,
+        "window_before": 2.0,
+        "window_after": 4.0
+      },
+      "replay": {
+        "file": "act12_pipeline.jsonl",
+        "segments": [
+          {
+            "from_marker": "task.dynamic_submitted",
+            "weight": 1.0
+          }
+        ]
+      },
+      "scene": "act2_dag",
+      "start": 38,
+      "duration": 50,
+      "page": "local",
+      "label": "02 / 04 · TaskDAG 依赖调度",
+      "stinger": {
+        "title": "第二幕 · TaskDAG 依赖调度",
+        "subtitle": "同层并发 · 运行时动态插入任务"
+      }
+    },
+    {
+      "camera": "#zone-memory",
+      "caption": "ContextRef 把公共项目背景登记为共享段，多 Agent 只传引用，不再重复搬运全文。",
+      "beats": [
+        {
+          "trigger": {
+            "at": 16.0
+          },
+          "banner": "公共上下文只存一份，多 Agent 按引用复用，从执行源头减少重复上下文搬运。",
+          "hold": 5.0,
+          "pulse": [
+            "#zone-memory"
+          ]
+        }
+      ],
+      "replay": {
+        "file": "act3_cache.jsonl",
+        "segments": [
+          {
+            "to_frac": 0.5,
+            "weight": 1.0
+          }
+        ]
+      },
+      "scene": "act3_context",
+      "start": 88,
+      "duration": 30,
+      "page": "local",
+      "label": "03 / 04 · Context 即内存",
+      "stinger": {
+        "title": "第三幕 · Context 即内存（ContextRef）",
+        "subtitle": "共享段复用 · 私有段隔离"
+      }
+    },
+    {
+      "camera": "#zone-cache",
+      "caption": "稳定共享前缀提高缓存亲和性：趋势线与各 Agent 命中条随事件逐步更新。",
+      "beats": [
+        {
+          "trigger": {
+            "at": 18.0
+          },
+          "banner": "稳定共享前缀结合 ContextRef 引用复用，将主实验缓存命中率从 76.7% 提升至 93.7%，减少多 Agent 的重复上下文传输。",
+          "hold": 6.0,
+          "pulse": [
+            "#zone-cache"
+          ]
+        }
+      ],
+      "replay": {
+        "file": "act3_cache.jsonl",
+        "segments": [
+          {
+            "from_frac": 0.5,
+            "weight": 1.0
+          }
+        ]
+      },
+      "scene": "act3_cache",
+      "start": 118,
+      "duration": 34,
+      "page": "local",
+      "label": "03 / 04 · KV Cache 亲和"
+    },
+    {
+      "camera": "#zone-fault",
+      "caption": "故障被限制在 security Agent：保存快照、恢复上下文，兄弟分支继续执行。",
+      "beats": [
+        {
+          "trigger": {
+            "on_event": "fault.context_restored"
+          },
+          "banner": "故障被隔离在单一 Agent 内；系统通过快照恢复上下文并保持无故障分支推进，完成数由原生 240/720 提升至 Runtime 720/720。",
+          "hold": 6.5,
+          "pulse": [
+            "#zone-fault",
+            "#zone-dag"
+          ]
+        }
+      ],
+      "replay": {
+        "file": "act4_fault.jsonl",
+        "segments": [
+          {
+            "weight": 1.0
+          }
+        ]
+      },
+      "spotlight_extra": [
+        "#zone-dag"
+      ],
+      "scene": "act4_fault",
+      "start": 152,
+      "duration": 55,
+      "page": "local",
+      "label": "04 / 04 · 故障注入与局部恢复",
+      "stinger": {
+        "title": "第四幕 · 故障注入与局部恢复",
+        "subtitle": "fault.injected → snapshot → context_restored"
+      }
+    },
+    {
+      "camera": "#kpi-row",
+      "beats": [
+        {
+          "trigger": {
+            "at": 3.5
+          },
+          "banner": "主实验：Token、费用与缓存三项同步优化",
+          "hold": 2.8,
+          "pulse": [
+            "#dir-results-overview"
+          ]
+        },
+        {
+          "trigger": {
+            "at": 9.0
+          },
+          "banner": "泛化：三类任务场景均呈现一致收益",
+          "hold": 2.8,
+          "pulse": [
+            "#dir-evidence-tracks"
+          ]
+        },
+        {
+          "trigger": {
+            "at": 14.0
+          },
+          "banner": "可靠性：故障完成从原生 240/720 提升至 Runtime 720/720",
+          "hold": 2.8,
+          "pulse": [
+            "#dir-recovery-proof"
+          ]
+        }
+      ],
+      "data_card": {
+        "kicker": "跨框架主实验 · 三场景泛化验证",
+        "title": "省、泛化、稳：运行时收益可迁移",
+        "overview": {
+          "token": {
+            "label": "Prompt Token",
+            "value": "−44.5%",
+            "source": "N1"
+          },
+          "cost": {
+            "label": "API 费用",
+            "value": "−52.8%",
+            "source": "N2"
+          },
+          "cache": {
+            "label": "缓存命中",
+            "from": "76.7%",
+            "to": "93.7%",
+            "source": "N3"
+          }
+        },
+        "evidence": [
+          {
+            "scene": "TAU-bench 客服",
+            "token": "−51.4%",
+            "cost": "−50.1%",
+            "note": "正确率不降",
+            "source": "N10"
+          },
+          {
+            "scene": "Multi-SWE-bench 六语言",
+            "token": "−44.7%",
+            "cost": "−75.7%",
+            "note": "逐语言稳定",
+            "source": "N11"
+          },
+          {
+            "scene": "TravelPlanner 规划",
+            "token": "−84.4%",
+            "cost": "−80.1%",
+            "note": "通过率持平",
+            "source": "N6"
+          }
+        ],
+        "recovery": {
+          "label": "局部恢复闭环",
+          "runtime": "720/720",
+          "native": "原生 240/720",
+          "conclusion": "故障被限制在单一 Agent，恢复后其余分支持续推进。",
+          "source": "N5"
+        }
+      },
+      "scene": "results",
+      "start": 207,
+      "duration": 18,
+      "page": "local",
+      "caption": null,
+      "label": "关键结果 · 可溯源"
+    },
+    {
+      "scene": "outro",
+      "start": 225,
+      "duration": 4,
+      "page": "local",
+      "camera": null,
+      "caption": null,
+      "label": "",
+      "fade_out": 0.5,
+      "stinger": {
+        "title": "演示结束 · 数据可复现",
+        "subtitle": "runs/demo_video/ · 答辩现场可回放",
+        "hold": 3.0,
+        "variant": "outro"
+      }
+    }
+  ]
+}

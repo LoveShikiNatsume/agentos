@@ -1,0 +1,7 @@
+{
+  "assembled_on": "Linux-6.1.0-35-amd64-x86_64-with-glibc2.36",
+  "generated_at": "2026-07-17T16:46:23.694352+00:00",
+  "regression_root": "/home/leaves/OS2026/imported_evidence/stage6-66910d96ebdf-20260718-004258/runs/member_a_sched_ext_validation/stage6_release/regression-20260718-003516",
+  "schema": "sched_ext_release.v1",
+  "source_evidence_root": "/home/leaves/OS2026/imported_evidence/member-a-openeuler-stage1-5-evidence-20260717-160703/runs/member_a_sched_ext_validation"
+}

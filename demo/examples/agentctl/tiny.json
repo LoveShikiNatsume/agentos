@@ -1,0 +1,11 @@
+{
+  "schema": "agentos.bench.v1",
+  "tasks": [
+    {
+      "id": "greeting",
+      "cwd": "workspace",
+      "task": "Read greeting.txt, replace its contents with exactly 'Hello, AgentOS!' followed by a newline, and verify the file contents.",
+      "score": {"type": "file_equals", "path": "greeting.txt", "expected": "Hello, AgentOS!\n"}
+    }
+  ]
+}

@@ -1,0 +1,792 @@
+{
+  "experiment": "scheduling_strategy_comparison",
+  "description": "FIFO-interleaved vs Critical-Path vs Cache-Affinity on local vLLM",
+  "timestamp": "20260610-223041",
+  "environment": {
+    "backend": "vllm",
+    "base_url": "http://localhost:8000",
+    "model": "qwen2.5-7b-instruct",
+    "prefix_groups": 8,
+    "tasks_per_group": 3,
+    "total_tasks": 24,
+    "padding_lines_per_group": 250,
+    "context_chars_per_group": {
+      "alpha": 2129,
+      "beta": 2199,
+      "gamma": 2224,
+      "delta": 2092,
+      "epsilon": 2064,
+      "zeta": 2030,
+      "eta": 2047,
+      "theta": 2120
+    },
+    "isolation": "per-strategy unique nonce prevents cross-strategy cache reuse"
+  },
+  "results": {
+    "interleaved": {
+      "name": "interleaved",
+      "order": [
+        "alpha-0",
+        "beta-0",
+        "delta-0",
+        "epsilon-0",
+        "eta-0",
+        "gamma-0",
+        "theta-0",
+        "zeta-0",
+        "alpha-1",
+        "beta-1",
+        "delta-1",
+        "epsilon-1",
+        "eta-1",
+        "gamma-1",
+        "theta-1",
+        "zeta-1",
+        "alpha-2",
+        "beta-2",
+        "delta-2",
+        "epsilon-2",
+        "eta-2",
+        "gamma-2",
+        "theta-2",
+        "zeta-2"
+      ],
+      "total_latency_s": 64.065,
+      "avg_latency_s": 2.669,
+      "total_prompt_tokens": 468181,
+      "total_hit_tokens": 0,
+      "total_miss_tokens": 468181,
+      "cache_hit_ratio": 0.0,
+      "calls": [
+        {
+          "task_id": "alpha-0",
+          "group": "alpha",
+          "prompt_tokens": 19327,
+          "hit": 0,
+          "miss": 19327,
+          "ratio": 0.0,
+          "latency_s": 2.731
+        },
+        {
+          "task_id": "beta-0",
+          "group": "beta",
+          "prompt_tokens": 19342,
+          "hit": 0,
+          "miss": 19342,
+          "ratio": 0.0,
+          "latency_s": 2.718
+        },
+        {
+          "task_id": "delta-0",
+          "group": "delta",
+          "prompt_tokens": 19315,
+          "hit": 0,
+          "miss": 19315,
+          "ratio": 0.0,
+          "latency_s": 2.699
+        },
+        {
+          "task_id": "epsilon-0",
+          "group": "epsilon",
+          "prompt_tokens": 19806,
+          "hit": 0,
+          "miss": 19806,
+          "ratio": 0.0,
+          "latency_s": 2.838
+        },
+        {
+          "task_id": "eta-0",
+          "group": "eta",
+          "prompt_tokens": 19807,
+          "hit": 0,
+          "miss": 19807,
+          "ratio": 0.0,
+          "latency_s": 2.644
+        },
+        {
+          "task_id": "gamma-0",
+          "group": "gamma",
+          "prompt_tokens": 19340,
+          "hit": 0,
+          "miss": 19340,
+          "ratio": 0.0,
+          "latency_s": 2.533
+        },
+        {
+          "task_id": "theta-0",
+          "group": "theta",
+          "prompt_tokens": 19324,
+          "hit": 0,
+          "miss": 19324,
+          "ratio": 0.0,
+          "latency_s": 2.546
+        },
+        {
+          "task_id": "zeta-0",
+          "group": "zeta",
+          "prompt_tokens": 19810,
+          "hit": 0,
+          "miss": 19810,
+          "ratio": 0.0,
+          "latency_s": 2.627
+        },
+        {
+          "task_id": "alpha-1",
+          "group": "alpha",
+          "prompt_tokens": 19326,
+          "hit": 0,
+          "miss": 19326,
+          "ratio": 0.0,
+          "latency_s": 2.781
+        },
+        {
+          "task_id": "beta-1",
+          "group": "beta",
+          "prompt_tokens": 19341,
+          "hit": 0,
+          "miss": 19341,
+          "ratio": 0.0,
+          "latency_s": 2.781
+        },
+        {
+          "task_id": "delta-1",
+          "group": "delta",
+          "prompt_tokens": 19314,
+          "hit": 0,
+          "miss": 19314,
+          "ratio": 0.0,
+          "latency_s": 2.783
+        },
+        {
+          "task_id": "epsilon-1",
+          "group": "epsilon",
+          "prompt_tokens": 19805,
+          "hit": 0,
+          "miss": 19805,
+          "ratio": 0.0,
+          "latency_s": 2.838
+        },
+        {
+          "task_id": "eta-1",
+          "group": "eta",
+          "prompt_tokens": 19806,
+          "hit": 0,
+          "miss": 19806,
+          "ratio": 0.0,
+          "latency_s": 2.837
+        },
+        {
+          "task_id": "gamma-1",
+          "group": "gamma",
+          "prompt_tokens": 19339,
+          "hit": 0,
+          "miss": 19339,
+          "ratio": 0.0,
+          "latency_s": 2.753
+        },
+        {
+          "task_id": "theta-1",
+          "group": "theta",
+          "prompt_tokens": 19323,
+          "hit": 0,
+          "miss": 19323,
+          "ratio": 0.0,
+          "latency_s": 2.78
+        },
+        {
+          "task_id": "zeta-1",
+          "group": "zeta",
+          "prompt_tokens": 19809,
+          "hit": 0,
+          "miss": 19809,
+          "ratio": 0.0,
+          "latency_s": 2.842
+        },
+        {
+          "task_id": "alpha-2",
+          "group": "alpha",
+          "prompt_tokens": 19324,
+          "hit": 0,
+          "miss": 19324,
+          "ratio": 0.0,
+          "latency_s": 2.515
+        },
+        {
+          "task_id": "beta-2",
+          "group": "beta",
+          "prompt_tokens": 19339,
+          "hit": 0,
+          "miss": 19339,
+          "ratio": 0.0,
+          "latency_s": 2.514
+        },
+        {
+          "task_id": "delta-2",
+          "group": "delta",
+          "prompt_tokens": 19312,
+          "hit": 0,
+          "miss": 19312,
+          "ratio": 0.0,
+          "latency_s": 2.512
+        },
+        {
+          "task_id": "epsilon-2",
+          "group": "epsilon",
+          "prompt_tokens": 19803,
+          "hit": 0,
+          "miss": 19803,
+          "ratio": 0.0,
+          "latency_s": 2.572
+        },
+        {
+          "task_id": "eta-2",
+          "group": "eta",
+          "prompt_tokens": 19804,
+          "hit": 0,
+          "miss": 19804,
+          "ratio": 0.0,
+          "latency_s": 2.572
+        },
+        {
+          "task_id": "gamma-2",
+          "group": "gamma",
+          "prompt_tokens": 19337,
+          "hit": 0,
+          "miss": 19337,
+          "ratio": 0.0,
+          "latency_s": 2.45
+        },
+        {
+          "task_id": "theta-2",
+          "group": "theta",
+          "prompt_tokens": 19321,
+          "hit": 0,
+          "miss": 19321,
+          "ratio": 0.0,
+          "latency_s": 2.516
+        },
+        {
+          "task_id": "zeta-2",
+          "group": "zeta",
+          "prompt_tokens": 19807,
+          "hit": 0,
+          "miss": 19807,
+          "ratio": 0.0,
+          "latency_s": 2.677
+        }
+      ]
+    },
+    "critical-path": {
+      "name": "critical-path",
+      "order": [
+        "alpha-2",
+        "beta-2",
+        "gamma-2",
+        "delta-2",
+        "epsilon-2",
+        "zeta-2",
+        "eta-2",
+        "theta-2",
+        "alpha-1",
+        "beta-1",
+        "gamma-1",
+        "delta-1",
+        "epsilon-1",
+        "zeta-1",
+        "eta-1",
+        "theta-1",
+        "alpha-0",
+        "beta-0",
+        "gamma-0",
+        "delta-0",
+        "epsilon-0",
+        "zeta-0",
+        "eta-0",
+        "theta-0"
+      ],
+      "total_latency_s": 65.006,
+      "avg_latency_s": 2.709,
+      "total_prompt_tokens": 468229,
+      "total_hit_tokens": 16,
+      "total_miss_tokens": 468213,
+      "cache_hit_ratio": 0.0,
+      "calls": [
+        {
+          "task_id": "alpha-2",
+          "group": "alpha",
+          "prompt_tokens": 19326,
+          "hit": 0,
+          "miss": 19326,
+          "ratio": 0.0,
+          "latency_s": 2.514
+        },
+        {
+          "task_id": "beta-2",
+          "group": "beta",
+          "prompt_tokens": 19341,
+          "hit": 0,
+          "miss": 19341,
+          "ratio": 0.0,
+          "latency_s": 2.504
+        },
+        {
+          "task_id": "gamma-2",
+          "group": "gamma",
+          "prompt_tokens": 19339,
+          "hit": 0,
+          "miss": 19339,
+          "ratio": 0.0,
+          "latency_s": 2.644
+        },
+        {
+          "task_id": "delta-2",
+          "group": "delta",
+          "prompt_tokens": 19314,
+          "hit": 0,
+          "miss": 19314,
+          "ratio": 0.0,
+          "latency_s": 2.518
+        },
+        {
+          "task_id": "epsilon-2",
+          "group": "epsilon",
+          "prompt_tokens": 19805,
+          "hit": 0,
+          "miss": 19805,
+          "ratio": 0.0,
+          "latency_s": 2.58
+        },
+        {
+          "task_id": "zeta-2",
+          "group": "zeta",
+          "prompt_tokens": 19809,
+          "hit": 16,
+          "miss": 19793,
+          "ratio": 0.0008,
+          "latency_s": 2.589
+        },
+        {
+          "task_id": "eta-2",
+          "group": "eta",
+          "prompt_tokens": 19806,
+          "hit": 0,
+          "miss": 19806,
+          "ratio": 0.0,
+          "latency_s": 2.594
+        },
+        {
+          "task_id": "theta-2",
+          "group": "theta",
+          "prompt_tokens": 19323,
+          "hit": 0,
+          "miss": 19323,
+          "ratio": 0.0,
+          "latency_s": 2.554
+        },
+        {
+          "task_id": "alpha-1",
+          "group": "alpha",
+          "prompt_tokens": 19328,
+          "hit": 0,
+          "miss": 19328,
+          "ratio": 0.0,
+          "latency_s": 2.803
+        },
+        {
+          "task_id": "beta-1",
+          "group": "beta",
+          "prompt_tokens": 19343,
+          "hit": 0,
+          "miss": 19343,
+          "ratio": 0.0,
+          "latency_s": 2.806
+        },
+        {
+          "task_id": "gamma-1",
+          "group": "gamma",
+          "prompt_tokens": 19341,
+          "hit": 0,
+          "miss": 19341,
+          "ratio": 0.0,
+          "latency_s": 2.813
+        },
+        {
+          "task_id": "delta-1",
+          "group": "delta",
+          "prompt_tokens": 19316,
+          "hit": 0,
+          "miss": 19316,
+          "ratio": 0.0,
+          "latency_s": 2.773
+        },
+        {
+          "task_id": "epsilon-1",
+          "group": "epsilon",
+          "prompt_tokens": 19807,
+          "hit": 0,
+          "miss": 19807,
+          "ratio": 0.0,
+          "latency_s": 2.868
+        },
+        {
+          "task_id": "zeta-1",
+          "group": "zeta",
+          "prompt_tokens": 19811,
+          "hit": 0,
+          "miss": 19811,
+          "ratio": 0.0,
+          "latency_s": 2.865
+        },
+        {
+          "task_id": "eta-1",
+          "group": "eta",
+          "prompt_tokens": 19808,
+          "hit": 0,
+          "miss": 19808,
+          "ratio": 0.0,
+          "latency_s": 2.869
+        },
+        {
+          "task_id": "theta-1",
+          "group": "theta",
+          "prompt_tokens": 19325,
+          "hit": 0,
+          "miss": 19325,
+          "ratio": 0.0,
+          "latency_s": 2.803
+        },
+        {
+          "task_id": "alpha-0",
+          "group": "alpha",
+          "prompt_tokens": 19329,
+          "hit": 0,
+          "miss": 19329,
+          "ratio": 0.0,
+          "latency_s": 2.723
+        },
+        {
+          "task_id": "beta-0",
+          "group": "beta",
+          "prompt_tokens": 19344,
+          "hit": 0,
+          "miss": 19344,
+          "ratio": 0.0,
+          "latency_s": 2.797
+        },
+        {
+          "task_id": "gamma-0",
+          "group": "gamma",
+          "prompt_tokens": 19342,
+          "hit": 0,
+          "miss": 19342,
+          "ratio": 0.0,
+          "latency_s": 2.643
+        },
+        {
+          "task_id": "delta-0",
+          "group": "delta",
+          "prompt_tokens": 19317,
+          "hit": 0,
+          "miss": 19317,
+          "ratio": 0.0,
+          "latency_s": 2.623
+        },
+        {
+          "task_id": "epsilon-0",
+          "group": "epsilon",
+          "prompt_tokens": 19808,
+          "hit": 0,
+          "miss": 19808,
+          "ratio": 0.0,
+          "latency_s": 2.708
+        },
+        {
+          "task_id": "zeta-0",
+          "group": "zeta",
+          "prompt_tokens": 19812,
+          "hit": 0,
+          "miss": 19812,
+          "ratio": 0.0,
+          "latency_s": 2.842
+        },
+        {
+          "task_id": "eta-0",
+          "group": "eta",
+          "prompt_tokens": 19809,
+          "hit": 0,
+          "miss": 19809,
+          "ratio": 0.0,
+          "latency_s": 2.878
+        },
+        {
+          "task_id": "theta-0",
+          "group": "theta",
+          "prompt_tokens": 19326,
+          "hit": 0,
+          "miss": 19326,
+          "ratio": 0.0,
+          "latency_s": 2.689
+        }
+      ]
+    },
+    "cache-affinity": {
+      "name": "cache-affinity",
+      "order": [
+        "zeta-2",
+        "zeta-1",
+        "zeta-0",
+        "beta-2",
+        "beta-1",
+        "beta-0",
+        "epsilon-2",
+        "epsilon-1",
+        "epsilon-0",
+        "alpha-2",
+        "alpha-1",
+        "alpha-0",
+        "theta-2",
+        "theta-1",
+        "theta-0",
+        "gamma-2",
+        "gamma-1",
+        "gamma-0",
+        "eta-2",
+        "eta-1",
+        "eta-0",
+        "delta-2",
+        "delta-1",
+        "delta-0"
+      ],
+      "total_latency_s": 29.498,
+      "avg_latency_s": 1.229,
+      "total_prompt_tokens": 468157,
+      "total_hit_tokens": 311712,
+      "total_miss_tokens": 156445,
+      "cache_hit_ratio": 0.6658,
+      "calls": [
+        {
+          "task_id": "zeta-2",
+          "group": "zeta",
+          "prompt_tokens": 19806,
+          "hit": 0,
+          "miss": 19806,
+          "ratio": 0.0,
+          "latency_s": 2.597
+        },
+        {
+          "task_id": "zeta-1",
+          "group": "zeta",
+          "prompt_tokens": 19808,
+          "hit": 19792,
+          "miss": 16,
+          "ratio": 0.9992,
+          "latency_s": 0.624
+        },
+        {
+          "task_id": "zeta-0",
+          "group": "zeta",
+          "prompt_tokens": 19809,
+          "hit": 19792,
+          "miss": 17,
+          "ratio": 0.9991,
+          "latency_s": 0.512
+        },
+        {
+          "task_id": "beta-2",
+          "group": "beta",
+          "prompt_tokens": 19338,
+          "hit": 0,
+          "miss": 19338,
+          "ratio": 0.0,
+          "latency_s": 2.542
+        },
+        {
+          "task_id": "beta-1",
+          "group": "beta",
+          "prompt_tokens": 19340,
+          "hit": 19312,
+          "miss": 28,
+          "ratio": 0.9986,
+          "latency_s": 0.622
+        },
+        {
+          "task_id": "beta-0",
+          "group": "beta",
+          "prompt_tokens": 19341,
+          "hit": 19312,
+          "miss": 29,
+          "ratio": 0.9985,
+          "latency_s": 0.518
+        },
+        {
+          "task_id": "epsilon-2",
+          "group": "epsilon",
+          "prompt_tokens": 19802,
+          "hit": 0,
+          "miss": 19802,
+          "ratio": 0.0,
+          "latency_s": 2.638
+        },
+        {
+          "task_id": "epsilon-1",
+          "group": "epsilon",
+          "prompt_tokens": 19804,
+          "hit": 19776,
+          "miss": 28,
+          "ratio": 0.9986,
+          "latency_s": 0.625
+        },
+        {
+          "task_id": "epsilon-0",
+          "group": "epsilon",
+          "prompt_tokens": 19805,
+          "hit": 19776,
+          "miss": 29,
+          "ratio": 0.9985,
+          "latency_s": 0.624
+        },
+        {
+          "task_id": "alpha-2",
+          "group": "alpha",
+          "prompt_tokens": 19323,
+          "hit": 0,
+          "miss": 19323,
+          "ratio": 0.0,
+          "latency_s": 2.538
+        },
+        {
+          "task_id": "alpha-1",
+          "group": "alpha",
+          "prompt_tokens": 19325,
+          "hit": 19296,
+          "miss": 29,
+          "ratio": 0.9985,
+          "latency_s": 0.628
+        },
+        {
+          "task_id": "alpha-0",
+          "group": "alpha",
+          "prompt_tokens": 19326,
+          "hit": 19296,
+          "miss": 30,
+          "ratio": 0.9984,
+          "latency_s": 0.482
+        },
+        {
+          "task_id": "theta-2",
+          "group": "theta",
+          "prompt_tokens": 19320,
+          "hit": 0,
+          "miss": 19320,
+          "ratio": 0.0,
+          "latency_s": 2.469
+        },
+        {
+          "task_id": "theta-1",
+          "group": "theta",
+          "prompt_tokens": 19322,
+          "hit": 19296,
+          "miss": 26,
+          "ratio": 0.9987,
+          "latency_s": 0.621
+        },
+        {
+          "task_id": "theta-0",
+          "group": "theta",
+          "prompt_tokens": 19323,
+          "hit": 19296,
+          "miss": 27,
+          "ratio": 0.9986,
+          "latency_s": 0.596
+        },
+        {
+          "task_id": "gamma-2",
+          "group": "gamma",
+          "prompt_tokens": 19336,
+          "hit": 0,
+          "miss": 19336,
+          "ratio": 0.0,
+          "latency_s": 2.525
+        },
+        {
+          "task_id": "gamma-1",
+          "group": "gamma",
+          "prompt_tokens": 19338,
+          "hit": 19312,
+          "miss": 26,
+          "ratio": 0.9987,
+          "latency_s": 0.62
+        },
+        {
+          "task_id": "gamma-0",
+          "group": "gamma",
+          "prompt_tokens": 19339,
+          "hit": 19312,
+          "miss": 27,
+          "ratio": 0.9986,
+          "latency_s": 0.397
+        },
+        {
+          "task_id": "eta-2",
+          "group": "eta",
+          "prompt_tokens": 19803,
+          "hit": 0,
+          "miss": 19803,
+          "ratio": 0.0,
+          "latency_s": 2.589
+        },
+        {
+          "task_id": "eta-1",
+          "group": "eta",
+          "prompt_tokens": 19805,
+          "hit": 19776,
+          "miss": 29,
+          "ratio": 0.9985,
+          "latency_s": 0.621
+        },
+        {
+          "task_id": "eta-0",
+          "group": "eta",
+          "prompt_tokens": 19806,
+          "hit": 19776,
+          "miss": 30,
+          "ratio": 0.9985,
+          "latency_s": 0.382
+        },
+        {
+          "task_id": "delta-2",
+          "group": "delta",
+          "prompt_tokens": 19311,
+          "hit": 0,
+          "miss": 19311,
+          "ratio": 0.0,
+          "latency_s": 2.534
+        },
+        {
+          "task_id": "delta-1",
+          "group": "delta",
+          "prompt_tokens": 19313,
+          "hit": 19296,
+          "miss": 17,
+          "ratio": 0.9991,
+          "latency_s": 0.618
+        },
+        {
+          "task_id": "delta-0",
+          "group": "delta",
+          "prompt_tokens": 19314,
+          "hit": 19296,
+          "miss": 18,
+          "ratio": 0.9991,
+          "latency_s": 0.571
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "best_strategy": "cache-affinity",
+    "best_hit_ratio": 0.6658,
+    "worst_strategy": "interleaved",
+    "worst_hit_ratio": 0.0
+  }
+}

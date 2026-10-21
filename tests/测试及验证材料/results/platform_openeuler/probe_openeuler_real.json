@@ -1,0 +1,35 @@
+{
+  "kernel_version": "6.1.0-35-amd64",
+  "kernel_release": "#1 SMP PREEMPT_DYNAMIC Debian 6.1.137-1 (2025-05-07)",
+  "is_openeuler": false,
+  "openeuler_version": "",
+  "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https:/",
+  "sched_ext_available": false,
+  "sched_ext_path": "",
+  "sched_ext_reason": "missing /sys/kernel/sched_ext",
+  "bpf_available": true,
+  "bpf_reason": "",
+  "bpftool_available": false,
+  "bpftool_path": "",
+  "bpftool_version": "",
+  "cap_bpf": false,
+  "cap_bpf_reason": "missing CAP_BPF or unsupported kernel",
+  "bpf_map_mode": "mock",
+  "cgroup_v2_mounted": true,
+  "cgroup_v2_path": "/sys/fs/cgroup",
+  "cgroup_v2_controllers": [
+    "cpuset",
+    "cpu",
+    "io",
+    "memory",
+    "hugetlb",
+    "pids",
+    "rdma",
+    "misc"
+  ],
+  "fallback_reasons": [
+    "missing /sys/kernel/sched_ext",
+    "bpftool not found in PATH",
+    "missing CAP_BPF or unsupported kernel"
+  ]
+}

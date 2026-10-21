@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "detail": "schema=sched_ext_release.v1",
+      "name": "manifest_schema",
+      "passed": true
+    },
+    {
+      "detail": "all match",
+      "name": "manifest_hashes",
+      "passed": true
+    },
+    {
+      "detail": "commit=66910d96ebdf5a47117baeede2097210d16d4198 dirty=False",
+      "name": "git_provenance",
+      "passed": true
+    },
+    {
+      "detail": "all official summaries present",
+      "name": "official_evidence",
+      "passed": true
+    },
+    {
+      "detail": "official accepted flags",
+      "name": "stages_1_to_5_accepted",
+      "passed": true
+    },
+    {
+      "detail": "100 workers and partial mode",
+      "name": "partial_takeover",
+      "passed": true
+    },
+    {
+      "detail": "10 worker PID-policy bindings",
+      "name": "runtime_policy_chain",
+      "passed": true
+    },
+    {
+      "detail": "five modes, 500 workers",
+      "name": "stage4_formal",
+      "passed": true
+    },
+    {
+      "detail": "380/380 plus one-hour soak",
+      "name": "stage5_reliability",
+      "passed": true
+    },
+    {
+      "detail": "runtime/effects/15 trials/19 cases",
+      "name": "stage6_regression",
+      "passed": true
+    },
+    {
+      "detail": "Debian and openEuler exit code 0",
+      "name": "full_pytest",
+      "passed": true
+    },
+    {
+      "detail": "JSON/CSV/report regenerated exactly",
+      "name": "benchmark_traceability",
+      "passed": true
+    },
+    {
+      "detail": "{\"kernel.sched_ext_degraded\": 100, \"kernel.sched_ext_fallback\": 240, \"kernel.sched_ext_recovered\": 160}",
+      "name": "lifecycle_events",
+      "passed": true
+    },
+    {
+      "detail": "bounded claims",
+      "name": "claim_boundaries",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "schema": "sched_ext_release.v1"
+}

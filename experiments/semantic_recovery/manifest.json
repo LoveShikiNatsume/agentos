@@ -1,0 +1,2066 @@
+{
+  "schema_version": 1,
+  "protocol_version": "semantic-recovery-v1",
+  "seed": 20261019,
+  "source_manifest": "../context_selection/manifest.json",
+  "source_manifest_sha256": "2b2c04222aa8875ecde007089d2311987244051c19af2969e571c58631d06d85",
+  "protocol": {
+    "task": "one Runtime agent per question; extract each required document into private segments, then answer",
+    "arms": [
+      "dirty",
+      "snapshot",
+      "no_retry"
+    ],
+    "max_attempts": {
+      "dirty": 2,
+      "snapshot": 2,
+      "no_retry": 1
+    },
+    "single_factor": "SemanticRecoveryPolicy.restore_context; all other dirty/snapshot configuration identical",
+    "injection": "first attempt only; execution after K extractions; semantic adds a false private fact, calls answer, then overrides returned answer",
+    "source_order": "source question required_refs order; retries restart full extraction",
+    "scoring": "strict experiment A JSON and AST expression normalization"
+  },
+  "injections": [
+    {
+      "question_id": "q001",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "distutils.msvc9compiler.MSVCCompiler.compile",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "distutils.msvc9compiler.MSVCCompiler.compile",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q002",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "warnings.warn_explicit",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "warnings.warn_explicit",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q003",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "codecs.Codec.decode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'strict'"
+      },
+      "wrong_answer": {
+        "winner": "codecs.Codec.decode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'strict'"
+      }
+    },
+    {
+      "question_id": "q004",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "smtplib.SMTP.send_message",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "smtplib.SMTP.send_message",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q005",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "base64.b85encode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "base64.b85encode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q006",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "tempfile._TemporaryFileWrapper.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "tempfile._TemporaryFileWrapper.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q007",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "_pyio.TextIOWrapper._configure",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "_pyio.TextIOWrapper._configure",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q008",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "distutils.cmd.Command.spawn",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "1"
+      },
+      "wrong_answer": {
+        "winner": "distutils.cmd.Command.spawn",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "1"
+      }
+    },
+    {
+      "question_id": "q009",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "bz2.BZ2File.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'r'"
+      },
+      "wrong_answer": {
+        "winner": "bz2.BZ2File.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'r'"
+      }
+    },
+    {
+      "question_id": "q010",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "pydoc.render_doc",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'Python Library Documentation: %s'"
+      },
+      "wrong_answer": {
+        "winner": "pydoc.render_doc",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'Python Library Documentation: %s'"
+      }
+    },
+    {
+      "question_id": "q011",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "asyncio.unix_events._UnixSelectorEventLoop.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.unix_events._UnixSelectorEventLoop.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q012",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "_compression.DecompressReader.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "()"
+      },
+      "wrong_answer": {
+        "winner": "_compression.DecompressReader.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "()"
+      }
+    },
+    {
+      "question_id": "q013",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "http.cookies.BaseCookie.__parse_string",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "_CookiePattern"
+      },
+      "wrong_answer": {
+        "winner": "http.cookies.BaseCookie.__parse_string",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "_CookiePattern"
+      }
+    },
+    {
+      "question_id": "q014",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "distutils.ccompiler.CCompiler.mkpath",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "511"
+      },
+      "wrong_answer": {
+        "winner": "distutils.ccompiler.CCompiler.mkpath",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "511"
+      }
+    },
+    {
+      "question_id": "q015",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "distutils.ccompiler.CCompiler.create_static_lib",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "distutils.ccompiler.CCompiler.create_static_lib",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q016",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "base64.a85encode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "base64.a85encode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q017",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "tarfile.TarFile.open",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "tarfile.TarFile.open",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q018",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "functools.wraps",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "WRAPPER_ASSIGNMENTS"
+      },
+      "wrong_answer": {
+        "winner": "functools.wraps",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "WRAPPER_ASSIGNMENTS"
+      }
+    },
+    {
+      "question_id": "q019",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "smtplib.SMTP.auth",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "smtplib.SMTP.auth",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q020",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "urllib.request.FancyURLopener.retry_http_basic_auth",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "urllib.request.FancyURLopener.retry_http_basic_auth",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q021",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "distutils.archive_util.make_archive",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "distutils.archive_util.make_archive",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q022",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "distutils.msvccompiler.MSVCCompiler.link",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "distutils.msvccompiler.MSVCCompiler.link",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q023",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "encodings.utf_32.decode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'strict'"
+      },
+      "wrong_answer": {
+        "winner": "encodings.utf_32.decode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'strict'"
+      }
+    },
+    {
+      "question_id": "q024",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "webbrowser.open",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "webbrowser.open",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q025",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "multiprocessing.pool.Pool._map_async",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "multiprocessing.pool.Pool._map_async",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q026",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "pydoc.TextDoc.docmodule",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "pydoc.TextDoc.docmodule",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q027",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "webbrowser.BaseBrowser.open",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "webbrowser.BaseBrowser.open",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q028",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncore.close_all",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncore.close_all",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q029",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "collections.UserString.index",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "collections.UserString.index",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q030",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "gettext.translation",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "gettext.translation",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q031",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "email.policy.EmailPolicy._fold",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "email.policy.EmailPolicy._fold",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q032",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "nntplib.NNTP.head",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "nntplib.NNTP.head",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q033",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "xmlrpc.client.Marshaller.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "xmlrpc.client.Marshaller.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q034",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncio.unix_events._UnixReadPipeTransport.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.unix_events._UnixReadPipeTransport.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q035",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "unittest.case.TestCase.assertIsNotNone",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "unittest.case.TestCase.assertIsNotNone",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q036",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "inspect.Traceback.__new__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "inspect.Traceback.__new__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q037",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "http.cookiejar.MozillaCookieJar.save",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "http.cookiejar.MozillaCookieJar.save",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q038",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "email.header.Header.encode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "';, \\t'"
+      },
+      "wrong_answer": {
+        "winner": "email.header.Header.encode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "';, \\t'"
+      }
+    },
+    {
+      "question_id": "q039",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "concurrent.futures.process.ProcessPoolExecutor.map",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "concurrent.futures.process.ProcessPoolExecutor.map",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q040",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "unittest.mock.NonCallableMock.assert_has_calls",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "unittest.mock.NonCallableMock.assert_has_calls",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q041",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncio.streams.StreamReader.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "_DEFAULT_LIMIT"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.streams.StreamReader.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "_DEFAULT_LIMIT"
+      }
+    },
+    {
+      "question_id": "q042",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "tarfile.TarFile.gzopen",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'r'"
+      },
+      "wrong_answer": {
+        "winner": "tarfile.TarFile.gzopen",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'r'"
+      }
+    },
+    {
+      "question_id": "q043",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "http.cookiejar.DefaultCookiePolicy.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "http.cookiejar.DefaultCookiePolicy.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q044",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "codecs.StreamReader.decode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'strict'"
+      },
+      "wrong_answer": {
+        "winner": "codecs.StreamReader.decode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'strict'"
+      }
+    },
+    {
+      "question_id": "q045",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "argparse._VersionAction.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "argparse._VersionAction.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q046",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "email.message.Message.set_type",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'Content-Type'"
+      },
+      "wrong_answer": {
+        "winner": "email.message.Message.set_type",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'Content-Type'"
+      }
+    },
+    {
+      "question_id": "q047",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "webbrowser.register",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "webbrowser.register",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q048",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "datetime.timedelta.__new__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "datetime.timedelta.__new__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q049",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "platform._node",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "''"
+      },
+      "wrong_answer": {
+        "winner": "platform._node",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "''"
+      }
+    },
+    {
+      "question_id": "q050",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "tarfile.TarFile.extractall",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'.'"
+      },
+      "wrong_answer": {
+        "winner": "tarfile.TarFile.extractall",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'.'"
+      }
+    },
+    {
+      "question_id": "q051",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "bdb.Breakpoint.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "bdb.Breakpoint.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q052",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "pathlib._WindowsFlavour._split_extended_path",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "ext_namespace_prefix"
+      },
+      "wrong_answer": {
+        "winner": "pathlib._WindowsFlavour._split_extended_path",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "ext_namespace_prefix"
+      }
+    },
+    {
+      "question_id": "q053",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "argparse.ArgumentParser._print_message",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "argparse.ArgumentParser._print_message",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q054",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "asyncio.sslproto.SSLProtocol._fatal_error",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'Fatal error on transport'"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.sslproto.SSLProtocol._fatal_error",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'Fatal error on transport'"
+      }
+    },
+    {
+      "question_id": "q055",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "tempfile.SpooledTemporaryFile.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "tempfile.SpooledTemporaryFile.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q056",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "asyncio.base_events.BaseEventLoop.create_connection",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.base_events.BaseEventLoop.create_connection",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q057",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "logging.LoggerAdapter._log",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "logging.LoggerAdapter._log",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q058",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "traceback.StackSummary._extract_from_extended_frame_gen",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "traceback.StackSummary._extract_from_extended_frame_gen",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q059",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "xmlrpc.client.Transport.single_request",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "xmlrpc.client.Transport.single_request",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q060",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "urllib.request.FancyURLopener.retry_https_basic_auth",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "urllib.request.FancyURLopener.retry_https_basic_auth",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q061",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "wave._Chunk.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "wave._Chunk.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q062",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "xmlrpc.server.SimpleXMLRPCDispatcher._marshaled_dispatch",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "xmlrpc.server.SimpleXMLRPCDispatcher._marshaled_dispatch",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q063",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "mimetypes.guess_extension",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "mimetypes.guess_extension",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q064",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "distutils.cmd.Command.spawn",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "1"
+      },
+      "wrong_answer": {
+        "winner": "distutils.cmd.Command.spawn",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "1"
+      }
+    },
+    {
+      "question_id": "q065",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "turtle.TurtleScreen.onclick",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "1"
+      },
+      "wrong_answer": {
+        "winner": "turtle.TurtleScreen.onclick",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "1"
+      }
+    },
+    {
+      "question_id": "q066",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "traceback.print_stack",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "traceback.print_stack",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q067",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "email._parseaddr.AddrlistClass.getdelimited",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "email._parseaddr.AddrlistClass.getdelimited",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q068",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "logging.Logger.makeRecord",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "logging.Logger.makeRecord",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q069",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "bdb.Bdb.runeval",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "bdb.Bdb.runeval",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q070",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "fractions.Fraction.__int__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "operator.index"
+      },
+      "wrong_answer": {
+        "winner": "fractions.Fraction.__int__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "operator.index"
+      }
+    },
+    {
+      "question_id": "q071",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "multiprocessing.util.Finalize.__call__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "multiprocessing.util.Finalize.__call__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q072",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "asyncio.runners.Runner.run",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.runners.Runner.run",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q073",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "shutil.copytree",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "shutil.copytree",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q074",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "xml.etree.ElementTree.canonicalize",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "xml.etree.ElementTree.canonicalize",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q075",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "xml.etree.ElementPath.findall",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "xml.etree.ElementPath.findall",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q076",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "shutil._make_tarball",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'gzip'"
+      },
+      "wrong_answer": {
+        "winner": "shutil._make_tarball",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'gzip'"
+      }
+    },
+    {
+      "question_id": "q077",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "urllib.parse.splitnport",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "-1"
+      },
+      "wrong_answer": {
+        "winner": "urllib.parse.splitnport",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "-1"
+      }
+    },
+    {
+      "question_id": "q078",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "datetime.datetime.__new__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "datetime.datetime.__new__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q079",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "poplib.POP3.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "POP3_PORT"
+      },
+      "wrong_answer": {
+        "winner": "poplib.POP3.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "POP3_PORT"
+      }
+    },
+    {
+      "question_id": "q080",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "textwrap.wrap",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "70"
+      },
+      "wrong_answer": {
+        "winner": "textwrap.wrap",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "70"
+      }
+    },
+    {
+      "question_id": "q081",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "shutil.make_archive",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "shutil.make_archive",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q082",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "pstats.Stats.print_call_line",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'->'"
+      },
+      "wrong_answer": {
+        "winner": "pstats.Stats.print_call_line",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'->'"
+      }
+    },
+    {
+      "question_id": "q083",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "os.walk",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "os.walk",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q084",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "email.utils.formatdate",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "email.utils.formatdate",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q085",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "inspect._signature_from_function",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "inspect._signature_from_function",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q086",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "modulefinder.ModuleFinder.find_module",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "modulefinder.ModuleFinder.find_module",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q087",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "doctest.testfile",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "doctest.testfile",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q088",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "unittest.case.TestCase.assertListEqual",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "unittest.case.TestCase.assertListEqual",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q089",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "selectors._BaseSelectorImpl.register",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "selectors._BaseSelectorImpl.register",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q090",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "importlib._bootstrap_external.PathFinder.find_spec",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "importlib._bootstrap_external.PathFinder.find_spec",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q091",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "site.addsitedir",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "site.addsitedir",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q092",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "telnetlib.Telnet.open",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "telnetlib.Telnet.open",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q093",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "distutils.dist.Distribution._show_help",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "1"
+      },
+      "wrong_answer": {
+        "winner": "distutils.dist.Distribution._show_help",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "1"
+      }
+    },
+    {
+      "question_id": "q094",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "email.quoprimime._max_append",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "''"
+      },
+      "wrong_answer": {
+        "winner": "email.quoprimime._max_append",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "''"
+      }
+    },
+    {
+      "question_id": "q095",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "string.Formatter._vformat",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "0"
+      },
+      "wrong_answer": {
+        "winner": "string.Formatter._vformat",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "0"
+      }
+    },
+    {
+      "question_id": "q096",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "wsgiref.util.request_uri",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "wsgiref.util.request_uri",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q097",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncio.runners.Runner.run",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.runners.Runner.run",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q098",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "_pydecimal.Decimal.to_integral_exact",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "_pydecimal.Decimal.to_integral_exact",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q099",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "mailbox.Mailbox.get",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "mailbox.Mailbox.get",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q100",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "email.contentmanager.set_text_content",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'plain'"
+      },
+      "wrong_answer": {
+        "winner": "email.contentmanager.set_text_content",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'plain'"
+      }
+    },
+    {
+      "question_id": "q101",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "pathlib.Path.symlink_to",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "pathlib.Path.symlink_to",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q102",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "base64._b32decode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "base64._b32decode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q103",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "pprint.PrettyPrinter.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "1"
+      },
+      "wrong_answer": {
+        "winner": "pprint.PrettyPrinter.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "1"
+      }
+    },
+    {
+      "question_id": "q104",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "http.cookiejar.DefaultCookiePolicy.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "http.cookiejar.DefaultCookiePolicy.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q105",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "logging.handlers.SysLogHandler.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "('localhost', SYSLOG_UDP_PORT)"
+      },
+      "wrong_answer": {
+        "winner": "logging.handlers.SysLogHandler.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "('localhost', SYSLOG_UDP_PORT)"
+      }
+    },
+    {
+      "question_id": "q106",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncio.events.AbstractEventLoop.create_task",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.events.AbstractEventLoop.create_task",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q107",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "importlib._bootstrap._handle_fromlist",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "importlib._bootstrap._handle_fromlist",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q108",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 3,
+      "wrong_fact": {
+        "symbol": "_pydecimal.Decimal.__rsub__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "_pydecimal.Decimal.__rsub__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q109",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "asyncio.windows_events.IocpProactor.wait_for_handle",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "asyncio.windows_events.IocpProactor.wait_for_handle",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q110",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "smtplib.SMTP.login",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "True"
+      },
+      "wrong_answer": {
+        "winner": "smtplib.SMTP.login",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "True"
+      }
+    },
+    {
+      "question_id": "q111",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "zipfile.ZipInfo.from_file",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "zipfile.ZipInfo.from_file",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q112",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "base64.b32decode",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "base64.b32decode",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q113",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "getopt.GetoptError.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "''"
+      },
+      "wrong_answer": {
+        "winner": "getopt.GetoptError.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "''"
+      }
+    },
+    {
+      "question_id": "q114",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "xmlrpc.client.Transport.single_request",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "False"
+      },
+      "wrong_answer": {
+        "winner": "xmlrpc.client.Transport.single_request",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "False"
+      }
+    },
+    {
+      "question_id": "q115",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "hmac.new",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "hmac.new",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q116",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "_pydecimal.Context.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "_pydecimal.Context.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q117",
+      "type": "execution",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "distutils.bcppcompiler.BCPPCompiler.link",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "distutils.bcppcompiler.BCPPCompiler.link",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    },
+    {
+      "question_id": "q118",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "unittest.main.TestProgram.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "'__main__'"
+      },
+      "wrong_answer": {
+        "winner": "unittest.main.TestProgram.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "'__main__'"
+      }
+    },
+    {
+      "question_id": "q119",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 2,
+      "wrong_fact": {
+        "symbol": "logging.Handler.__init__",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "NOTSET"
+      },
+      "wrong_answer": {
+        "winner": "logging.Handler.__init__",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "NOTSET"
+      }
+    },
+    {
+      "question_id": "q120",
+      "type": "semantic",
+      "attempt": 1,
+      "after_private_segments": 1,
+      "wrong_fact": {
+        "symbol": "nntplib.NNTP.head",
+        "parameter_count": 1000000,
+        "first_default_parameter": "__injected_wrong_parameter__",
+        "first_default": "None"
+      },
+      "wrong_answer": {
+        "winner": "nntplib.NNTP.head",
+        "parameter": "__injected_wrong_parameter__",
+        "default": "None"
+      }
+    }
+  ]
+}

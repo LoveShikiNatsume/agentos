@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentOS Runtime Dashboard</title>
+<style>
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f6f7f9;
+  color: #182026;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f7f9; }
+.shell { width: min(1480px, calc(100vw - 40px)); margin: 0 auto; padding: 24px 0 36px; }
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 560px);
+  gap: 24px;
+  align-items: end;
+  padding: 8px 0 18px;
+  border-bottom: 1px solid #d9dee5;
+}
+h1 { margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: 0; }
+h2 { margin: 0 0 12px; font-size: 18px; letter-spacing: 0; }
+.meta { margin: 8px 0 0; color: #596672; font-size: 13px; }
+.sources { display: grid; grid-template-columns: 64px 1fr; gap: 8px 12px; align-items: center; font-size: 13px; }
+.sources span { color: #596672; }
+code {
+  display: inline-block;
+  max-width: 100%;
+  padding: 3px 6px;
+  border: 1px solid #d9dee5;
+  background: #ffffff;
+  overflow-wrap: anywhere;
+}
+a { color: #1f6f78; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(112px, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.kpi {
+  min-height: 78px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #d9dee5;
+  border-left-width: 4px;
+}
+.kpi span { display: block; color: #596672; font-size: 12px; margin-bottom: 10px; }
+.kpi strong { display: block; font-size: 22px; line-height: 1.1; overflow-wrap: anywhere; }
+.accent-a { border-left-color: #1f6f78; }
+.accent-b { border-left-color: #6f7d1f; }
+.accent-c { border-left-color: #9a4c1e; }
+.accent-d { border-left-color: #28784a; }
+.section { padding: 18px 0 4px; border-top: 1px solid #d9dee5; }
+.benchmark-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-bottom: 12px;
+  color: #596672;
+  font-size: 13px;
+}
+.benchmark-strip strong { color: #182026; }
+.table-wrap { width: 100%; overflow-x: auto; background: #ffffff; border: 1px solid #d9dee5; }
+table { width: 100%; border-collapse: collapse; min-width: 860px; font-size: 13px; }
+th, td { padding: 9px 10px; border-bottom: 1px solid #e8ebef; text-align: left; vertical-align: top; }
+th { position: sticky; top: 0; background: #eef1f4; color: #34404b; font-weight: 650; }
+td { color: #25313b; overflow-wrap: anywhere; }
+tbody tr:hover { background: #f9fafb; }
+.empty { color: #7b8791; text-align: left; }
+@media (max-width: 1100px) {
+  .topbar { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(3, minmax(140px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .shell { width: min(100vw - 24px, 1480px); padding-top: 16px; }
+  .kpis { grid-template-columns: repeat(2, minmax(128px, 1fr)); }
+  h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="topbar"><div><h1>AgentOS Runtime Dashboard</h1><p class="meta">Generated 2026-09-28 22:39:32</p></div><div class="sources"><span>Logs</span><code>events.jsonl</code><span>Report</span><span>-</span></div></header>
+<section class="kpis"><div class="kpi accent-a"><span>Agents</span><strong>11</strong></div><div class="kpi accent-b"><span>Events</span><strong>207</strong></div><div class="kpi accent-c"><span>Fault Events</span><strong>15</strong></div><div class="kpi accent-d"><span>Recoveries</span><strong>1</strong></div><div class="kpi accent-a"><span>Cgroups Created</span><strong>0</strong></div><div class="kpi accent-b"><span>PIDs Added</span><strong>0</strong></div><div class="kpi accent-d"><span>Cgroups Removed</span><strong>0</strong></div><div class="kpi accent-c"><span>Latency Delta</span><strong>-</strong></div><div class="kpi accent-b"><span>Cache Delta</span><strong>-</strong></div></section>
+<section class="section"><h2>Workload Matrix</h2><p class="empty">No workload matrix summary loaded.</p></section>
+<section class="section"><h2>Benchmark</h2><p class="empty">No benchmark summary loaded.</p></section>
+<section class="section"><h2>Agents</h2><div class="table-wrap"><table><thead><tr><th>Agent</th><th>Task</th><th>State</th><th>Role</th><th>PID</th><th>Worker</th><th>Exit</th><th>Mem Peak MB</th><th>PIDs</th><th>Cgroup</th></tr></thead><tbody><tr><td>agent-all_shared/source</td><td>all_shared/source</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-all_shared/tests</td><td>all_shared/tests</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-all_shared/rollout</td><td>all_shared/rollout</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-selected/source</td><td>selected/source</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-selected/tests</td><td>selected/tests</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-selected/rollout</td><td>selected/rollout</td><td>finished</td><td>review</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-isolation/optional</td><td>isolation/optional</td><td>failed</td><td>fail</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-isolation/review</td><td>isolation/review</td><td>finished</td><td>complete</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-isolation/report</td><td>isolation/report</td><td>finished</td><td>complete</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-retry/recover</td><td>retry/recover</td><td>finished</td><td>retry</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>agent-retry/healthy</td><td>retry/healthy</td><td>finished</td><td>update</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div></section>
+<section class="section"><h2>Resource Isolation</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Agent</th><th>Task</th><th>PID</th><th>Mem Peak MB</th><th>PIDs</th><th>Path</th></tr></thead><tbody><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>22:39:32</td><td>resource.pressure_sampled</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody></table></div></section>
+<section class="section"><h2>Fault And Recovery</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Event</th><th>Agent</th><th>Task</th><th>Detail</th></tr></thead><tbody><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-all_shared/source</td><td>all_shared/source</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-all_shared/tests</td><td>all_shared/tests</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-all_shared/rollout</td><td>all_shared/rollout</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-selected/source</td><td>selected/source</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-selected/tests</td><td>selected/tests</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-selected/rollout</td><td>selected/rollout</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-isolation/optional</td><td>isolation/optional</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.propagated</td><td>-</td><td>isolation/blocked</td><td>{&quot;reason&quot;: &quot;dependency failed&quot;}</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-isolation/review</td><td>isolation/review</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-isolation/report</td><td>isolation/report</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-retry/recover</td><td>retry/recover</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.context_snapshot_saved</td><td>agent-retry/healthy</td><td>retry/healthy</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.recovery_started</td><td>agent-retry/recover</td><td>retry/recover</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;error&quot;: &quot;injected transient failure&quot;, &quot;reason&quot;: &quot;context_retry attempt 1/1&quot;}</td></tr><tr><td>22:39:32</td><td>fault.context_restored</td><td>agent-retry/recover</td><td>retry/recover</td><td>-</td></tr><tr><td>22:39:32</td><td>fault.recovery_completed</td><td>agent-retry/recover</td><td>retry/recover</td><td>{&quot;action&quot;: &quot;context_retry&quot;, &quot;attempt&quot;: 1, &quot;recovery_time_secs&quot;: 3.408454358577728e-05}</td></tr></tbody></table></div></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+runs/
+.git
+*.egg-info
+.worktrees
+.serena
+.ruff_cache
+
+.venv-*/
+tests/results/
+demo/output/
+presentation/

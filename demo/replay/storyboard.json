@@ -1,0 +1,132 @@
+{
+  "total_duration": 285,
+  "scenes": [
+    {
+      "scene": "act1_acb",
+      "start": 0, "duration": 30,
+      "page": "local", "camera": "#zone-process",
+      "caption": "第一幕 · ACB：每个 Agent 是一条真实的 OS 级实体 —— PID、Worker、CGroup、状态实时流转",
+      "chapter_card": {"title": "第一幕 · Agent 即进程（ACB）", "subtitle": "Agent 生命周期由 Runtime 统一调度", "hold": 2.5},
+      "replay": {
+        "file": "act12_pipeline.jsonl",
+        "segments": [{"to_marker": "task.dynamic_submitted", "weight": 1.0}]
+      },
+      "beats": [
+        {
+          "trigger": {"at": 14.0},
+          "banner": "CGROUP 列 = 真实 Linux cgroup v2 · 非 UI 装饰",
+          "hold": 5.0,
+          "pulse": ["#zone-process"]
+        }
+      ]
+    },
+    {
+      "scene": "act2_dag",
+      "start": 30, "duration": 68,
+      "page": "local", "camera": "#zone-dag",
+      "caption": "第二幕 · TaskDAG：db_design 与 api_design 同层并发；backend 完成瞬间，lint 节点被运行时动态插入",
+      "chapter_card": {"title": "第二幕 · TaskDAG 依赖调度", "subtitle": "同层并发 + 运行时动态插入任务", "hold": 2.5},
+      "replay": {
+        "file": "act12_pipeline.jsonl",
+        "segments": [{"from_marker": "task.dynamic_submitted", "weight": 1.0}]
+      },
+      "slow_motion": {
+        "on_event": "task.dynamic_submitted",
+        "speed": 0.35,
+        "window_before": 2.0,
+        "window_after": 4.0
+      },
+      "beats": [
+        {
+          "trigger": {"on_event": "task.dynamic_submitted"},
+          "banner": "运行时动态插入 —— DAG 不是预编译，是活的",
+          "hold": 6.0,
+          "pulse": ["#zone-dag"]
+        }
+      ]
+    },
+    {
+      "scene": "act3_context",
+      "start": 98, "duration": 30,
+      "page": "local", "camera": "#zone-memory",
+      "caption": "第三幕 · ContextRef：公共背景登记为共享段，多 Agent 引用同一份，不再重复发送",
+      "chapter_card": {"title": "第三幕 · Context 即内存（ContextRef）", "subtitle": "共享段复用 · 私有段隔离", "hold": 2.5},
+      "replay": {
+        "file": "act3_cache.jsonl",
+        "segments": [{"to_frac": 0.5, "weight": 1.0}]
+      }
+    },
+    {
+      "scene": "act3_cache",
+      "start": 128, "duration": 30,
+      "page": "local", "camera": "#zone-cache",
+      "caption": "同一幕 · KV Cache 亲和：命中率趋势线抬升，各 Agent 命中率逐行上涨 —— 共享前缀只算一次",
+      "chapter_card": null,
+      "replay": {
+        "file": "act3_cache.jsonl",
+        "segments": [{"from_frac": 0.5, "weight": 1.0}]
+      },
+      "beats": [
+        {
+          "trigger": {"at": 22.0},
+          "banner": "缓存命中 76.7% → 93.7% · +17.0pp（来源 N3）",
+          "hold": 5.5,
+          "pulse": ["#zone-cache"]
+        }
+      ]
+    },
+    {
+      "scene": "act4_fault",
+      "start": 158, "duration": 67,
+      "page": "local", "camera": "#zone-fault",
+      "spotlight_extra": ["#zone-dag"],
+      "caption": "第四幕 · 容错：故意杀死 security Agent —— 单点失败止于单点，兄弟分支不停，上下文快照恢复后继续",
+      "chapter_card": {"title": "第四幕 · 故障注入与局部恢复", "subtitle": "fault.injected → snapshot → context_restored", "hold": 2.5},
+      "replay": {
+        "file": "act4_fault.jsonl",
+        "segments": [{"weight": 1.0}]
+      },
+      "beats": [
+        {
+          "trigger": {"on_event": "fault.context_restored"},
+          "banner": "故障止于单点 · Runtime 720/720 vs 原生 240/720（+480 单点恢复，来源 N5）",
+          "hold": 7.0,
+          "pulse": ["#zone-fault", "#zone-dag"]
+        }
+      ]
+    },
+    {
+      "scene": "results",
+      "start": 225, "duration": 45,
+      "page": "local", "camera": "#kpi-row",
+      "caption": null,
+      "chapter_card": null,
+      "data_card": {
+        "title": "第四章 · 关键结果（全部真实 API 实测，可溯源）",
+        "badges": [
+          {"label": "Token", "value": "−44.5%", "source": "N1"},
+          {"label": "API 费用", "value": "−52.8%", "source": "N2"},
+          {"label": "缓存命中", "value": "76.7% → 93.7%", "source": "N3"},
+          {"label": "容错完成", "value": "720/720 vs 原生 240/720", "source": "N5"}
+        ],
+        "rows": [
+          {"scene": "TAU-bench 客服", "token": "−51.4%", "cost": "−50.1%", "note": "正确率不降", "source": "N10"},
+          {"scene": "Multi-SWE-bench 六语言", "token": "−44.7%", "cost": "−75.7%", "note": "逐语言稳定", "source": "N11"},
+          {"scene": "TravelPlanner 规划", "token": "−84.4%", "cost": "−80.1%", "note": "通过率持平", "source": "N6"}
+        ],
+        "footnote": "主实验 SWE-bench Verified 30 任务 × 4 框架 · DeepSeek V4 Flash · 列表价；TAU-bench 费用为列表价口径;泛化场景为各自独立流水线，非四框架拆分"
+      }
+    },
+    {
+      "scene": "outro",
+      "start": 270, "duration": 15,
+      "page": "local", "camera": "#kpi-row",
+      "caption": "全部演示由同一事件流驱动，已落盘 runs/demo_video/ —— 答辩现场可回放复现",
+      "chapter_card": {
+        "title": "AgentOS Runtime",
+        "subtitle": "调度更省 · 上下文更省 · 故障可恢复 —— 数据可复现，欢迎查证",
+        "hold": 12, "fullscreen": true
+      }
+    }
+  ]
+}

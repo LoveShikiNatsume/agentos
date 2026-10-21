@@ -1,0 +1,2637 @@
+{
+  "accepted": true,
+  "affected_decisions": 1,
+  "cgroup_removed": 2,
+  "events": [
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "pressure": {
+          "cgroup_usage": null,
+          "cpu_some_avg10": 0.02,
+          "io_some_avg10": 0.0,
+          "memory_some_avg10": 0.0,
+          "pressure_level": "normal",
+          "pressure_source": "system",
+          "pressure_sources": {
+            "cpu": "system",
+            "io": "system",
+            "memory": "system"
+          },
+          "reason": null
+        },
+        "scope": "system"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7397377,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "failed_task_ids": [],
+        "mode": "mock",
+        "task_count": 1,
+        "updated_task_ids": [
+          "pressure"
+        ]
+      },
+      "event_type": "scheduler.bpf_map_updated",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399623,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "attempted_count": 1,
+        "bpf_mode": "mock",
+        "effective_bpf_mode": "mock",
+        "failed_count": 0,
+        "failed_task_ids": [],
+        "fallback_active": false,
+        "fallback_reason": null,
+        "pin_path": null,
+        "real_failed_task_ids": [],
+        "real_updated_count": 0,
+        "real_updated_task_ids": [],
+        "record_count": 1,
+        "requested_bpf_mode": "mock",
+        "schema_version": "bpf.task_record.v2",
+        "updated_count": 1,
+        "updated_task_ids": [
+          "pressure"
+        ]
+      },
+      "event_type": "kernel.decision_published",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399642,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "available_resources": null,
+        "backpressure": {
+          "defer_count": 0,
+          "degrade_count": 0,
+          "pressure_level": "normal",
+          "reasons": [],
+          "reject_count": 0,
+          "signal": "none"
+        },
+        "blocked": [],
+        "blocked_task_ids": [],
+        "bpf_map": {
+          "fallback_active": false,
+          "fallback_reason": null,
+          "mode": "mock",
+          "pin_path": null,
+          "requested_mode": "mock",
+          "schema_version": "bpf.task_record.v2",
+          "task_count": 1,
+          "tasks": {
+            "pressure": {
+              "agent_id": null,
+              "backpressure_signal": "none",
+              "cpu_max_percent": 50.0,
+              "cpu_weight": 512,
+              "fairness_score": 1.0,
+              "memory_max_mb": 128,
+              "metadata": {
+                "blocked_count": 0,
+                "deferred_count": 0,
+                "reason": "selected",
+                "wait_ms": 0.0
+              },
+              "pid": null,
+              "pids_max": 16,
+              "policy": "latency_first",
+              "pressure_level": "normal",
+              "schema_version": "bpf.task_record.v2",
+              "selected": true,
+              "starvation_risk": "low",
+              "task_id": "pressure",
+              "updated_at": 1783080407.739954,
+              "workload_class": "ai_inference"
+            }
+          }
+        },
+        "candidate_task_ids": [
+          "pressure"
+        ],
+        "deferred": [],
+        "deferred_task_ids": [],
+        "fairness": {
+          "avg_wait_ms": 0.0,
+          "fairness_score": 1.0,
+          "max_slowdown": 1.0,
+          "max_wait_ms": 0.0,
+          "starvation_risk": "low",
+          "warnings": []
+        },
+        "fairness_warnings": [],
+        "fallback_reason": "deterministic unprivileged feedback-loop demo",
+        "kernel_integration": "mock",
+        "kernel_probe": {
+          "bpf_map": "mock",
+          "details": {},
+          "fallback_mode": "member_a_p0_demo",
+          "reason": "deterministic unprivileged feedback-loop demo",
+          "sched_ext": "unavailable"
+        },
+        "max_batch_size": null,
+        "ordered_candidate_task_ids": [
+          "pressure"
+        ],
+        "policy": "latency_first",
+        "policy_reason": "fallback critical path ordering",
+        "policy_score": {
+          "candidate_count": 1,
+          "expected_parallelism": 0,
+          "has_critical_sla": false,
+          "max_prefix_heat": 0.0,
+          "max_task_risk_score": 0.13,
+          "max_urgency_score": 0.4,
+          "pressure_level": "normal",
+          "priority": 0,
+          "starvation_risk": "low"
+        },
+        "pressure": {
+          "cpu_some_avg10": 0.02,
+          "effective_pressure_level": "normal",
+          "fairness_pressure_level": "normal",
+          "io_some_avg10": 0.0,
+          "memory_some_avg10": 0.0,
+          "os_pressure_level": "normal",
+          "pressure_source": "system",
+          "runtime_health_pressure_level": "normal",
+          "scheduler_round": 1
+        },
+        "ready_task_ids": [
+          "pressure"
+        ],
+        "risk": {
+          "avg_task_risk_score": 0.13,
+          "high_risk_task_ids": [],
+          "max_task_risk_score": 0.13,
+          "risk_warnings": []
+        },
+        "runtime_health": {
+          "dependency_pressure": 0.5,
+          "fairness_pressure": 0.0,
+          "health_warnings": [
+            "dependency pressure is moderate"
+          ],
+          "pressure_level": "normal",
+          "queue_pressure": 0.0,
+          "resource_pressure": 0.0,
+          "runtime_health_score": 0.9
+        },
+        "runtime_mode": "user_space_runtime",
+        "safety": {
+          "admission_counts": {
+            "allow": 1,
+            "defer": 0,
+            "degrade": 0,
+            "reject": 0
+          },
+          "degraded_task_ids": [],
+          "rejected_task_ids": [],
+          "safety_deferred_task_ids": [],
+          "safety_violations": []
+        },
+        "schema_version": "scheduler.decision.v2",
+        "score_breakdown": {
+          "candidate_count": 1,
+          "expected_parallelism": 0,
+          "has_critical_sla": false,
+          "max_prefix_heat": 0.0,
+          "max_task_risk_score": 0.13,
+          "max_urgency_score": 0.4,
+          "pressure_level": "normal",
+          "priority": 0,
+          "starvation_risk": "low"
+        },
+        "selected": [
+          "pressure"
+        ],
+        "selected_task_ids": [
+          "pressure"
+        ],
+        "sla": {
+          "batch_count": 1,
+          "best_effort_count": 0,
+          "critical_count": 0,
+          "deadline_task_count": 0,
+          "interactive_count": 0,
+          "max_urgency_score": 0.4
+        },
+        "strategy": "critical_path",
+        "tasks": {
+          "pressure": {
+            "admission_decision": "allow",
+            "agent_role": "worker",
+            "available_value": null,
+            "backpressure_signal": "none",
+            "blocked_count": 0,
+            "blocked_resource": null,
+            "context_refs": [],
+            "critical_path_score": 2.0,
+            "deadline_ms": null,
+            "deferred_count": 0,
+            "degrade_reason": null,
+            "dependencies": [],
+            "policy": "latency_first",
+            "policy_reason": "fallback critical path ordering",
+            "previous_failures": 0,
+            "priority": 0,
+            "reason": "selected",
+            "required_value": null,
+            "reserved_value": null,
+            "resource_estimate": {
+              "allow_filesystem_write": false,
+              "allow_network": false,
+              "allowed_tools": [],
+              "cpu_max_percent": 50.0,
+              "cpu_shares": 512,
+              "io_read_bps": null,
+              "io_write_bps": null,
+              "memory_max_mb": 128,
+              "pids_max": 16,
+              "timeout_seconds": null
+            },
+            "resource_requirements": {
+              "allow_filesystem_write": false,
+              "allow_network": false,
+              "allowed_tools": [],
+              "cpu_max_percent": 50.0,
+              "cpu_shares": 512,
+              "io_read_bps": null,
+              "io_write_bps": null,
+              "memory_max_mb": 128,
+              "pids_max": 16,
+              "timeout_seconds": null
+            },
+            "risk": {
+              "deadline_ms": null,
+              "dependency_risk": 0.0,
+              "failure_risk": 0.0,
+              "resource_risk": 0.0,
+              "risk_reasons": [],
+              "sla_class": "batch",
+              "sla_risk": 0.2,
+              "starvation_risk_score": 0.1,
+              "task_risk_score": 0.13,
+              "timeout_risk": 0.0,
+              "urgency_score": 0.4
+            },
+            "safety": {
+              "admission_decision": "allow",
+              "backpressure_signal": "none",
+              "degrade_reason": null,
+              "safety_violations": []
+            },
+            "safety_violations": [],
+            "selected_count": 1,
+            "sla_class": "batch",
+            "slowdown": 1.0,
+            "starvation_risk": "low",
+            "task_id": "pressure",
+            "task_risk_score": 0.13,
+            "urgency_score": 0.4,
+            "wait_ms": 0.0,
+            "workload_class": "ai_inference"
+          }
+        },
+        "workload_class": "ai_inference"
+      },
+      "event_type": "scheduler.decision",
+      "severity": "debug",
+      "task_id": null,
+      "timestamp": 1783080407.7399738,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "candidate_count": 1,
+        "policy": "latency_first",
+        "reason": "fallback critical path ordering",
+        "workload_class": "ai_inference"
+      },
+      "event_type": "scheduler.policy_selected",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399755,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "bpf_map": "mock",
+        "details": {},
+        "fallback_mode": "member_a_p0_demo",
+        "reason": "deterministic unprivileged feedback-loop demo",
+        "sched_ext": "unavailable"
+      },
+      "event_type": "scheduler.kernel_probe",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399766,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "dependency_pressure": 0.5,
+        "fairness_pressure": 0.0,
+        "health_warnings": [
+          "dependency pressure is moderate"
+        ],
+        "pressure_level": "normal",
+        "queue_pressure": 0.0,
+        "resource_pressure": 0.0,
+        "runtime_health_score": 0.9
+      },
+      "event_type": "scheduler.runtime_health",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399774,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "batch_count": 1,
+        "best_effort_count": 0,
+        "critical_count": 0,
+        "deadline_task_count": 0,
+        "interactive_count": 0,
+        "max_urgency_score": 0.4
+      },
+      "event_type": "scheduler.sla_summary",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.7399786,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "defer_count": 0,
+        "degrade_count": 0,
+        "pressure_level": "normal",
+        "reasons": [],
+        "reject_count": 0,
+        "signal": "none"
+      },
+      "event_type": "scheduler.backpressure",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.73998,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "active_reservations": {
+          "pressure": {
+            "allow_filesystem_write": false,
+            "allow_network": false,
+            "allowed_tools": [],
+            "cpu_max_percent": 50.0,
+            "cpu_shares": 512,
+            "io_read_bps": null,
+            "io_write_bps": null,
+            "memory_max_mb": 128,
+            "pids_max": 16,
+            "timeout_seconds": null
+          }
+        },
+        "quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 50.0,
+          "cpu_shares": 512,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 128,
+          "pids_max": 16,
+          "timeout_seconds": null
+        }
+      },
+      "event_type": "resource.reserved",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7400005,
+      "trace_id": null
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "context_refs": [],
+        "dependencies": [],
+        "execution_mode": "subprocess",
+        "name": "pressure producer",
+        "resource_quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 50.0,
+          "cpu_shares": 512,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 128,
+          "pids_max": 16,
+          "timeout_seconds": null
+        },
+        "role": "worker"
+      },
+      "event_type": "agent.created",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.740062,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "new_state": "ready",
+        "old_state": "created"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7400668,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "new_state": "running",
+        "old_state": "ready"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7400687,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "task",
+      "data": {
+        "execution_mode": "subprocess"
+      },
+      "event_type": "task.started",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7400708,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "fault",
+      "data": {
+        "estimated_tokens": 0,
+        "private_refs": 0,
+        "shared_refs": 0
+      },
+      "event_type": "fault.context_snapshot_saved",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7400808,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "attempt": 0,
+        "execution": "subprocess",
+        "pid": 4,
+        "worker_type": "sleep"
+      },
+      "event_type": "worker.started",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7405658,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "controllers": [],
+        "limits": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 50.0,
+          "cpu_shares": 512,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 128,
+          "pids_max": 16,
+          "timeout_seconds": null
+        },
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "root": "runs/member_a_feedback_loop_demo/cgroup"
+      },
+      "event_type": "resource.cgroup_created",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7409697,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "membership_check_required": false,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "pid": 4,
+        "pid_membership_verified": false
+      },
+      "event_type": "resource.cgroup_pid_added",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7409706,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "limits": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 50.0,
+          "cpu_shares": 512,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 128,
+          "pids_max": 16,
+          "timeout_seconds": null
+        },
+        "mode": "cgroup_v2",
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "pid": 4,
+        "pid_attached": true
+      },
+      "event_type": "resource.cgroup_quota_applied",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.740971,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 0.0007420312613248825,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "initial",
+        "sample_index": 0,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 20000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 97.0,
+          "memory_rss_mb": 33.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7410624,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 0.0007420312613248825,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "initial",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 20000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 97.0,
+            "memory_rss_mb": 33.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 0,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.741071,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 10.415876051411033,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 1,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 40000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 98.0,
+          "memory_rss_mb": 34.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.751572,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 10.415876051411033,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 40000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 98.0,
+            "memory_rss_mb": 34.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 1,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7515833,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 20.840545068494976,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 2,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 60000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 99.0,
+          "memory_rss_mb": 35.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7621508,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 20.840545068494976,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 60000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 99.0,
+            "memory_rss_mb": 35.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 2,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.76217,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 31.34536009747535,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 3,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 80000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 100.0,
+          "memory_rss_mb": 36.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7724974,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 31.34536009747535,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 80000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 100.0,
+            "memory_rss_mb": 36.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 3,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7725117,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 41.68800008483231,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 4,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 100000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 101.0,
+          "memory_rss_mb": 37.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7828577,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 41.68800008483231,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 100000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 101.0,
+            "memory_rss_mb": 37.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 4,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7828753,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 52.05909605138004,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 5,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 120000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 102.0,
+          "memory_rss_mb": 38.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7932408,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 52.05909605138004,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 120000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 102.0,
+            "memory_rss_mb": 38.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 5,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.7932563,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 62.4390720622614,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 6,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 140000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 103.0,
+          "memory_rss_mb": 39.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8035982,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 62.4390720622614,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 140000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 103.0,
+            "memory_rss_mb": 39.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 6,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.803613,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 72.77261407580227,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 7,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 160000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 104.0,
+          "memory_rss_mb": 40.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8139088,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 72.77261407580227,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 160000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 104.0,
+            "memory_rss_mb": 40.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 7,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8139212,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 83.14011909533292,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "sample_index": 8,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 180000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 105.0,
+          "memory_rss_mb": 41.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8244245,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 83.14011909533292,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 180000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 105.0,
+            "memory_rss_mb": 41.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 8,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8244398,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 91.20168001390994,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "final",
+        "sample_index": 9,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 200000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 106.0,
+          "memory_rss_mb": 42.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8323748,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 91.20168001390994,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure",
+        "phase": "final",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 200000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 106.0,
+            "memory_rss_mb": 42.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 9,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8323886,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "resource",
+      "data": {
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-pressure"
+      },
+      "event_type": "resource.cgroup_removed",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8328545,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "duration_secs": 0.09202811191789806,
+        "error": null,
+        "exit_code": 0,
+        "killed": false,
+        "pid": 4,
+        "result_preview": "pressure-ok",
+        "timed_out": false,
+        "worker_type": "sleep"
+      },
+      "event_type": "worker.finished",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8328612,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "agent",
+      "data": {
+        "new_state": "finished",
+        "old_state": "running"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8328826,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": "agent-pressure",
+      "category": "task",
+      "data": {
+        "result_preview": "pressure-ok"
+      },
+      "event_type": "task.completed",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8328857,
+      "trace_id": "trace-agent-pressure"
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "active_reservations": {},
+        "quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 50.0,
+          "cpu_shares": 512,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 128,
+          "pids_max": 16,
+          "timeout_seconds": null
+        }
+      },
+      "event_type": "resource.released",
+      "severity": "info",
+      "task_id": "pressure",
+      "timestamp": 1783080407.8329442,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "context",
+      "data": {
+        "stats": {
+          "active_wss_tokens": 0,
+          "agents_with_private": 0,
+          "compressed_tokens": 0,
+          "compression": {
+            "tokens_after": 0,
+            "tokens_before": 0,
+            "tokens_saved_total": 0
+          },
+          "context_reuse_ratio": 0.0,
+          "duplicate_tokens": 0,
+          "per_segment": [],
+          "pool": {
+            "token_savings": 0,
+            "total_bytes": 0,
+            "total_estimated_tokens": 0,
+            "total_hits": 0,
+            "unique_segments": 0
+          },
+          "prefix_diagnostics": {
+            "avg_current_overlap_ratio": 0.0,
+            "avg_shared_prefix_tokens": 0.0,
+            "avg_shorter_overlap_ratio": 0.0,
+            "last_overlap": null,
+            "last_prefix_id": "__no_prefix__",
+            "last_prefix_tokens": 0,
+            "overlap_samples": 0,
+            "prefix_order": "append_stable",
+            "segment_count": 0,
+            "segment_fingerprints": []
+          },
+          "private_refs": 0,
+          "private_tokens": 0,
+          "shared_refs": 0,
+          "shared_segments": 0,
+          "shared_tokens": 0,
+          "total_refs": 0
+        }
+      },
+      "event_type": "context.stats",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.832991,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "agent_ids": [
+          "agent-pressure"
+        ],
+        "consumed": true,
+        "cpu_some_avg10": 4.0,
+        "effective_pressure_level": "critical",
+        "feedback_id": "cgroup-feedback-1",
+        "first_timestamp": 1783080407.741076,
+        "io_some_avg10": 2.0,
+        "last_timestamp": 1783080407.832394,
+        "local_pressure_level": "critical",
+        "local_resources": [
+          "cpu",
+          "memory",
+          "io"
+        ],
+        "memory_some_avg10": 24.0,
+        "phases": [
+          "initial",
+          "running",
+          "final"
+        ],
+        "pressure_level": "critical",
+        "pressure_source": "system+cgroup",
+        "reusable": false,
+        "sample_count": 10,
+        "sample_indexes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "scheduler_round": 2,
+        "system_pressure_level": "normal",
+        "task_ids": [
+          "pressure"
+        ]
+      },
+      "event_type": "resource.cgroup_feedback_applied",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8331566,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "pressure": {
+          "cgroup_usage": null,
+          "cpu_some_avg10": 0.02,
+          "io_some_avg10": 0.0,
+          "memory_some_avg10": 0.0,
+          "pressure_level": "normal",
+          "pressure_source": "system",
+          "pressure_sources": {
+            "cpu": "system",
+            "io": "system",
+            "memory": "system"
+          },
+          "reason": null
+        },
+        "scope": "system"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.83316,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "failed_task_ids": [],
+        "mode": "mock",
+        "task_count": 2,
+        "updated_task_ids": [
+          "followup"
+        ]
+      },
+      "event_type": "scheduler.bpf_map_updated",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8336506,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "attempted_count": 1,
+        "bpf_mode": "mock",
+        "effective_bpf_mode": "mock",
+        "failed_count": 0,
+        "failed_task_ids": [],
+        "fallback_active": false,
+        "fallback_reason": null,
+        "pin_path": null,
+        "real_failed_task_ids": [],
+        "real_updated_count": 0,
+        "real_updated_task_ids": [],
+        "record_count": 2,
+        "requested_bpf_mode": "mock",
+        "schema_version": "bpf.task_record.v2",
+        "updated_count": 1,
+        "updated_task_ids": [
+          "followup"
+        ]
+      },
+      "event_type": "kernel.decision_published",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8336532,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "available_resources": null,
+        "backpressure": {
+          "defer_count": 0,
+          "degrade_count": 0,
+          "pressure_level": "critical",
+          "reasons": [],
+          "reject_count": 0,
+          "signal": "hard"
+        },
+        "blocked": [],
+        "blocked_task_ids": [],
+        "bpf_map": {
+          "fallback_active": false,
+          "fallback_reason": null,
+          "mode": "mock",
+          "pin_path": null,
+          "requested_mode": "mock",
+          "schema_version": "bpf.task_record.v2",
+          "task_count": 2,
+          "tasks": {
+            "followup": {
+              "agent_id": null,
+              "backpressure_signal": "hard",
+              "cpu_max_percent": 25.0,
+              "cpu_weight": 256,
+              "fairness_score": 1.0,
+              "memory_max_mb": 64,
+              "metadata": {
+                "blocked_count": 0,
+                "deferred_count": 0,
+                "reason": "selected",
+                "wait_ms": 0.0
+              },
+              "pid": null,
+              "pids_max": 8,
+              "policy": "risk_aware",
+              "pressure_level": "critical",
+              "schema_version": "bpf.task_record.v2",
+              "selected": true,
+              "starvation_risk": "low",
+              "task_id": "followup",
+              "updated_at": 1783080407.8336349,
+              "workload_class": "interactive"
+            },
+            "pressure": {
+              "agent_id": null,
+              "backpressure_signal": "none",
+              "cpu_max_percent": 50.0,
+              "cpu_weight": 512,
+              "fairness_score": 1.0,
+              "memory_max_mb": 128,
+              "metadata": {
+                "blocked_count": 0,
+                "deferred_count": 0,
+                "reason": "selected",
+                "wait_ms": 0.0
+              },
+              "pid": null,
+              "pids_max": 16,
+              "policy": "latency_first",
+              "pressure_level": "normal",
+              "schema_version": "bpf.task_record.v2",
+              "selected": true,
+              "starvation_risk": "low",
+              "task_id": "pressure",
+              "updated_at": 1783080407.739954,
+              "workload_class": "ai_inference"
+            }
+          }
+        },
+        "candidate_task_ids": [
+          "followup"
+        ],
+        "deferred": [],
+        "deferred_task_ids": [],
+        "fairness": {
+          "avg_wait_ms": 0.0,
+          "fairness_score": 1.0,
+          "max_slowdown": 1.0,
+          "max_wait_ms": 0.0,
+          "starvation_risk": "low",
+          "warnings": []
+        },
+        "fairness_warnings": [],
+        "fallback_reason": "deterministic unprivileged feedback-loop demo",
+        "kernel_integration": "mock",
+        "kernel_probe": {
+          "bpf_map": "mock",
+          "details": {},
+          "fallback_mode": "member_a_p0_demo",
+          "reason": "deterministic unprivileged feedback-loop demo",
+          "sched_ext": "unavailable"
+        },
+        "max_batch_size": null,
+        "ordered_candidate_task_ids": [
+          "followup"
+        ],
+        "policy": "risk_aware",
+        "policy_reason": "OS pressure critical",
+        "policy_score": {
+          "candidate_count": 1,
+          "expected_parallelism": 0,
+          "has_critical_sla": false,
+          "max_prefix_heat": 0.0,
+          "max_task_risk_score": 0.25,
+          "max_urgency_score": 0.7,
+          "pressure_level": "critical",
+          "priority": 0,
+          "starvation_risk": "low"
+        },
+        "pressure": {
+          "cgroup_local": {
+            "agent_ids": [
+              "agent-pressure"
+            ],
+            "consumed": true,
+            "cpu_some_avg10": 4.0,
+            "feedback_id": "cgroup-feedback-1",
+            "first_timestamp": 1783080407.741076,
+            "io_some_avg10": 2.0,
+            "last_timestamp": 1783080407.832394,
+            "local_resources": [
+              "cpu",
+              "memory",
+              "io"
+            ],
+            "memory_some_avg10": 24.0,
+            "phases": [
+              "initial",
+              "running",
+              "final"
+            ],
+            "pressure_level": "critical",
+            "pressure_source": "cgroup",
+            "reusable": false,
+            "sample_count": 10,
+            "sample_indexes": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "task_ids": [
+              "pressure"
+            ]
+          },
+          "cpu_some_avg10": 4.0,
+          "effective_pressure_level": "critical",
+          "fairness_pressure_level": "normal",
+          "feedback_id": "cgroup-feedback-1",
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "os_pressure_level": "critical",
+          "pressure_source": "system+cgroup",
+          "runtime_health_pressure_level": "normal",
+          "scheduler_round": 2,
+          "system": {
+            "cgroup_usage": null,
+            "cpu_some_avg10": 0.02,
+            "io_some_avg10": 0.0,
+            "memory_some_avg10": 0.0,
+            "pressure_level": "normal",
+            "pressure_source": "system",
+            "pressure_sources": {
+              "cpu": "system",
+              "io": "system",
+              "memory": "system"
+            },
+            "reason": null
+          }
+        },
+        "ready_task_ids": [
+          "followup"
+        ],
+        "risk": {
+          "avg_task_risk_score": 0.25,
+          "high_risk_task_ids": [],
+          "max_task_risk_score": 0.25,
+          "risk_warnings": []
+        },
+        "runtime_health": {
+          "dependency_pressure": 0.0,
+          "fairness_pressure": 0.0,
+          "health_warnings": [],
+          "pressure_level": "normal",
+          "queue_pressure": 0.0,
+          "resource_pressure": 0.0,
+          "runtime_health_score": 1.0
+        },
+        "runtime_mode": "user_space_runtime",
+        "safety": {
+          "admission_counts": {
+            "allow": 1,
+            "defer": 0,
+            "degrade": 0,
+            "reject": 0
+          },
+          "degraded_task_ids": [],
+          "rejected_task_ids": [],
+          "safety_deferred_task_ids": [],
+          "safety_violations": []
+        },
+        "schema_version": "scheduler.decision.v2",
+        "score_breakdown": {
+          "candidate_count": 1,
+          "expected_parallelism": 0,
+          "has_critical_sla": false,
+          "max_prefix_heat": 0.0,
+          "max_task_risk_score": 0.25,
+          "max_urgency_score": 0.7,
+          "pressure_level": "critical",
+          "priority": 0,
+          "starvation_risk": "low"
+        },
+        "selected": [
+          "followup"
+        ],
+        "selected_task_ids": [
+          "followup"
+        ],
+        "sla": {
+          "batch_count": 0,
+          "best_effort_count": 0,
+          "critical_count": 0,
+          "deadline_task_count": 0,
+          "interactive_count": 1,
+          "max_urgency_score": 0.7
+        },
+        "strategy": "critical_path",
+        "tasks": {
+          "followup": {
+            "admission_decision": "allow",
+            "agent_role": "worker",
+            "available_value": null,
+            "backpressure_signal": "hard",
+            "blocked_count": 0,
+            "blocked_resource": null,
+            "context_refs": [],
+            "critical_path_score": 1.0,
+            "deadline_ms": null,
+            "deferred_count": 0,
+            "degrade_reason": null,
+            "dependencies": [
+              "pressure"
+            ],
+            "policy": "risk_aware",
+            "policy_reason": "OS pressure critical",
+            "previous_failures": 0,
+            "priority": 0,
+            "reason": "selected",
+            "required_value": null,
+            "reserved_value": null,
+            "resource_estimate": {
+              "allow_filesystem_write": false,
+              "allow_network": false,
+              "allowed_tools": [],
+              "cpu_max_percent": null,
+              "cpu_shares": null,
+              "io_read_bps": null,
+              "io_write_bps": null,
+              "memory_max_mb": 106,
+              "pids_max": 1,
+              "timeout_seconds": null
+            },
+            "resource_requirements": {
+              "allow_filesystem_write": false,
+              "allow_network": false,
+              "allowed_tools": [],
+              "cpu_max_percent": 25.0,
+              "cpu_shares": 256,
+              "io_read_bps": null,
+              "io_write_bps": null,
+              "memory_max_mb": 64,
+              "pids_max": 8,
+              "timeout_seconds": null
+            },
+            "risk": {
+              "deadline_ms": null,
+              "dependency_risk": 0.0,
+              "failure_risk": 0.0,
+              "resource_risk": 0.0,
+              "risk_reasons": [],
+              "sla_class": "interactive",
+              "sla_risk": 0.5,
+              "starvation_risk_score": 0.1,
+              "task_risk_score": 0.25,
+              "timeout_risk": 0.0,
+              "urgency_score": 0.7
+            },
+            "safety": {
+              "admission_decision": "allow",
+              "backpressure_signal": "hard",
+              "degrade_reason": null,
+              "safety_violations": []
+            },
+            "safety_violations": [],
+            "selected_count": 1,
+            "sla_class": "interactive",
+            "slowdown": 1.0,
+            "starvation_risk": "low",
+            "task_id": "followup",
+            "task_risk_score": 0.25,
+            "urgency_score": 0.7,
+            "wait_ms": 0.0,
+            "workload_class": "interactive"
+          }
+        },
+        "workload_class": "interactive"
+      },
+      "event_type": "scheduler.decision",
+      "severity": "debug",
+      "task_id": null,
+      "timestamp": 1783080407.833679,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "candidate_count": 1,
+        "policy": "risk_aware",
+        "reason": "OS pressure critical",
+        "workload_class": "interactive"
+      },
+      "event_type": "scheduler.policy_selected",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8336818,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "dependency_pressure": 0.0,
+        "fairness_pressure": 0.0,
+        "health_warnings": [],
+        "pressure_level": "normal",
+        "queue_pressure": 0.0,
+        "resource_pressure": 0.0,
+        "runtime_health_score": 1.0
+      },
+      "event_type": "scheduler.runtime_health",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8336835,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "batch_count": 0,
+        "best_effort_count": 0,
+        "critical_count": 0,
+        "deadline_task_count": 0,
+        "interactive_count": 1,
+        "max_urgency_score": 0.7
+      },
+      "event_type": "scheduler.sla_summary",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.833684,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "scheduler",
+      "data": {
+        "defer_count": 0,
+        "degrade_count": 0,
+        "pressure_level": "critical",
+        "reasons": [],
+        "reject_count": 0,
+        "signal": "hard"
+      },
+      "event_type": "scheduler.backpressure",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.8336854,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "active_reservations": {
+          "followup": {
+            "allow_filesystem_write": false,
+            "allow_network": false,
+            "allowed_tools": [],
+            "cpu_max_percent": null,
+            "cpu_shares": null,
+            "io_read_bps": null,
+            "io_write_bps": null,
+            "memory_max_mb": 106,
+            "pids_max": 1,
+            "timeout_seconds": null
+          }
+        },
+        "quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": null,
+          "cpu_shares": null,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 106,
+          "pids_max": 1,
+          "timeout_seconds": null
+        }
+      },
+      "event_type": "resource.reserved",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8337219,
+      "trace_id": null
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "context_refs": [],
+        "dependencies": [
+          "pressure"
+        ],
+        "execution_mode": "subprocess",
+        "name": "feedback consumer",
+        "resource_quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 25.0,
+          "cpu_shares": 256,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 64,
+          "pids_max": 8,
+          "timeout_seconds": null
+        },
+        "role": "worker"
+      },
+      "event_type": "agent.created",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8338,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "new_state": "ready",
+        "old_state": "created"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8338065,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "new_state": "running",
+        "old_state": "ready"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8338099,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "task",
+      "data": {
+        "execution_mode": "subprocess"
+      },
+      "event_type": "task.started",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8338118,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "fault",
+      "data": {
+        "estimated_tokens": 0,
+        "private_refs": 0,
+        "shared_refs": 0
+      },
+      "event_type": "fault.context_snapshot_saved",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8338263,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "attempt": 0,
+        "execution": "subprocess",
+        "pid": 6,
+        "worker_type": "echo"
+      },
+      "event_type": "worker.started",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.834445,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "controllers": [],
+        "limits": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 25.0,
+          "cpu_shares": 256,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 64,
+          "pids_max": 8,
+          "timeout_seconds": null
+        },
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "root": "runs/member_a_feedback_loop_demo/cgroup"
+      },
+      "event_type": "resource.cgroup_created",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8348515,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "membership_check_required": false,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "pid": 6,
+        "pid_membership_verified": false
+      },
+      "event_type": "resource.cgroup_pid_added",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8348527,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "limits": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": 25.0,
+          "cpu_shares": 256,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 64,
+          "pids_max": 8,
+          "timeout_seconds": null
+        },
+        "mode": "cgroup_v2",
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "pid": 6,
+        "pid_attached": true
+      },
+      "event_type": "resource.cgroup_quota_applied",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8348532,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 0.00039604492485523224,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "initial",
+        "sample_index": 0,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 220000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 107.0,
+          "memory_rss_mb": 43.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.834929,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 0.00039604492485523224,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "initial",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 220000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 107.0,
+            "memory_rss_mb": 43.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 0,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8349369,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 10.350754018872976,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "sample_index": 1,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 240000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 108.0,
+          "memory_rss_mb": 44.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8454804,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 10.350754018872976,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 240000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 108.0,
+            "memory_rss_mb": 44.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 1,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8454971,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 20.796956028789282,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "sample_index": 2,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 260000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 109.0,
+          "memory_rss_mb": 45.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8558474,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 20.796956028789282,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 260000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 109.0,
+            "memory_rss_mb": 45.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 2,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.855867,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 31.143866013735533,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "sample_index": 3,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 280000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 110.0,
+          "memory_rss_mb": 46.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8661826,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 31.143866013735533,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "running",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 280000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 110.0,
+            "memory_rss_mb": 46.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 3,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8661954,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 40.9593969816342,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "final",
+        "sample_index": 4,
+        "usage": {
+          "cpu_percent": 0.0,
+          "cpu_usage_usec": 300000,
+          "gpu_memory_mb": 0.0,
+          "gpu_util_percent": 0.0,
+          "io_read_bytes": 0,
+          "io_write_bytes": 0,
+          "memory_peak_mb": 111.0,
+          "memory_rss_mb": 47.0,
+          "pids_current": 1
+        }
+      },
+      "event_type": "resource.usage_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8761125,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "elapsed_ms": 40.9593969816342,
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup",
+        "phase": "final",
+        "pressure": {
+          "cgroup_usage": {
+            "cpu_percent": 0.0,
+            "cpu_usage_usec": 300000,
+            "gpu_memory_mb": 0.0,
+            "gpu_util_percent": 0.0,
+            "io_read_bytes": 0,
+            "io_write_bytes": 0,
+            "memory_peak_mb": 111.0,
+            "memory_rss_mb": 47.0,
+            "pids_current": 1
+          },
+          "cpu_some_avg10": 4.0,
+          "io_some_avg10": 2.0,
+          "memory_some_avg10": 24.0,
+          "pressure_level": "critical",
+          "pressure_source": "cgroup",
+          "pressure_sources": {
+            "cpu": "cgroup",
+            "io": "cgroup",
+            "memory": "cgroup"
+          },
+          "reason": null
+        },
+        "sample_index": 4,
+        "scope": "agent_cgroup"
+      },
+      "event_type": "resource.pressure_sampled",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8761294,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "resource",
+      "data": {
+        "path": "runs/member_a_feedback_loop_demo/cgroup/agent-followup"
+      },
+      "event_type": "resource.cgroup_removed",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8766592,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "duration_secs": 0.041909956955350935,
+        "error": null,
+        "exit_code": 0,
+        "killed": false,
+        "pid": 6,
+        "result_preview": "followup-ok",
+        "timed_out": false,
+        "worker_type": "echo"
+      },
+      "event_type": "worker.finished",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8766668,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "agent",
+      "data": {
+        "new_state": "finished",
+        "old_state": "running"
+      },
+      "event_type": "agent.state_changed",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8766906,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": "agent-followup",
+      "category": "task",
+      "data": {
+        "result_preview": "followup-ok"
+      },
+      "event_type": "task.completed",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.8766952,
+      "trace_id": "trace-agent-followup"
+    },
+    {
+      "agent_id": null,
+      "category": "resource",
+      "data": {
+        "active_reservations": {},
+        "quota": {
+          "allow_filesystem_write": false,
+          "allow_network": false,
+          "allowed_tools": [],
+          "cpu_max_percent": null,
+          "cpu_shares": null,
+          "io_read_bps": null,
+          "io_write_bps": null,
+          "memory_max_mb": 106,
+          "pids_max": 1,
+          "timeout_seconds": null
+        }
+      },
+      "event_type": "resource.released",
+      "severity": "info",
+      "task_id": "followup",
+      "timestamp": 1783080407.876753,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "context",
+      "data": {
+        "stats": {
+          "active_wss_tokens": 0,
+          "agents_with_private": 0,
+          "compressed_tokens": 0,
+          "compression": {
+            "tokens_after": 0,
+            "tokens_before": 0,
+            "tokens_saved_total": 0
+          },
+          "context_reuse_ratio": 0.0,
+          "duplicate_tokens": 0,
+          "per_segment": [],
+          "pool": {
+            "token_savings": 0,
+            "total_bytes": 0,
+            "total_estimated_tokens": 0,
+            "total_hits": 0,
+            "unique_segments": 0
+          },
+          "prefix_diagnostics": {
+            "avg_current_overlap_ratio": 0.0,
+            "avg_shared_prefix_tokens": 0.0,
+            "avg_shorter_overlap_ratio": 0.0,
+            "last_overlap": null,
+            "last_prefix_id": "__no_prefix__",
+            "last_prefix_tokens": 0,
+            "overlap_samples": 0,
+            "prefix_order": "append_stable",
+            "segment_count": 0,
+            "segment_fingerprints": []
+          },
+          "private_refs": 0,
+          "private_tokens": 0,
+          "shared_refs": 0,
+          "shared_segments": 0,
+          "shared_tokens": 0,
+          "total_refs": 0
+        }
+      },
+      "event_type": "context.stats",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.876807,
+      "trace_id": null
+    },
+    {
+      "agent_id": null,
+      "category": "context",
+      "data": {
+        "stats": {
+          "active_wss_tokens": 0,
+          "agents_with_private": 0,
+          "compressed_tokens": 0,
+          "compression": {
+            "tokens_after": 0,
+            "tokens_before": 0,
+            "tokens_saved_total": 0
+          },
+          "context_reuse_ratio": 0.0,
+          "duplicate_tokens": 0,
+          "per_segment": [],
+          "pool": {
+            "token_savings": 0,
+            "total_bytes": 0,
+            "total_estimated_tokens": 0,
+            "total_hits": 0,
+            "unique_segments": 0
+          },
+          "prefix_diagnostics": {
+            "avg_current_overlap_ratio": 0.0,
+            "avg_shared_prefix_tokens": 0.0,
+            "avg_shorter_overlap_ratio": 0.0,
+            "last_overlap": null,
+            "last_prefix_id": "__no_prefix__",
+            "last_prefix_tokens": 0,
+            "overlap_samples": 0,
+            "prefix_order": "append_stable",
+            "segment_count": 0,
+            "segment_fingerprints": []
+          },
+          "private_refs": 0,
+          "private_tokens": 0,
+          "shared_refs": 0,
+          "shared_segments": 0,
+          "shared_tokens": 0,
+          "total_refs": 0
+        }
+      },
+      "event_type": "context.stats",
+      "severity": "info",
+      "task_id": null,
+      "timestamp": 1783080407.876825,
+      "trace_id": null
+    }
+  ],
+  "feedback_applied": 1,
+  "kernel_decision_published": 2,
+  "local_sample_phases": [
+    "final",
+    "initial",
+    "running"
+  ],
+  "results": {
+    "followup": "followup-ok",
+    "pressure": "pressure-ok"
+  }
+}

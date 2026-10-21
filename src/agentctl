@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+agentctl_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${AGENTOS_PYTHON:-}" ]]; then
+  agentctl_python="$AGENTOS_PYTHON"
+elif [[ -x "$agentctl_root/.venv/bin/python" ]]; then
+  agentctl_python="$agentctl_root/.venv/bin/python"
+elif [[ -x "$agentctl_root/../.venv/bin/python" ]]; then
+  agentctl_python="$agentctl_root/../.venv/bin/python"
+else
+  agentctl_python="$(command -v python3 || true)"
+fi
+if [[ -z "$agentctl_python" ]] || ! command -v -- "$agentctl_python" >/dev/null 2>&1; then
+  echo "agentctl: set AGENTOS_PYTHON to an existing Python environment with AgentOS dependencies" >&2
+  exit 2
+fi
+export PYTHONPATH="$agentctl_root${PYTHONPATH:+:$PYTHONPATH}"
+exec "$agentctl_python" -m agentos.cli "$@"

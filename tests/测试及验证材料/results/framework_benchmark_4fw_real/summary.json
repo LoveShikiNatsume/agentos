@@ -1,0 +1,134 @@
+{
+  "n_tasks": 10,
+  "frameworks": {
+    "langgraph": {
+      "efficiency_no_fault": {
+        "prompt_tokens": {
+          "native": 360420,
+          "runtime": 199409,
+          "reduction_pct": 44.7
+        },
+        "cache_miss_tokens": {
+          "native": 71780,
+          "runtime": 20209,
+          "reduction_pct": 71.8
+        },
+        "est_cost_usd": {
+          "native": 0.0533,
+          "runtime": 0.0319,
+          "reduction_pct": 40.2
+        }
+      },
+      "resilience_with_fault": {
+        "tasks_completed": {
+          "native": 20,
+          "runtime": 60,
+          "total": 60
+        },
+        "recovered_faults": {
+          "native": 0,
+          "runtime": 10,
+          "injected": 10
+        }
+      }
+    },
+    "autogen": {
+      "efficiency_no_fault": {
+        "prompt_tokens": {
+          "native": 348328,
+          "runtime": 187483,
+          "reduction_pct": 46.2
+        },
+        "cache_miss_tokens": {
+          "native": 68136,
+          "runtime": 8795,
+          "reduction_pct": 87.1
+        },
+        "est_cost_usd": {
+          "native": 0.052,
+          "runtime": 0.0289,
+          "reduction_pct": 44.4
+        }
+      },
+      "resilience_with_fault": {
+        "tasks_completed": {
+          "native": 20,
+          "runtime": 60,
+          "total": 60
+        },
+        "recovered_faults": {
+          "native": 0,
+          "runtime": 10,
+          "injected": 10
+        }
+      }
+    },
+    "openai_agents": {
+      "efficiency_no_fault": {
+        "prompt_tokens": {
+          "native": 393942,
+          "runtime": 211737,
+          "reduction_pct": 46.3
+        },
+        "cache_miss_tokens": {
+          "native": 86358,
+          "runtime": 9753,
+          "reduction_pct": 88.7
+        },
+        "est_cost_usd": {
+          "native": 0.0587,
+          "runtime": 0.0306,
+          "reduction_pct": 47.9
+        }
+      },
+      "resilience_with_fault": {
+        "tasks_completed": {
+          "native": 20,
+          "runtime": 60,
+          "total": 60
+        },
+        "recovered_faults": {
+          "native": 0,
+          "runtime": 10,
+          "injected": 10
+        }
+      }
+    },
+    "crewai": {
+      "efficiency_no_fault": {
+        "prompt_tokens": {
+          "native": 352018,
+          "runtime": 191173,
+          "reduction_pct": 45.7
+        },
+        "cache_miss_tokens": {
+          "native": 352018,
+          "runtime": 17221,
+          "reduction_pct": 95.1
+        },
+        "est_cost_usd": {
+          "native": 0.1089,
+          "runtime": 0.0308,
+          "reduction_pct": 71.7
+        }
+      },
+      "resilience_with_fault": {
+        "tasks_completed": {
+          "native": 20,
+          "runtime": 60,
+          "total": 60
+        },
+        "recovered_faults": {
+          "native": 0,
+          "runtime": 10,
+          "injected": 10
+        }
+      }
+    }
+  },
+  "price_assumptions_usd_per_1m": {
+    "input_miss": 0.27,
+    "input_hit": 0.07,
+    "output": 1.1
+  }
+}

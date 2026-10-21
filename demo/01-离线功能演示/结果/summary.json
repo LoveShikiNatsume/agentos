@@ -1,0 +1,72 @@
+{
+  "schema": "agentos_finals_demo.v1",
+  "passed": true,
+  "created_at": "2026-09-28T14:39:32.002171+00:00",
+  "backend": "mock",
+  "model": "mock",
+  "synthetic_inputs": true,
+  "token_source": "mock_character_estimate",
+  "performance_benchmark": false,
+  "kernel_scheduler_enabled": false,
+  "environment": {
+    "python": "3.11.2",
+    "kernel": "6.1.0-35-amd64"
+  },
+  "context": {
+    "all_shared": {
+      "completed": [
+        "all_shared/rollout",
+        "all_shared/source",
+        "all_shared/tests"
+      ],
+      "calls": 3,
+      "prompt_characters": 6396,
+      "payload_matches_declared_selection": true,
+      "prompt_tokens": 1598,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 1598
+    },
+    "selected": {
+      "completed": [
+        "selected/rollout",
+        "selected/source",
+        "selected/tests"
+      ],
+      "calls": 3,
+      "prompt_characters": 2782,
+      "payload_matches_declared_selection": true,
+      "prompt_tokens": 694,
+      "cache_hit_tokens": 0,
+      "cache_miss_tokens": 694
+    },
+    "prompt_character_reduction_pct": 56.5
+  },
+  "isolation": {
+    "failures": {
+      "isolation/optional": "injected optional telemetry failure"
+    },
+    "completed": [
+      "isolation/report",
+      "isolation/review"
+    ],
+    "skipped": [
+      "isolation/blocked"
+    ],
+    "statuses": {
+      "isolation/optional": "failed",
+      "isolation/blocked": "skipped",
+      "isolation/review": "completed",
+      "isolation/report": "completed"
+    },
+    "passed": true
+  },
+  "retry": {
+    "checks": {
+      "failed_scratch_removed": true,
+      "concurrent_shared_update_kept": true,
+      "other_private_not_visible": true,
+      "other_private_kept": true
+    },
+    "passed": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "bpf": {
+    "bpffs_mounted": true,
+    "bpffs_path": "/sys/fs/bpf",
+    "bpftool_available": false,
+    "bpftool_path": null,
+    "cap_bpf": false,
+    "cap_bpf_reason": null
+  },
+  "cgroup_v2": {
+    "available": false,
+    "path": "/sys/fs/cgroup",
+    "present": true,
+    "writable": false
+  },
+  "delegation": {
+    "allowed": false,
+    "mode": "host_root"
+  },
+  "fallback_expected": true,
+  "is_openeuler": false,
+  "missing": [
+    "cgroup delegation not available",
+    "cgroup root not writable",
+    "bpftool not found",
+    "CAP_BPF missing"
+  ],
+  "os": {
+    "id": "debian",
+    "kernel": "6.1.0-35-amd64",
+    "pretty_name": "Debian GNU/Linux 12 (bookworm)"
+  },
+  "psi": {
+    "available": true,
+    "files": {
+      "cpu": {
+        "path": "/proc/pressure/cpu",
+        "present": true
+      },
+      "io": {
+        "path": "/proc/pressure/io",
+        "present": true
+      },
+      "memory": {
+        "path": "/proc/pressure/memory",
+        "present": true
+      }
+    }
+  },
+  "recommended_bpf_mode": "auto"
+}

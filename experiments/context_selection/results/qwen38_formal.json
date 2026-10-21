@@ -1,0 +1,2369 @@
+{
+  "schema_version": 1,
+  "split": "formal",
+  "manifest_sha256": "2b2c04222aa8875ecde007089d2311987244051c19af2969e571c58631d06d85",
+  "plans_sha256": "288e43333ca3b39fda029a0af85768b85ed839561b4b77e02b063bc0a9500715",
+  "config": {
+    "model": "qwen3.8-27b",
+    "seed": 20261019,
+    "repeats": 1,
+    "temperature": 0,
+    "max_tokens": 4096,
+    "max_completion_tokens": null,
+    "backend": "openai",
+    "base_url": "http://127.0.0.1:18095",
+    "prompt_version": null,
+    "concurrency": 4
+  },
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20260920,
+    "unit": "question_id",
+    "confidence": 0.95,
+    "method": "paired percentile"
+  },
+  "protocol": {
+    "replicates": "average within question before any group mean or bootstrap",
+    "valid": "all replicates valid and no truncated request for that question",
+    "itt": "all non-truncated questions; invalid runs count as incorrect",
+    "paired": "questions valid in both arms; token pairs additionally require known usage",
+    "cost": "main comparison excludes shared planner; including_planning adds shared planning once per arm",
+    "missing_usage": "never imputed as zero; known totals and missing-run counts retained"
+  },
+  "arms": {
+    "all": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.85,
+      "valid_questions": 86,
+      "valid_accuracy": 0.9883720930232558,
+      "mean_prompt_tokens_valid": 45220.32558139535,
+      "prompt_tokens_valid_questions": 86,
+      "mean_model_calls_valid": 3.4302325581395348,
+      "mean_prompt_tokens_all_questions": 38889.48,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 2.95,
+      "runs": 100,
+      "execution": {
+        "model_calls": 295,
+        "prompt_tokens": 3888948,
+        "known_prompt_tokens": 3888948,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 15130,
+        "known_completion_tokens": 15130,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 1535072,
+        "known_cached_tokens": 1535072,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 200,
+        "truncated_calls": 0,
+        "prompt_tokens": 337854,
+        "completion_tokens": 36332,
+        "cached_tokens": 137200
+      },
+      "including_planning": {
+        "model_calls": 495,
+        "prompt_tokens": 4226802,
+        "completion_tokens": 51462,
+        "cached_tokens": 1672272
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 86,
+      "recall_measured_questions": 86,
+      "strata": {
+        "complete": {
+          "questions": 86,
+          "itt_questions": 86,
+          "itt_accuracy": 0.9883720930232558,
+          "valid_questions": 86,
+          "valid_accuracy": 0.9883720930232558,
+          "mean_prompt_tokens_valid": 45220.32558139535,
+          "prompt_tokens_valid_questions": 86,
+          "mean_model_calls_valid": 3.4302325581395348,
+          "mean_prompt_tokens_all_questions": 45220.32558139535,
+          "prompt_tokens_all_known_questions": 86,
+          "mean_model_calls_all_questions": 3.4302325581395348
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 14,
+          "itt_questions": 14,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 14,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ]
+    },
+    "declared": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.83,
+      "valid_questions": 86,
+      "valid_accuracy": 0.9651162790697675,
+      "mean_prompt_tokens_valid": 5354.593023255814,
+      "prompt_tokens_valid_questions": 86,
+      "mean_model_calls_valid": 3.4302325581395348,
+      "mean_prompt_tokens_all_questions": 4604.95,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 2.95,
+      "runs": 100,
+      "execution": {
+        "model_calls": 295,
+        "prompt_tokens": 460495,
+        "known_prompt_tokens": 460495,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 8714,
+        "known_completion_tokens": 8714,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 6272,
+        "known_cached_tokens": 6272,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 200,
+        "truncated_calls": 0,
+        "prompt_tokens": 337854,
+        "completion_tokens": 36332,
+        "cached_tokens": 137200
+      },
+      "including_planning": {
+        "model_calls": 495,
+        "prompt_tokens": 798349,
+        "completion_tokens": 45046,
+        "cached_tokens": 143472
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 86,
+      "recall_measured_questions": 86,
+      "strata": {
+        "complete": {
+          "questions": 86,
+          "itt_questions": 86,
+          "itt_accuracy": 0.9651162790697675,
+          "valid_questions": 86,
+          "valid_accuracy": 0.9651162790697675,
+          "mean_prompt_tokens_valid": 5354.593023255814,
+          "prompt_tokens_valid_questions": 86,
+          "mean_model_calls_valid": 3.4302325581395348,
+          "mean_prompt_tokens_all_questions": 5354.593023255814,
+          "prompt_tokens_all_known_questions": 86,
+          "mean_model_calls_all_questions": 3.4302325581395348
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 14,
+          "itt_questions": 14,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 14,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q053",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ]
+    },
+    "bm25": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.51,
+      "valid_questions": 86,
+      "valid_accuracy": 0.5930232558139535,
+      "mean_prompt_tokens_valid": 5333.383720930233,
+      "prompt_tokens_valid_questions": 86,
+      "mean_model_calls_valid": 3.4302325581395348,
+      "mean_prompt_tokens_all_questions": 4586.71,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 2.95,
+      "runs": 100,
+      "execution": {
+        "model_calls": 295,
+        "prompt_tokens": 458671,
+        "known_prompt_tokens": 458671,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 8945,
+        "known_completion_tokens": 8945,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 49392,
+        "known_cached_tokens": 49392,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 200,
+        "truncated_calls": 0,
+        "prompt_tokens": 337854,
+        "completion_tokens": 36332,
+        "cached_tokens": 137200
+      },
+      "including_planning": {
+        "model_calls": 495,
+        "prompt_tokens": 796525,
+        "completion_tokens": 45277,
+        "cached_tokens": 186592
+      },
+      "mean_required_recall": 0.5542635658914729,
+      "complete_required_questions": 22,
+      "recall_measured_questions": 86,
+      "strata": {
+        "complete": {
+          "questions": 22,
+          "itt_questions": 22,
+          "itt_accuracy": 1.0,
+          "valid_questions": 22,
+          "valid_accuracy": 1.0,
+          "mean_prompt_tokens_valid": 5307.772727272727,
+          "prompt_tokens_valid_questions": 22,
+          "mean_model_calls_valid": 3.409090909090909,
+          "mean_prompt_tokens_all_questions": 5307.772727272727,
+          "prompt_tokens_all_known_questions": 22,
+          "mean_model_calls_all_questions": 3.409090909090909
+        },
+        "incomplete": {
+          "questions": 64,
+          "itt_questions": 64,
+          "itt_accuracy": 0.453125,
+          "valid_questions": 64,
+          "valid_accuracy": 0.453125,
+          "mean_prompt_tokens_valid": 5342.1875,
+          "prompt_tokens_valid_questions": 64,
+          "mean_model_calls_valid": 3.4375,
+          "mean_prompt_tokens_all_questions": 5342.1875,
+          "prompt_tokens_all_known_questions": 64,
+          "mean_model_calls_all_questions": 3.4375
+        },
+        "unknown": {
+          "questions": 14,
+          "itt_questions": 14,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 14,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q027",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q029",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q035",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q037",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q041",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q043",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q046",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q056",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q060",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q061",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q062",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q074",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q077",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q079",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q091",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q093",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q100",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q101",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q108",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q115",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ]
+    },
+    "oracle": {
+      "questions": 100,
+      "itt_questions": 100,
+      "itt_accuracy": 0.84,
+      "valid_questions": 86,
+      "valid_accuracy": 0.9767441860465116,
+      "mean_prompt_tokens_valid": 16029.96511627907,
+      "prompt_tokens_valid_questions": 86,
+      "mean_model_calls_valid": 3.4302325581395348,
+      "mean_prompt_tokens_all_questions": 13785.77,
+      "prompt_tokens_all_known_questions": 100,
+      "mean_model_calls_all_questions": 2.95,
+      "runs": 100,
+      "execution": {
+        "model_calls": 295,
+        "prompt_tokens": 1378577,
+        "known_prompt_tokens": 1378577,
+        "missing_prompt_tokens_runs": 0,
+        "completion_tokens": 15493,
+        "known_completion_tokens": 15493,
+        "missing_completion_tokens_runs": 0,
+        "cached_tokens": 681296,
+        "known_cached_tokens": 681296,
+        "missing_cached_tokens_runs": 0
+      },
+      "planning": {
+        "model_calls": 200,
+        "truncated_calls": 0,
+        "prompt_tokens": 337854,
+        "completion_tokens": 36332,
+        "cached_tokens": 137200
+      },
+      "including_planning": {
+        "model_calls": 495,
+        "prompt_tokens": 1716431,
+        "completion_tokens": 51825,
+        "cached_tokens": 818496
+      },
+      "mean_required_recall": 1.0,
+      "complete_required_questions": 86,
+      "recall_measured_questions": 86,
+      "strata": {
+        "complete": {
+          "questions": 86,
+          "itt_questions": 86,
+          "itt_accuracy": 0.9767441860465116,
+          "valid_questions": 86,
+          "valid_accuracy": 0.9767441860465116,
+          "mean_prompt_tokens_valid": 16029.96511627907,
+          "prompt_tokens_valid_questions": 86,
+          "mean_model_calls_valid": 3.4302325581395348,
+          "mean_prompt_tokens_all_questions": 16029.96511627907,
+          "prompt_tokens_all_known_questions": 86,
+          "mean_model_calls_all_questions": 3.4302325581395348
+        },
+        "incomplete": {
+          "questions": 0,
+          "itt_questions": 0,
+          "itt_accuracy": null,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": null,
+          "prompt_tokens_all_known_questions": 0,
+          "mean_model_calls_all_questions": null
+        },
+        "unknown": {
+          "questions": 14,
+          "itt_questions": 14,
+          "itt_accuracy": 0.0,
+          "valid_questions": 0,
+          "valid_accuracy": null,
+          "mean_prompt_tokens_valid": null,
+          "prompt_tokens_valid_questions": 0,
+          "mean_model_calls_valid": null,
+          "mean_prompt_tokens_all_questions": 0,
+          "prompt_tokens_all_known_questions": 14,
+          "mean_model_calls_all_questions": 0
+        }
+      },
+      "truncation": {
+        "questions": 0,
+        "runs": 0,
+        "execution_calls": 0,
+        "execution_rate": 0.0,
+        "planning_calls": 0,
+        "planning_rate": 0.0
+      },
+      "truncated": [],
+      "invalid": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "question_id": "q024",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q028",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q030",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q036",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q038",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q049",
+          "replicate": 0,
+          "valid": true,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            {
+              "kind": "answer_format",
+              "reason": "all answer values must be strings"
+            }
+          ]
+        },
+        {
+          "question_id": "q067",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q070",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q072",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q076",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q080",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q096",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q110",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q112",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        },
+        {
+          "question_id": "q116",
+          "replicate": 0,
+          "valid": false,
+          "truncated_calls": 0,
+          "execution_truncated_calls": 0,
+          "planner_truncated_calls": 0,
+          "failures": [
+            "WorkflowExecutionError: workflow failed in 1 task(s): planner; 0 completed, 0 skipped"
+          ]
+        }
+      ]
+    }
+  },
+  "comparisons": {
+    "declared": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 86,
+      "paired_valid_coverage": 0.86,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q025",
+        "q026",
+        "q027",
+        "q029",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q037",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q068",
+        "q069",
+        "q071",
+        "q073",
+        "q074",
+        "q075",
+        "q077",
+        "q078",
+        "q079",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q111",
+        "q113",
+        "q114",
+        "q115",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q024",
+        "q028",
+        "q030",
+        "q036",
+        "q038",
+        "q067",
+        "q070",
+        "q072",
+        "q076",
+        "q080",
+        "q096",
+        "q110",
+        "q112",
+        "q116"
+      ],
+      "prompt_usage_coverage": 0.86,
+      "accuracy": {
+        "questions": 86,
+        "arm_mean": 0.9651162790697675,
+        "all_mean": 0.9883720930232558,
+        "difference": -0.023255813953488302,
+        "ci95": [
+          -0.06976744186046513,
+          0.023255813953488302
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 86,
+        "arm_mean": 5354.593023255814,
+        "all_mean": 45220.32558139535,
+        "difference": -39865.732558139534,
+        "ci95": [
+          -41558.15581395349,
+          -38145.43401162791
+        ],
+        "relative_change": -0.8815887998502423,
+        "relative_ci95": [
+          -0.8848768567471152,
+          -0.8783205220643987
+        ]
+      }
+    },
+    "bm25": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 86,
+      "paired_valid_coverage": 0.86,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q025",
+        "q026",
+        "q027",
+        "q029",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q037",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q068",
+        "q069",
+        "q071",
+        "q073",
+        "q074",
+        "q075",
+        "q077",
+        "q078",
+        "q079",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q111",
+        "q113",
+        "q114",
+        "q115",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q024",
+        "q028",
+        "q030",
+        "q036",
+        "q038",
+        "q067",
+        "q070",
+        "q072",
+        "q076",
+        "q080",
+        "q096",
+        "q110",
+        "q112",
+        "q116"
+      ],
+      "prompt_usage_coverage": 0.86,
+      "accuracy": {
+        "questions": 86,
+        "arm_mean": 0.5930232558139535,
+        "all_mean": 0.9883720930232558,
+        "difference": -0.39534883720930225,
+        "ci95": [
+          -0.5,
+          -0.2906976744186046
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 86,
+        "arm_mean": 5333.383720930233,
+        "all_mean": 45220.32558139535,
+        "difference": -39886.941860465115,
+        "ci95": [
+          -41566.2511627907,
+          -38177.03052325582
+        ],
+        "relative_change": -0.882057821292545,
+        "relative_ci95": [
+          -0.8866357669321263,
+          -0.877435046059038
+        ]
+      }
+    },
+    "oracle": {
+      "baseline": "all",
+      "questions": 100,
+      "paired_valid_questions": 86,
+      "paired_valid_coverage": 0.86,
+      "paired_valid_question_ids": [
+        "q021",
+        "q022",
+        "q023",
+        "q025",
+        "q026",
+        "q027",
+        "q029",
+        "q031",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q037",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q048",
+        "q049",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q055",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q060",
+        "q061",
+        "q062",
+        "q063",
+        "q064",
+        "q065",
+        "q066",
+        "q068",
+        "q069",
+        "q071",
+        "q073",
+        "q074",
+        "q075",
+        "q077",
+        "q078",
+        "q079",
+        "q081",
+        "q082",
+        "q083",
+        "q084",
+        "q085",
+        "q086",
+        "q087",
+        "q088",
+        "q089",
+        "q090",
+        "q091",
+        "q092",
+        "q093",
+        "q094",
+        "q095",
+        "q097",
+        "q098",
+        "q099",
+        "q100",
+        "q101",
+        "q102",
+        "q103",
+        "q104",
+        "q105",
+        "q106",
+        "q107",
+        "q108",
+        "q109",
+        "q111",
+        "q113",
+        "q114",
+        "q115",
+        "q117",
+        "q118",
+        "q119",
+        "q120"
+      ],
+      "excluded_question_ids": [
+        "q024",
+        "q028",
+        "q030",
+        "q036",
+        "q038",
+        "q067",
+        "q070",
+        "q072",
+        "q076",
+        "q080",
+        "q096",
+        "q110",
+        "q112",
+        "q116"
+      ],
+      "prompt_usage_coverage": 0.86,
+      "accuracy": {
+        "questions": 86,
+        "arm_mean": 0.9767441860465116,
+        "all_mean": 0.9883720930232558,
+        "difference": -0.011627906976744207,
+        "ci95": [
+          -0.046511627906976716,
+          0.023255813953488413
+        ]
+      },
+      "prompt_tokens": {
+        "questions": 86,
+        "arm_mean": 16029.96511627907,
+        "all_mean": 45220.32558139535,
+        "difference": -29190.360465116282,
+        "ci95": [
+          -30297.339825581395,
+          -28075.80552325581
+        ],
+        "relative_change": -0.6455141596133454,
+        "relative_ci95": [
+          -0.6630292326218535,
+          -0.6290538060081241
+        ]
+      }
+    }
+  }
+}
